@@ -1,0 +1,617 @@
+/*Hero*/
+.custom-design-hero {
+  position: relative;
+  padding: 100px 100px;
+  text-align: center;
+  background-color: #fff5f5;
+  overflow: hidden;
+}
+
+.custom-design-content {
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.custom-design-breadcrumb {
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.breadcrumb-active {
+  color: red;
+}
+
+.custom-design-content h2 {
+  font-size: 30px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.custom-design-description {
+  font-size: 16px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.custom-design-bubble {
+  position: absolute;
+  background: rgba(255, 0, 0, 0.08);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.bubble-lg {
+  width: 150px;
+  height: 150px;
+}
+
+.bubble-md {
+  width: 90px;
+  height: 90px;
+}
+
+.bubble-sm {
+  width: 50px;
+  height: 50px;
+}
+
+.bubble-left.bubble-lg {
+  top: 20%;
+  left: -100px;
+}
+
+.bubble-left.bubble-md {
+  top: 55%;
+  left: 55px;
+}
+
+.bubble-left.bubble-sm {
+  bottom: 10%;
+  left: -25px;
+}
+
+.bubble-right.bubble-lg {
+  top: 15%;
+  right: -100px;
+}
+
+.bubble-right.bubble-md {
+  bottom: 20%;
+  right: 55px;
+}
+
+.bubble-right.bubble-sm {
+  bottom: 5%;
+  right: 15px;
+}
+
+/*Order Wizard*/
+.custom-order-section {
+  padding: 100px 100px;
+  padding-bottom: 0px;
+  max-width: auto;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+  background: #fff;
+}
+
+.custom-order-header {
+  text-align: start;
+  margin-bottom: 30px;
+}
+
+.custom-order-header h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.header-highlight {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.order-wizard-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.wizard-step {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.wizard-step.active .step-circle {
+  background: #e63946;
+}
+
+.step-connector {
+  width: 100px;
+  height: 2px;
+  border-top: 2px dashed #ccc;
+  margin: 0 10px;
+}
+
+.wizard-forms-container {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+.wizard-form {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.wizard-form.active {
+  display: block;
+}
+
+.wizard-form h3 {
+  color: #e63946;
+  margin-bottom: 10px;
+}
+
+.wizard-form p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.wizard-next-btn {
+  background: #e63946;
+  color: white;
+}
+
+.wizard-prev-btn {
+  background: #6c757d;
+  color: white;
+  margin-right: 10px;
+}
+
+.wizard-finish-btn {
+  background: #28a745;
+  color: white;
+}
+
+/*Card Step 1*/
+.form-step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.model-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0 10px;
+}
+
+.option-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.product-option {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  height: 60px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.product-option:hover {
+  border-color: #ff4b4b;
+}
+
+.product-option.selected {
+  border-color: #ff4b4b;
+}
+
+.option-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background-color: white;
+}
+
+.product-option.selected .option-indicator {
+  background-color: #ff4b4b;
+  border-color: #ff4b4b;
+}
+
+.wizard-next-btn {
+  margin-top: 20px;
+  padding: 8px 20px;
+  border: 1.5px solid #ff4b4b;
+  background: white;
+  color: #ff4b4b;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+  transition: all 0.3s ease;
+}
+
+.wizard-next-btn:hover {
+  background: #ff4b4b;
+  color: white;
+}
+
+/*Card Step 2*/
+.form-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.color-preview-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.color-selection,
+.preview-container {
+  flex: 1 1 300px;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-option.active {
+  border-color: #ff4b4b;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.preview-box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  background-color: #fff;
+  transition: background-color 0.4s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.preview-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.design-type-section {
+  margin-bottom: 40px;
+}
+
+.design-type-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 30px 100px;
+}
+
+.design-type-options::-webkit-scrollbar {
+  height: 8px;
+}
+
+.design-type-options::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.design-type-card {
+  height: 150px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.design-type-card:hover {
+  border-color: #333;
+  transform: translateY(-4px);
+}
+
+.design-type-card.selected {
+  border-color: #ff4b4b;
+  background-color: #ffdede;
+}
+
+.section-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.form-group {
+  margin-top: 1rem;
+}
+
+.upload-box {
+  border: 2px dashed #aaa;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.upload-box:hover {
+  background-color: #f0f0f0;
+}
+
+.dynamic-form-content {
+  margin-bottom: 30px;
+}
+
+.section-label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* .wizard-prev-btn,
+.wizard-next-btn {
+  background-color: #ff4b4b;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.wizard-prev-btn:hover,
+.wizard-next-btn:hover {
+  background-color: #e84343;
+} */
+
+
+/*Step 3*/
+.input-control,
+textarea,
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-control:focus,
+textarea:focus,
+input:focus {
+  border-color: #ff4b4b;
+  box-shadow: 0 0 4px rgba(255, 75, 75, 0.3);
+  outline: none;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.size-quantity-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+}
+
+.size-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.size-card:hover {
+  transform: translateY(-3px);
+  border-color: #ff4b4b;
+  box-shadow: 0 4px 10px rgba(255, 75, 75, 0.15);
+}
+
+.size-label {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.size-card input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/*Step 4*/
+
+.checkout-form {
+  max-width: 650px;
+  margin: auto;
+}
+
+.form-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.form-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-line {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: transparent;
+  resize: none;
+}
+
+.input-line:focus {
+  border-bottom-color: #ff4b4b;
+  outline: none;
+  box-shadow: 0 2px 0 rgba(255, 75, 75, 0.3);
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* .wizard-prev-btn,
+.wizard-finish-btn {
+  flex: 1;
+  background-color: #ff4b4b;
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.wizard-prev-btn:hover,
+.wizard-finish-btn:hover {
+  background-color: #e84343;
+  transform: translateY(-2px);
+} */
+
+
+
+

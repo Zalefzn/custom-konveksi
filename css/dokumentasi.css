@@ -1,0 +1,91 @@
+
+/*Hero*/
+
+.dokumentasi-section {
+  position: relative;
+  padding: 100px 100px;
+  text-align: center;
+  background-color: #fff5f5;
+  overflow: hidden;
+}
+
+.dokumentasi-content {
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.breadcrumb {
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.span-breadcrumb{
+    color: red;
+}
+
+.dokumentasi-content h2 {
+  font-size: 30px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.dokumentasi-content .description {
+  font-size: 16px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(255, 0, 0, 0.08);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.bubble-lg {
+  width: 150px;
+  height: 150px;
+}
+
+.bubble-md {
+  width: 90px;
+  height: 90px;
+}
+
+.bubble-sm {
+  width: 50px;
+  height: 50px;
+}
+
+.bubble-left.bubble-lg {
+  top: 20%;
+  left: -100px;
+}
+
+.bubble-left.bubble-md {
+  top: 55%;
+  left: 55px;
+}
+
+.bubble-left.bubble-sm {
+  bottom: 10%;
+  left: -25px;
+}
+
+.bubble-right.bubble-lg {
+  top: 15%;
+  right: -100px;
+}
+
+.bubble-right.bubble-md {
+  bottom: 20%;
+  right: 55px;
+}
+
+.bubble-right.bubble-sm {
+  bottom: 5%;
+  right: 15px;
+}

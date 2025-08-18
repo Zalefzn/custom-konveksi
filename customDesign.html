@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Sekarang | Custom Design</title>
+    <link href="./css/designCustom.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!--Navbar-->
+    <header>
+      <nav>
+        <div class="logo"><span class="span-logo">RS</span>Custom</div>
+        <div class="menu">
+          <a href="index.html">Beranda</a>
+          <a href="dokumentasi.html">Dokumentasi</a>
+          <a href="customDesign.html">Custom Design</a>
+        </div>
+        <button class="cta-button">Daftar</button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="custom-design-hero">
+      <!-- Bubble kiri -->
+      <span class="custom-design-bubble bubble-left bubble-lg"></span>
+      <span class="custom-design-bubble bubble-left bubble-md"></span>
+      <span class="custom-design-bubble bubble-left bubble-sm"></span>
+
+      <!-- Bubble kanan -->
+      <span class="custom-design-bubble bubble-right bubble-lg"></span>
+      <span class="custom-design-bubble bubble-right bubble-md"></span>
+      <span class="custom-design-bubble bubble-right bubble-sm"></span>
+
+      <!-- Konten -->
+      <div class="custom-design-content">
+        <p class="custom-design-breadcrumb">
+          <span class="breadcrumb-active">Beranda</span> &gt; Custom Design
+        </p>
+        <h2>Custom Design</h2>
+        <p class="custom-design-description">
+          Custom Design memungkinkan pengguna untuk membuat dan mengatur desain
+          produk sesuai kebutuhan dengan mudah.
+        </p>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="custom-order-section">
+      <div class="custom-order-header">
+        <h2><span class="header-highlight">Custom Impianmu!</span></h2>
+        <p>Yuk, Kita Mulai Order</p>
+      </div>
+
+      <!-- Wizard Steps -->
+      <div class="order-wizard-steps">
+        <div class="wizard-step active" data-step="1">
+          <div class="step-circle">1</div>
+          <span class="step-connector"></span>
+        </div>
+        <div class="wizard-step" data-step="2">
+          <div class="step-circle">2</div>
+          <span class="step-connector"></span>
+        </div>
+        <div class="wizard-step" data-step="3">
+          <div class="step-circle">3</div>
+          <span class="step-connector"></span>
+        </div>
+        <div class="wizard-step" data-step="4">
+          <div class="step-circle">4</div>
+        </div>
+      </div>
+
+      <!-- Wizard Forms -->
+      <div class="wizard-forms-container">
+        <!-- Step 1 -->
+        <div class="wizard-form active" data-form="1">
+          <h3 class="form-step-title">Pilih Jenis Pemesanan di Bawah ini :</h3>
+
+          <div class="option-card-grid" id="product-options">
+            <div class="product-option" data-product="Kaos">
+              <span class="option-indicator"></span>
+              <div class="option-label">Kaos</div>
+            </div>
+            <div class="product-option" data-product="Jaket">
+              <span class="option-indicator"></span>
+              <div class="option-label">Jaket</div>
+            </div>
+            <div class="product-option" data-product="Topi">
+              <span class="option-indicator"></span>
+              <div class="option-label">Topi</div>
+            </div>
+            <div class="product-option" data-product="Jersey">
+              <span class="option-indicator"></span>
+              <div class="option-label">Jersey</div>
+            </div>
+          </div>
+
+          <div class="model-selection hidden" id="model-wrapper">
+            <h4 id="model-selection-title" class="model-title">Pilih Model</h4>
+            <div class="option-card-grid" id="model-options"></div>
+          </div>
+
+          <button class="wizard-next-btn">Selanjutnya</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="wizard-form">
+          <div class="form-step-header">
+            <h3 class="form-title">Upload Desain</h3>
+            <p class="form-subtitle">
+              Unggah desain atau pilih metode desain yang kamu inginkan
+            </p>
+          </div>
+
+          <div class="color-preview-section">
+            <!-- Pilih Warna -->
+            <div class="color-selection">
+              <h4 class="section-title">Warna Kaos</h4>
+              <div class="color-options">
+                <span
+                  class="color-option"
+                  data-color="#ffffff"
+                  style="background: #ffffff; border: 1px solid #ccc"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#1d1d1d"
+                  style="background: #1d1d1d"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#ffe0b2"
+                  style="background: #ffe0b2"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#7b0000"
+                  style="background: #7b0000"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#ff4b4b"
+                  style="background: #ff4b4b"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#007bff"
+                  style="background: #007bff"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#f1f800"
+                  style="background: #f1f800"
+                ></span>
+                <span
+                  class="color-option"
+                  data-color="#7aff7a"
+                  style="background: #7aff7a"
+                ></span>
+              </div>
+            </div>
+
+            <!-- Preview Kaos -->
+            <div class="preview-container">
+              <h4 class="section-title">Preview Kaos</h4>
+              <div
+                id="shirtPreview"
+                class="preview-box"
+                style="background: #f5f5f5; padding: 10px"
+              >
+                <canvas id="shirtCanvas" width="650" height="550"></canvas>
+              </div>
+              <button
+                id="downloadDesignBtn"
+                style="
+                  margin-top: 10px;
+                  padding: 8px 12px;
+                  background: #ff4b4b;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                "
+              >
+                Download Desain
+              </button>
+            </div>
+          </div>
+
+          <!-- Pilih Tipe Desain -->
+          <div class="design-type-section">
+            <h4 class="section-title">Design Kaos</h4>
+            <div id="designTypeOptions" class="design-type-options">
+              <div class="design-type-card" data-type="full">
+                <div class="design-type-label">Full Order</div>
+              </div>
+              <div class="design-type-card" data-type="galeri">
+                <div class="design-type-label">Galeri Desain</div>
+              </div>
+              <div class="design-type-card" data-type="jasa">
+                <div class="design-type-label">Jasa Desain</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Konten Dinamis -->
+          <div id="designFormContainer" class="dynamic-form-content"></div>
+
+          <!-- Navigasi Step -->
+          <div class="form-navigation">
+            <button type="button" class="wizard-prev-btn">Sebelumnya</button>
+            <button type="button" class="wizard-next-btn">Selanjutnya</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="wizard-form" data-form="3">
+          <h3>Detail & Jumlah</h3>
+          <p>Isi detail pemesanan dengan benar:</p>
+
+          <!-- Catatan -->
+          <div class="form-group">
+            <label>Catatan Tambahan</label>
+            <textarea
+              class="input-control"
+              placeholder="Masukkan catatan tambahan..."
+            ></textarea>
+          </div>
+
+          <!-- Jumlah per Ukuran -->
+          <div class="form-group">
+            <label>Jumlah Ukuran</label>
+            <div class="size-quantity-container">
+              <div class="size-card">
+                <span class="size-label">S</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+              <div class="size-card">
+                <span class="size-label">M</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+              <div class="size-card">
+                <span class="size-label">L</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+              <div class="size-card">
+                <span class="size-label">XL</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+              <div class="size-card">
+                <span class="size-label">XXL</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+              <div class="size-card">
+                <span class="size-label">XXXL</span>
+                <input type="number" min="0" placeholder="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Deadline -->
+          <div class="form-group">
+            <label>Tanggal Order</label>
+            <input type="date" class="input-control" />
+          </div>
+
+          <button class="wizard-prev-btn">Sebelumnya</button>
+          <button class="wizard-next-btn">Selanjutnya</button>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="wizard-form checkout-form" data-form="4">
+          <h3 class="form-title">Checkout</h3>
+          <p class="form-subtitle">Konfirmasi data kamu sebelum order:</p>
+
+          <div class="form-group">
+            <label>Nama Pemesan</label>
+            <input type="text" class="input-line" placeholder="Nama Lengkap" />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              class="input-line"
+              placeholder="emailkamu@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Nomor Whatsapp</label>
+            <input type="text" class="input-line" placeholder="082938923022" />
+          </div>
+
+          <div class="form-group">
+            <label>Alamat Pengiriman</label>
+            <textarea
+              class="input-line"
+              rows="3"
+              placeholder="Alamat lengkap pengiriman..."
+            ></textarea>
+          </div>
+
+          <div class="form-navigation">
+            <button class="wizard-prev-btn">Sebelumnya</button>
+            <button class="wizard-finish-btn">Selesai</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="warp-cta">
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>
+            <span class="highlight"
+              >Langkahmu tinggal satu klik lagi untuk mencetak kaos custom</span
+            >
+            dengan hasil profesional.
+          </h2>
+          <p>Upload desainmu atau konsultasi langsung dengan tim kami!</p>
+          <button class="cta-button">Konsultasi Sekarang</button>
+        </div>
+
+        <img
+          src="./assets/consult.png"
+          alt="Ilustrasi Konsultasi"
+          class="cta-image"
+        />
+
+        <div class="bubble-group">
+          <div class="bubble small"></div>
+          <div class="bubble medium"></div>
+          <div class="bubble large"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Logo & Social Media -->
+          <div class="footer-col">
+            <h3 class="logo"><span class="footer-span">RS</span>Custom</h3>
+            <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
+            <div class="social-icons">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" title="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Product Links -->
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Galeri Design</a></li>
+              <li><a href="#">Full Order</a></li>
+              <li><a href="#">Jasa Design</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Links -->
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">Berada</a></li>
+              <li><a href="#">Dokumentasi</a></li>
+              <li><a href="#">Custom Design</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+              <li><i class="fas fa-envelope"></i> contact@company.com</li>
+              <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>Kota Bandung, Jawa Barat
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="container-footer footer-bottom">
+        <p>Copyright © <span class="footer-text">RS</span>Custom 2025</p>
+        <p>
+          All Rights Reserved | <a href="#">Terms and Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <!--Script-->
+    <script src="./js/index.js"></script>
+  </body>
+</html>
