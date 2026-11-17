@@ -1,0 +1,9 @@
+# Konfigurasi minimal Supabase CLI untuk proyek ini.
+# Isi project_id dengan Reference ID project kamu (Project Settings → General).
+project_id = "gqawfkzhchwrxwwwjxuk"
+
+[functions.send-order]
+# Website memanggil function ini dengan publishable/anon key (bukan JWT user),
+# jadi verifikasi JWT dimatikan. Keamanan dijaga di dalam function:
+# data dibaca ulang dari DB & WA hanya dikirim sekali per pesanan.
+verify_jwt = false

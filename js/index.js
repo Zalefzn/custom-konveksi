@@ -1237,31 +1237,167 @@
       summaryTotal.textContent = getTotal();
     }
 
-    document.getElementById("finishBtn").addEventListener("click", () => {
+    /* ---------- Kirim pesanan: Supabase + WhatsApp (Fonnte) ---------- */
+
+    const finishBtn = document.getElementById("finishBtn");
+    const finishBtnHtml = finishBtn.innerHTML;
+    const BUCKET = "order-designs";
+    const MAX_FILE = 5 * 1024 * 1024;
+
+    function getSupabase() {
+      const cfg = window.RS_SUPABASE;
+      if (!window.supabase || !cfg || /ISI_/.test(cfg.url + cfg.key)) return null;
+      if (!getSupabase.client) getSupabase.client = window.supabase.createClient(cfg.url, cfg.key);
+      return getSupabase.client;
+    }
+
+    const canvasBlob = () =>
+      new Promise((resolve) => {
+        drawShirt(false);
+        try {
+          canvas.toBlob((b) => {
+            drawShirt();
+            resolve(b);
+          }, "image/png");
+        } catch (err) {
+          drawShirt();
+          resolve(null); // kanvas "tainted" (file://)
+        }
+      });
+
+    const srcToBlob = async (src) => {
+      try {
+        const res = await fetch(src);
+        return res.ok ? await res.blob() : null;
+      } catch (err) {
+        return null;
+      }
+    };
+
+    async function uploadImage(sb, orderId, name, blob) {
+      if (!blob || blob.size > MAX_FILE || !/^image\/(png|jpe?g)$/.test(blob.type)) return null;
+      const ext = blob.type === "image/png" ? "png" : "jpg";
+      const path = `${orderId}/${name}.${ext}`;
+      const { error } = await sb.storage
+        .from(BUCKET)
+        .upload(path, blob, { contentType: blob.type, upsert: false });
+      if (error) throw error;
+      return sb.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+    }
+
+    async function submitOrder(sb) {
+      const orderId = crypto.randomUUID();
+      const galleryItem =
+        state.designType === "galeri" && GALLERY.find((g) => g.name === state.galleryChoice);
+
+      // 1) upload gambar
+      const previewBlob = galleryItem ? await srcToBlob(galleryItem.src) : await canvasBlob();
+      const previewUrl = await uploadImage(sb, orderId, "preview", previewBlob);
+
+      const designUrls = [];
+      if (state.designType === "full") {
+        for (let i = 0; i < designs.length; i++) {
+          const url = await uploadImage(sb, orderId, `desain-${i + 1}`, await srcToBlob(designs[i].src));
+          if (url) designUrls.push(url);
+        }
+      }
+
+      const label = labelEnabled() ? { ...state.label, logo: undefined } : null;
+      const labelLogoUrl =
+        label && state.label.logo
+          ? await uploadImage(sb, orderId, "logo-label", await srcToBlob(state.label.logo))
+          : null;
+
+      // 2) simpan pesanan (tanpa .select(): pengunjung memang tidak punya akses baca)
+      const { error } = await sb.from("orders").insert({
+        id: orderId,
+        product: state.product,
+        model: state.model,
+        color_name: state.colorName,
+        color_hex: state.color,
+        details: state.details || {},
+        label,
+        design_type: state.designType,
+        gallery_choice: state.galleryChoice,
+        brief: state.brief || null,
+        sizes: Object.fromEntries(sizeCards.map((c) => [c.dataset.size, getQty(c)])),
+        total_qty: getTotal(),
+        needed_date: dateInput.value || null,
+        note: noteInput.value.trim() || null,
+        customer_name: nameInput.value.trim(),
+        customer_phone: phoneInput.value.replace(/[\s-]/g, ""),
+        customer_email: emailInput.value.trim(),
+        address: addressInput.value.trim(),
+        preview_url: previewUrl,
+        design_urls: designUrls,
+        label_logo_url: labelLogoUrl,
+      });
+      if (error) throw error;
+
+      // 3) kirim WA. Pesanan sudah tersimpan, jadi kegagalan di sini tidak membatalkan pesanan.
+      const { error: fnError } = await sb.functions.invoke("send-order", {
+        body: { order_id: orderId },
+      });
+      if (fnError) console.warn("[RSCustom] Notifikasi WA gagal:", fnError);
+
+      return orderId;
+    }
+
+    /* ---------- Status pesanan realtime (WebSocket / Supabase Realtime) ---------- */
+
+    const STATUS_TEXT = {
+      baru: "Pesanan diterima, menunggu konfirmasi admin",
+      dikonfirmasi: "Dikonfirmasi admin",
+      diproses: "Sedang diproduksi",
+      dikirim: "Dalam pengiriman",
+      selesai: "Selesai",
+      dibatalkan: "Dibatalkan",
+    };
+
+    function watchOrderStatus(sb, orderId) {
+      const box = document.getElementById("orderStatus");
+      const text = document.getElementById("orderStatusText");
+      const live = document.getElementById("orderStatusLive");
+      if (!box) return;
+      document.getElementById("orderCode").textContent = "RS-" + orderId.slice(0, 8).toUpperCase();
+      box.hidden = false;
+
+      const setStatus = (s) => {
+        box.dataset.status = s;
+        text.textContent = STATUS_TEXT[s] || s;
+      };
+      setStatus("baru");
+
+      sb.channel(`order-${orderId}`)
+        .on("broadcast", { event: "status" }, ({ payload }) => setStatus(payload.status))
+        .subscribe((s) => {
+          const on = s === "SUBSCRIBED";
+          live.classList.toggle("is-on", on);
+          live.title = on ? "Terhubung realtime" : "Menghubungkan…";
+        });
+    }
+
+    finishBtn.addEventListener("click", async () => {
       const err = validateCheckout();
       if (err) return showError(err);
       showError("");
 
-      // Belum ada backend: data pesanan dicatat di console untuk integrasi berikutnya.
-      console.info("[RSCustom] Pesanan baru:", {
-        produk: state.product,
-        model: state.model,
-        warna: state.colorName,
-        detail: state.details,
-        labelLeher: labelEnabled() ? { ...state.label, logo: state.label.logo ? "(gambar terlampir)" : null } : null,
-        metodeDesain: state.designType,
-        galeri: state.galleryChoice,
-        brief: state.brief,
-        jumlahFileDesain: designs.length,
-        ukuran: Object.fromEntries(sizeCards.map((c) => [c.dataset.size, getQty(c)])),
-        total: getTotal(),
-        tanggal: dateInput.value,
-        catatan: noteInput.value.trim(),
-        nama: nameInput.value.trim(),
-        whatsapp: phoneInput.value.trim(),
-        email: emailInput.value.trim(),
-        alamat: addressInput.value.trim(),
-      });
+      const sb = getSupabase();
+      if (!sb) {
+        return showError("Sistem pemesanan belum dikonfigurasi. Silakan hubungi admin via WhatsApp.");
+      }
+
+      finishBtn.disabled = true;
+      finishBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim…';
+      let orderId;
+      try {
+        orderId = await submitOrder(sb);
+      } catch (e) {
+        console.error("[RSCustom] Gagal mengirim pesanan:", e);
+        finishBtn.disabled = false;
+        finishBtn.innerHTML = finishBtnHtml;
+        return showError("Pesanan gagal dikirim. Periksa koneksi internet lalu coba lagi.");
+      }
 
       state.finished = true;
       panels.forEach((p) => p.classList.remove("is-active"));
@@ -1271,6 +1407,7 @@
       });
       document.getElementById("successName").textContent = nameInput.value.trim();
       document.getElementById("orderSuccess").hidden = false;
+      watchOrderStatus(sb, orderId);
       scrollToWizard();
     });
 

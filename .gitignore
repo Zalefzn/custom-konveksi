@@ -1,0 +1,4 @@
+# Rahasia: jangan di-commit
+supabase/.env
+supabase/.temp/
+.env

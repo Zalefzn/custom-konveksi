@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard Pesanan | RSCustom</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/admin.css" rel="stylesheet" />
+  </head>
+  <body class="admin">
+    <!-- Login -->
+    <main class="admin-login" id="loginView" hidden>
+      <form class="login-card" id="loginForm">
+        <img src="./assets/logo-rscustom.png" alt="RSCustom" class="login-logo" />
+        <h1>Dashboard Pesanan</h1>
+        <p>Masuk dengan akun admin.</p>
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" class="input" autocomplete="username" required />
+        <label for="loginPass">Password</label>
+        <input type="password" id="loginPass" class="input" autocomplete="current-password" required />
+        <p class="login-error" id="loginError" role="alert"></p>
+        <button type="submit" class="btn btn-primary">Masuk</button>
+      </form>
+    </main>
+
+    <!-- Dashboard -->
+    <div class="admin-app" id="appView" hidden>
+      <header class="admin-bar">
+        <div class="admin-brand">
+          <img src="./assets/logo-rscustom.png" alt="RSCustom" />
+          <span>Pesanan</span>
+        </div>
+        <span class="live-badge" id="liveBadge"><i></i><span>Menghubungkan…</span></span>
+        <button type="button" class="btn btn-ghost btn-sm" id="logoutBtn">
+          <i class="fas fa-right-from-bracket"></i> Keluar
+        </button>
+      </header>
+
+      <main class="admin-main">
+        <nav class="status-tabs" id="statusTabs" aria-label="Filter status"></nav>
+        <p class="admin-empty" id="emptyState" hidden>Belum ada pesanan.</p>
+        <div class="order-list" id="orderList"></div>
+      </main>
+    </div>
+
+    <p class="admin-config-error" id="configError" hidden>
+      Supabase belum dikonfigurasi. Isi <code>js/supabase-config.js</code> terlebih dahulu.
+    </p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="./js/supabase-config.js"></script>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>
