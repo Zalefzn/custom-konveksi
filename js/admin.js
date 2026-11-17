@@ -42,10 +42,6 @@
     );
   const safeUrl = (u) => (/^https:\/\//.test(u || "") ? esc(u) : "");
   const code = (o) => "RS-" + o.id.slice(0, 8).toUpperCase();
-  const waNumber = (p) => {
-    const d = String(p).replace(/\D/g, "");
-    return d.startsWith("0") ? "62" + d.slice(1) : d;
-  };
   const fmtTime = (v) =>
     new Date(v).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" });
   const fmtDate = (v) =>
@@ -64,8 +60,15 @@
       .join("");
   }
 
+  const statusLabel = (s) => (STATUSES.find(([k]) => k === s) || [s, s])[1];
+
   function waBadge(o) {
     if (o.wa_error) return `<span class="order-wa is-error"><i class="fas fa-triangle-exclamation"></i> WA gagal: ${esc(o.wa_error)}</span>`;
+    if (o.status !== "baru") {
+      return o.wa_status_notified === o.status
+        ? `<span class="order-wa"><i class="fab fa-whatsapp"></i> Status "${statusLabel(o.status)}" terkirim ke pembeli</span>`
+        : `<span class="order-wa is-pending"><i class="fas fa-clock"></i> Status "${statusLabel(o.status)}" belum terkirim ke WA pembeli</span>`;
+    }
     if (o.wa_admin_sent_at) return `<span class="order-wa"><i class="fab fa-whatsapp"></i> Notifikasi WA terkirim</span>`;
     return `<span class="order-wa is-pending"><i class="fas fa-clock"></i> Menunggu notifikasi WA</span>`;
   }
@@ -106,9 +109,6 @@
         <select class="status-select" data-id="${o.id}" aria-label="Status ${code(o)}">
           ${STATUSES.map(([k, l]) => `<option value="${k}" ${k === o.status ? "selected" : ""}>${l}</option>`).join("")}
         </select>
-        <a class="btn btn-ghost btn-sm" href="https://wa.me/${waNumber(o.customer_phone)}" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Chat pembeli
-        </a>
       </div>
       <details>
         <summary>Detail pesanan</summary>
@@ -233,7 +233,13 @@
     if (error) {
       sel.value = prev;
       alert("Gagal mengubah status: " + error.message);
+      return;
     }
+    // kirim WA status ke pembeli + salinan ke admin (hasilnya masuk lewat realtime)
+    const { error: fnError } = await sb.functions.invoke("send-order", {
+      body: { order_id: o.id, type: "status" },
+    });
+    if (fnError) console.warn("[RSCustom] Notifikasi status gagal:", fnError);
   });
 
   /* ---------- Auth ---------- */

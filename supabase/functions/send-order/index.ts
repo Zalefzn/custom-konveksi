@@ -1,6 +1,8 @@
 // Supabase Edge Function: kirim notifikasi pesanan ke WhatsApp via Fonnte.
 //
 // Dipanggil dari website setelah pesanan tersimpan: POST { order_id }.
+// Dipanggil dari dashboard admin setelah status diubah: POST { order_id, type: "status" }
+// (wajib token login admin) → WA pemberitahuan ke pembeli + salinan ke admin.
 // Data pesanan dibaca ulang dari database (bukan dari body request), dan pesan
 // hanya dikirim SEKALI per pesanan, jadi endpoint ini aman walau dipanggil berulang.
 //
@@ -148,6 +150,102 @@ async function fonnteSend(target: string, message: string, fileUrl?: string) {
   return data;
 }
 
+/* ---------- Notifikasi perubahan status (dipicu admin) ---------- */
+
+const STATUS_LABEL: Record<string, string> = {
+  baru: "Baru",
+  dikonfirmasi: "Dikonfirmasi",
+  diproses: "Diproses",
+  dikirim: "Dikirim",
+  selesai: "Selesai",
+  dibatalkan: "Dibatalkan",
+};
+
+const STATUS_BODY: Record<string, string> = {
+  dikonfirmasi:
+    "sudah *dikonfirmasi* oleh admin ✅\nTim kami akan segera menyiapkan produksi. Detail harga & pembayaran akan dikirim admin melalui chat ini.",
+  diproses: "sedang *diproduksi* 🧵\nKami akan mengabari kamu lagi saat pesanan dikirim.",
+  dikirim: "sudah *dikirim* 🚚\nMohon ditunggu, pesanan sedang dalam perjalanan ke alamat kamu.",
+  selesai: "sudah *selesai* 🎉\nTerima kasih sudah memesan di RSCustom. Ditunggu pesanan berikutnya!",
+  dibatalkan:
+    "*dibatalkan* ❌\nBila ada pertanyaan, silakan balas pesan ini untuk menghubungi admin.",
+};
+
+function statusCustomerMessage(o: Order) {
+  return [
+    `Halo ${o.customer_name} 👋`,
+    "",
+    `Pesanan kamu *${orderCode(o)}* (${o.product}${o.model ? " · " + o.model : ""} — ${o.total_qty} pcs) ${STATUS_BODY[o.status]}`,
+  ].join("\n");
+}
+
+function statusAdminMessage(o: Order, customerOk: boolean) {
+  return [
+    `📣 *UPDATE ${orderCode(o)}* → ${STATUS_LABEL[o.status] || o.status}`,
+    `• Pembeli: ${o.customer_name} (wa.me/${normalizePhone(o.customer_phone)})`,
+    customerOk
+      ? "• Notifikasi status sudah terkirim ke pembeli ✅"
+      : "• ⚠️ Notifikasi ke pembeli GAGAL terkirim, mohon hubungi manual",
+  ].join("\n");
+}
+
+// deno-lint-ignore no-explicit-any
+async function handleStatus(db: any, req: Request, orderId: string) {
+  // hanya admin yang login yang boleh memicu notifikasi status
+  const token = (req.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "");
+  const { data: userData } = await db.auth.getUser(token);
+  const userId = userData?.user?.id;
+  if (!userId) return json({ error: "Harus login sebagai admin" }, 401);
+  const { data: admin } = await db.from("admins").select("user_id").eq("user_id", userId).maybeSingle();
+  if (!admin) return json({ error: "Bukan admin" }, 403);
+
+  const { data: current, error: readErr } = await db
+    .from("orders")
+    .select("status")
+    .eq("id", orderId)
+    .maybeSingle();
+  if (readErr) return json({ error: readErr.message }, 500);
+  if (!current) return json({ error: "Pesanan tidak ditemukan" }, 404);
+  if (!STATUS_BODY[current.status]) return json({ ok: true, skipped: true });
+
+  // Klaim atomik: status yang sama hanya dikirim sekali
+  const { data: order, error } = await db
+    .from("orders")
+    .update({ wa_status_notified: current.status })
+    .eq("id", orderId)
+    .eq("status", current.status)
+    .or(`wa_status_notified.is.null,wa_status_notified.neq.${current.status}`)
+    .select()
+    .maybeSingle();
+  if (error) return json({ error: error.message }, 500);
+  if (!order) return json({ ok: true, skipped: true });
+
+  const errors: string[] = [];
+  let customerOk = true;
+  try {
+    await fonnteSend(normalizePhone(order.customer_phone), statusCustomerMessage(order));
+  } catch (e) {
+    customerOk = false;
+    errors.push(`pembeli: ${(e as Error).message}`);
+  }
+  try {
+    await fonnteSend(env("ADMIN_WA"), statusAdminMessage(order, customerOk));
+  } catch (e) {
+    errors.push(`admin: ${(e as Error).message}`);
+  }
+
+  await db
+    .from("orders")
+    .update({
+      wa_error: errors.length ? `status ${order.status}: ${errors.join(" | ")}` : null,
+      // gagal ke pembeli → boleh dicoba lagi dengan memilih status yang sama
+      ...(customerOk ? {} : { wa_status_notified: null }),
+    })
+    .eq("id", orderId);
+
+  return json({ ok: errors.length === 0, errors }, errors.length ? 502 : 200);
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
@@ -156,7 +254,7 @@ Deno.serve(async (req) => {
     return json({ error: "FONNTE_TOKEN / ADMIN_WA belum diset" }, 500);
   }
 
-  const { order_id } = await req.json().catch(() => ({}));
+  const { order_id, type } = await req.json().catch(() => ({}));
   if (typeof order_id !== "string" || !UUID_RE.test(order_id)) {
     return json({ error: "order_id tidak valid" }, 400);
   }
@@ -167,6 +265,8 @@ Deno.serve(async (req) => {
   const db = createClient(env("SUPABASE_URL"), serviceKey, {
     auth: { persistSession: false },
   });
+
+  if (type === "status") return handleStatus(db, req, order_id);
 
   // Klaim pesanan secara atomik: hanya request pertama yang lolos.
   const since = new Date(Date.now() - MAX_AGE_MS).toISOString();
