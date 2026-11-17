@@ -10,11 +10,15 @@
 
 ## Tentang Proyek
 
-**RSCustom** adalah website statis untuk usaha konveksi dan sablon custom. Pelanggan dapat
+**RSCustom** adalah website untuk usaha konveksi dan sablon custom. Pelanggan dapat
 melihat produk, membaca panduan, lalu membuat pesanan lewat **Order Builder** lengkap
-dengan _live preview_ desain — tanpa perlu instalasi atau proses build.
+dengan _live preview_ desain. Pesanan tersimpan di **Supabase**, notifikasinya dikirim
+otomatis ke **WhatsApp** (via Fonnte), dan statusnya bisa dipantau **realtime**.
 
-Dibangun dengan **HTML, CSS, dan JavaScript murni** (tanpa framework).
+- Frontend: **HTML, CSS, dan JavaScript murni** (tanpa framework, tanpa build) — di-hosting di Vercel
+- Backend: **Supabase** (Postgres + RLS, Storage, Realtime, Edge Function) + **Fonnte** (WhatsApp gateway)
+
+🔗 Demo: <https://custom-konveksi.vercel.app>  ·  Dashboard admin: <https://custom-konveksi.vercel.app/admin.html>
 
 ## Fitur
 
@@ -35,6 +39,15 @@ Dibangun dengan **HTML, CSS, dan JavaScript murni** (tanpa framework).
    - Metode desain: **Full Order** (upload, geser, ubah ukuran, download), **Galeri**, **Jasa Desain**
 3. **Detail & Jumlah** — jumlah per ukuran (S–XXXL), tanggal, catatan
 4. **Checkout** — validasi data, ringkasan pesanan + **preview desain & label**
+5. **Kirim Pesanan** — pesanan & file desain tersimpan di Supabase, WA terkirim ke admin dan
+   pembeli, lalu halaman sukses menampilkan **kode pesanan + status realtime** (tanpa refresh)
+
+### Dashboard Admin (`admin.html`)
+- Login khusus admin (Supabase Auth); pengunjung tidak bisa membaca data pesanan (RLS)
+- Daftar pesanan **realtime** via WebSocket: pesanan baru muncul otomatis + bunyi notifikasi,
+  pesanan yang dihapus langsung hilang
+- Filter per status, detail pesanan lengkap, preview & file desain asli
+- **Ubah status → WA otomatis** ke pembeli + salinan ke admin (tanpa tombol chat manual)
 
 ### Halaman lain
 - **Tentang Kami** (`tentang.html`) — cerita, visi & misi, nilai, proses produksi, tim
@@ -53,23 +66,33 @@ custom-konveksi/
 ├── customDesign.html    # Order Builder
 ├── tentang.html         # Tentang Kami
 ├── panduan.html         # Panduan Order
+├── admin.html           # Dashboard admin pesanan
 ├── dokumentasi.html     # (lama, tidak ditautkan)
 ├── assets/              # Logo, ilustrasi, mockup kaos
 ├── css/
 │   ├── custom.css       # Design system bersama: token, navbar, footer, CTA, ornamen, chatbot
 │   ├── style.css        # Beranda
 │   ├── designCustom.css # Custom Design / Order Builder
+│   ├── admin.css        # Dashboard admin
 │   ├── tentang.css      # Tentang Kami
 │   ├── panduan.css      # Panduan Order
 │   └── dokumentasi.css  # Dokumentasi (lama)
-└── js/
-    └── index.js         # Semua interaksi (navbar, wizard, slider, chatbot, dll.)
+├── js/
+│   ├── index.js           # Semua interaksi (navbar, wizard, checkout → Supabase, slider, chatbot, dll.)
+│   ├── admin.js           # Dashboard admin (login, realtime, ubah status)
+│   └── supabase-config.js # Project URL + publishable key Supabase
+└── supabase/
+    ├── config.toml                     # Konfigurasi CLI (verify_jwt = false untuk send-order)
+    ├── migrations/                     # Tabel, RLS, storage, realtime, kolom notifikasi
+    ├── functions/send-order/index.ts   # Edge Function: kirim WA via Fonnte
+    └── .env                            # Secrets lokal (TIDAK di-commit)
 ```
 
 ## Menjalankan Secara Lokal
 
 Website ini statis, tetapi **harus dibuka lewat web server** (`http://`), bukan dengan
-membuka file langsung (`file://`) — fitur download preview kanvas membutuhkannya.
+membuka file langsung (`file://`) — fitur download & upload preview kanvas membutuhkannya.
+Versi lokal tetap memakai database Supabase yang sama dengan versi online.
 
 Pilih salah satu:
 
@@ -104,17 +127,41 @@ Bisa juga memakai ekstensi **Live Server** di VS Code.
 | Desain galeri | `GALLERY` di `js/index.js` |
 | Tabel panduan ukuran | `#sizeChartData` di `index.html` |
 | Jawaban chatbot | `RULES` di `js/index.js` |
-| Link WhatsApp admin | `WA_LINK` di `js/index.js` |
+| Link WhatsApp admin (chatbot) | `WA_LINK` di `js/index.js` |
+| Nomor WA penerima pesanan | secret `ADMIN_WA` di Supabase |
+| Isi pesan WA (pesanan & status) | `adminMessage`, `customerMessage`, `STATUS_BODY` di `supabase/functions/send-order/index.ts` |
+| Teks status di halaman pembeli | `STATUS_TEXT` di `js/index.js` |
 
 ## Backend Pesanan (Supabase + Fonnte)
 
-Alur saat pembeli klik **Kirim Pesanan**:
+```
+Pembeli: Kirim Pesanan
+  ├─ upload preview/desain/logo  → Storage (bucket order-designs)
+  ├─ simpan data checkout        → tabel orders
+  └─ panggil Edge Function send-order
+        ├─ WA ke ADMIN   : detail pesanan + link gambar
+        └─ WA ke PEMBELI : konfirmasi pesanan diterima (nomor dari form checkout)
 
-1. Gambar preview, file desain, dan logo label di-upload ke Supabase Storage (bucket `order-designs`).
-2. Data checkout disimpan ke tabel `orders`.
-3. Edge Function `send-order` mengirim WA ke admin (ringkasan + link gambar) dan konfirmasi ke pembeli via Fonnte.
-4. Halaman sukses menampilkan status pesanan **realtime** (Supabase Realtime / WebSocket).
-5. `admin.html` = dashboard admin: pesanan baru muncul otomatis + ubah status (status ikut berubah di layar pembeli).
+Admin: ubah status di admin.html
+  ├─ tabel orders di-update      → halaman pembeli ikut berubah (Realtime broadcast)
+  └─ send-order { type: "status" } (wajib login admin)
+        ├─ WA ke PEMBELI : pemberitahuan status
+        └─ WA ke ADMIN   : salinan / peringatan jika WA ke pembeli gagal
+```
+
+| Status | Pesan ke pembeli |
+|---|---|
+| Baru | — (konfirmasi awal sudah dikirim saat checkout) |
+| Dikonfirmasi | Pesanan dikonfirmasi, detail harga & pembayaran menyusul |
+| Diproses | Pesanan sedang diproduksi |
+| Dikirim | Pesanan dalam perjalanan |
+| Selesai | Terima kasih telah memesan |
+| Dibatalkan | Pesanan dibatalkan, silakan balas untuk bertanya |
+
+Keamanan:
+- Pengunjung hanya bisa **membuat** pesanan & upload gambar; membaca/mengubah pesanan hanya untuk admin (RLS + tabel `admins`).
+- Token Fonnte hanya disimpan sebagai **secret** Edge Function, tidak pernah ada di frontend.
+- WA pesanan baru dikirim sekali per pesanan; WA status dikirim sekali per status (kolom `wa_status_notified`).
 
 ### Setup (sekali saja)
 
@@ -131,7 +178,14 @@ npx supabase functions deploy send-order
 - Buat akun admin: Dashboard → Authentication → Add user, lalu jalankan di SQL Editor:
   `insert into public.admins (user_id) select id from auth.users where email = 'admin@email.com';`
 - Matikan pendaftaran publik: Authentication → Sign In / Providers → nonaktifkan *Allow new users to sign up*.
+- Bila deploy function lewat Dashboard (bukan CLI), matikan **Verify JWT** di Edge Functions → send-order → Settings.
 - Paket Fonnte Free tidak mendukung lampiran, jadi gambar dikirim sebagai link. Jika paket di-upgrade, set `FONNTE_ATTACHMENT=true`.
+
+### Deploy frontend
+
+Frontend di-deploy ke **Vercel** langsung dari branch `konveksi` (tanpa build step). Setiap `git push`
+otomatis memperbarui <https://custom-konveksi.vercel.app>. Perubahan pada Supabase (SQL / Edge Function)
+di-deploy terpisah lewat CLI atau Dashboard Supabase.
 
 ## Catatan
 
