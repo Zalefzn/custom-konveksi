@@ -180,7 +180,11 @@
   function subscribe() {
     channel = sb
       .channel("admin-orders")
-      .on("postgres_changes", { event: "*", schema: "public", table: "orders" }, ({ eventType, new: row }) => {
+      .on("postgres_changes", { event: "*", schema: "public", table: "orders" }, ({ eventType, new: row, old }) => {
+        if (eventType === "DELETE") {
+          if (old?.id && orders.delete(old.id)) render();
+          return;
+        }
         if (!row?.id) return;
         orders.set(row.id, row);
         if (eventType === "INSERT") {
