@@ -1,0 +1,686 @@
+/* =========================================================
+   Tentang Kami (tentang.html)
+   Tiap section memakai pola tata letak berbeda:
+   1 editorial · 2 pernyataan + daftar · 3 baris editorial gelap
+   4 timeline zig-zag · 5 orbit tim
+   ========================================================= */
+
+.about-hero {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255, 75, 75, 0.14), transparent 40%),
+    radial-gradient(circle at 88% 30%, rgba(255, 153, 102, 0.18), transparent 42%),
+    linear-gradient(180deg, #fff6f6 0%, #fff 100%);
+}
+
+.about-hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.fc-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   1. Cerita Kami — editorial
+   ========================================================= */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.story-visual {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.story-visual::before {
+  content: "";
+  position: absolute;
+  inset: 6% 4% 0;
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  background: linear-gradient(135deg, var(--primary-100), #fff3ea);
+}
+
+.story-visual img {
+  position: relative;
+  width: 100%;
+}
+
+.story-bbox {
+  z-index: 2;
+  top: 50%;
+  left: -3%;
+  width: 106%;
+  translate: 0 -50%;
+  opacity: 0.45;
+}
+
+.story-badge {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 8%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px 12px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(28, 27, 41, 0.12);
+}
+
+.story-badge strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.story-badge small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.story-text h2 {
+  margin: 14px 0 18px;
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+}
+
+.story-text p + p {
+  margin-top: 14px;
+}
+
+.story-text b {
+  color: var(--ink);
+}
+
+/* huruf awal besar */
+.dropcap::first-letter {
+  float: left;
+  margin: 6px 12px 0 0;
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 0.85;
+  color: var(--primary);
+}
+
+.story-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 24px 0 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.story-points i {
+  margin-right: 6px;
+  color: var(--primary);
+}
+
+.story-quote {
+  margin-top: 22px;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ff4b4b, #ff7a45);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.story-ruler { top: 40px; right: 4%; width: 300px; }
+
+/* =========================================================
+   2. Visi & Misi — pernyataan besar + daftar bernomor
+   ========================================================= */
+
+.vision {
+  max-width: 920px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.vision-statement {
+  margin-top: 22px;
+  font-size: clamp(1.6rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+/* sorotan seperti stabilo */
+.vision-statement .hl {
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+  color: var(--primary);
+}
+
+.vision-statement .hl::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -4px;
+  right: -4px;
+  bottom: 0.08em;
+  height: 0.32em;
+  border-radius: 4px;
+  background: var(--primary-100);
+}
+
+.mission {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 56px;
+  align-items: start;
+  padding-top: 56px;
+  border-top: 1px dashed #dcdce6;
+}
+
+.mission-head h2 {
+  margin-top: 14px;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+}
+
+.mission-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 40px;
+  list-style: none;
+}
+
+.mission-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.mission-num {
+  flex: none;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--primary);
+}
+
+.mission-list h3 {
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.mission-list p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.vm-pen { right: -40px; bottom: 20px; width: 300px; }
+.vm-reg { top: 60px; left: 5%; width: 56px; }
+
+/* =========================================================
+   3. Nilai Kami — baris editorial di latar gelap
+   ========================================================= */
+
+.values-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.values-intro {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+}
+
+.values-intro h2 {
+  margin: 14px 0 14px;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  color: #fff;
+}
+
+.values-intro p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.value-rows {
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.value-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* sapuan gradasi saat disorot */
+.value-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 75, 75, 0.14), transparent 80%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.value-row:hover::before {
+  opacity: 1;
+}
+
+.value-row > * {
+  position: relative;
+}
+
+.value-row-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+}
+
+.value-row-body h3 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  letter-spacing: -0.03em;
+  color: #fff;
+  transition: translate 0.3s;
+}
+
+.value-row:hover .value-row-body h3 {
+  translate: 8px 0;
+}
+
+.value-row-body p {
+  margin-top: 4px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.value-row-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transition: background-color 0.3s, border-color 0.3s, rotate 0.3s;
+}
+
+.value-row:hover .value-row-icon {
+  border-color: var(--primary);
+  background: var(--primary);
+  rotate: -12deg;
+}
+
+/* =========================================================
+   4. Proses Produksi — timeline zig-zag dengan garis terisi
+   ========================================================= */
+
+.zigzag {
+  --zz-progress: 0;
+  position: relative;
+  max-width: 940px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+/* garis tengah: dasar putus-putus + isian sesuai scroll */
+.zigzag::before,
+.zigzag::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  translate: -50% 0;
+}
+
+.zigzag::before {
+  background: repeating-linear-gradient(180deg, var(--primary-200) 0 8px, transparent 8px 14px);
+}
+
+.zigzag::after {
+  bottom: auto;
+  height: calc(var(--zz-progress) * 100%);
+  background: linear-gradient(180deg, #ff4b4b, #ff7a45);
+}
+
+.zz-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  align-items: center;
+}
+
+.zz-item + .zz-item {
+  margin-top: 28px;
+}
+
+.zz-dot {
+  grid-column: 2;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--primary-200);
+  background: #fff;
+  color: var(--primary);
+  font-size: 1.2rem;
+  rotate: 45deg;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.zz-dot i {
+  rotate: -45deg;
+}
+
+.zz-item.is-reached .zz-dot {
+  border-color: transparent;
+  background: linear-gradient(135deg, #ff5a5a, #ff3d6e);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(255, 75, 75, 0.3);
+}
+
+.zz-content {
+  grid-row: 1;
+  grid-column: 1;
+  padding: 8px 0;
+  text-align: right;
+}
+
+.zz-item:nth-child(even) .zz-content {
+  grid-column: 3;
+  text-align: left;
+}
+
+.zz-step {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.zz-content h3 {
+  margin: 4px 0 6px;
+  font-size: 1.3rem;
+}
+
+.zz-content p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.proses-ruler { bottom: 40px; right: 4%; width: 280px; }
+
+/* =========================================================
+   5. Tim Kami — daftar divisi + komposisi orbit
+   ========================================================= */
+
+.team-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.team-text h2 {
+  margin: 14px 0 14px;
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+}
+
+.team-text > p {
+  color: var(--muted);
+}
+
+.team-list {
+  display: grid;
+  margin-top: 28px;
+  list-style: none;
+}
+
+.team-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.team-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.team-list i {
+  flex: none;
+  width: 22px;
+  margin-top: 3px;
+  text-align: center;
+  color: var(--primary);
+}
+
+.team-list strong {
+  display: block;
+  color: var(--ink);
+}
+
+.team-list span {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.orbit {
+  --size: min(440px, 100%);
+  position: relative;
+  width: var(--size);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed var(--primary-200);
+}
+
+.ring-1 { inset: 8%; }
+.ring-2 { inset: 28%; border-style: solid; border-color: var(--line); }
+
+.orbit-core {
+  position: absolute;
+  inset: 36%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.25), transparent 50%),
+    linear-gradient(135deg, #ff5a5a, #ff3d6e);
+  box-shadow: 0 20px 40px rgba(255, 75, 75, 0.35);
+  font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+  font-weight: 800;
+  color: #fff;
+}
+
+.orbit-core span {
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+/* simpul tim berputar di lintasan ring-1 */
+.orbit-track {
+  position: absolute;
+  inset: 8%;
+  animation: orbit-spin 36s linear infinite;
+}
+
+.orbit-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--primary);
+  font-size: 1.3rem;
+  box-shadow: 0 12px 26px rgba(28, 27, 41, 0.12);
+  animation: orbit-spin 36s linear infinite reverse; /* ikon tetap tegak */
+}
+
+.n1 { top: 0; left: 50%; }
+.n2 { top: 50%; left: 100%; }
+.n3 { top: 100%; left: 50%; }
+.n4 { top: 50%; left: 0; }
+
+@keyframes orbit-spin {
+  to { rotate: 360deg; }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .story-grid,
+  .mission,
+  .values-layout,
+  .team-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .story-text {
+    text-align: left;
+  }
+
+  .values-intro {
+    position: static;
+  }
+
+  .mission-head,
+  .values-intro {
+    text-align: center;
+  }
+
+  /* timeline: garis di kiri */
+  .zigzag::before,
+  .zigzag::after {
+    left: 30px;
+  }
+
+  .zz-item {
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .zz-dot {
+    grid-column: 1;
+  }
+
+  .zz-content,
+  .zz-item:nth-child(even) .zz-content {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .orbit {
+    --size: min(360px, 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .mission-list {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .vision {
+    margin-bottom: 48px;
+  }
+
+  .vision-statement .hl {
+    white-space: normal;
+  }
+
+  .value-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px 16px;
+    padding: 22px 4px;
+  }
+
+  .value-row-num {
+    grid-column: 1 / -1;
+  }
+
+  .value-row-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .story-ruler,
+  .proses-ruler,
+  .vm-reg {
+    display: none;
+  }
+
+  .story-badge {
+    padding: 10px 14px 10px 10px;
+  }
+
+  .orbit-node {
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    font-size: 1.05rem;
+  }
+}
+
+/* logo di pusat orbit */
+.orbit-core {
+  grid-template-columns: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(28, 27, 41, 0.12), 0 0 0 8px var(--primary-50);
+}
+
+.orbit-core img {
+  width: 100%;
+  height: auto;
+}

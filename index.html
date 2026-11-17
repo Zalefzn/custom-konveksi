@@ -1,293 +1,900 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beranda | Custom Design</title>
-    <link href="./css/style.css" rel="stylesheet" />
-    <link href="./css/custom.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Beranda | RSCustom</title>
+    <meta
+      name="description"
+      content="RSCustom — konveksi & sablon custom. Desain sesukamu, kami cetak tanpa drama."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <!--Navbar-->
-    <header>
-      <nav>
-        <div class="logo"><span class="span-logo">RS</span>Custom</div>
-        <div class="menu">
-          <a href="index.html">Beranda</a>
-          <a href="dokumentasi.html">Dokumentasi</a>
-          <a href="customDesign.html">Custom Design</a>
+    <!-- Ornamen garis bertema alat desain (dipakai lewat <use>) -->
+    <svg class="deco-sprite" aria-hidden="true" focusable="false">
+      <symbol id="d-pen" viewBox="0 0 400 200"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M10 160C90 20 190 20 210 100S330 190 390 40" class="d-draw"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="160" x2="90" y2="20" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="190" y1="20" x2="230" y2="180" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="330" y1="190" x2="390" y2="40" class="d-thin"/>
+        <circle vector-effect="non-scaling-stroke" cx="90" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="190" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="230" cy="180" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="330" cy="190" r="4" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="5" y="155" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="205" y="95" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="385" y="35" width="10" height="10" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-reg" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="24"/><circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="10" class="d-soft"/>
+        <line vector-effect="non-scaling-stroke" x1="50" y1="4" x2="50" y2="96"/><line vector-effect="non-scaling-stroke" x1="4" y1="50" x2="96" y2="50"/>
+      </g></symbol>
+      <symbol id="d-ruler" viewBox="0 0 400 44"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="1" y="1" width="398" height="40" rx="4"/><line vector-effect="non-scaling-stroke" x1="10" y1="1" x2="10" y2="16"/><text class="d-text" x="13" y="30">0</text><line vector-effect="non-scaling-stroke" x1="20" y1="1" x2="20" y2="8"/><line vector-effect="non-scaling-stroke" x1="30" y1="1" x2="30" y2="8"/><line vector-effect="non-scaling-stroke" x1="40" y1="1" x2="40" y2="8"/><line vector-effect="non-scaling-stroke" x1="50" y1="1" x2="50" y2="8"/><line vector-effect="non-scaling-stroke" x1="60" y1="1" x2="60" y2="16"/><text class="d-text" x="63" y="30">1</text><line vector-effect="non-scaling-stroke" x1="70" y1="1" x2="70" y2="8"/><line vector-effect="non-scaling-stroke" x1="80" y1="1" x2="80" y2="8"/><line vector-effect="non-scaling-stroke" x1="90" y1="1" x2="90" y2="8"/><line vector-effect="non-scaling-stroke" x1="100" y1="1" x2="100" y2="8"/><line vector-effect="non-scaling-stroke" x1="110" y1="1" x2="110" y2="16"/><text class="d-text" x="113" y="30">2</text><line vector-effect="non-scaling-stroke" x1="120" y1="1" x2="120" y2="8"/><line vector-effect="non-scaling-stroke" x1="130" y1="1" x2="130" y2="8"/><line vector-effect="non-scaling-stroke" x1="140" y1="1" x2="140" y2="8"/><line vector-effect="non-scaling-stroke" x1="150" y1="1" x2="150" y2="8"/><line vector-effect="non-scaling-stroke" x1="160" y1="1" x2="160" y2="16"/><text class="d-text" x="163" y="30">3</text><line vector-effect="non-scaling-stroke" x1="170" y1="1" x2="170" y2="8"/><line vector-effect="non-scaling-stroke" x1="180" y1="1" x2="180" y2="8"/><line vector-effect="non-scaling-stroke" x1="190" y1="1" x2="190" y2="8"/><line vector-effect="non-scaling-stroke" x1="200" y1="1" x2="200" y2="8"/><line vector-effect="non-scaling-stroke" x1="210" y1="1" x2="210" y2="16"/><text class="d-text" x="213" y="30">4</text><line vector-effect="non-scaling-stroke" x1="220" y1="1" x2="220" y2="8"/><line vector-effect="non-scaling-stroke" x1="230" y1="1" x2="230" y2="8"/><line vector-effect="non-scaling-stroke" x1="240" y1="1" x2="240" y2="8"/><line vector-effect="non-scaling-stroke" x1="250" y1="1" x2="250" y2="8"/><line vector-effect="non-scaling-stroke" x1="260" y1="1" x2="260" y2="16"/><text class="d-text" x="263" y="30">5</text><line vector-effect="non-scaling-stroke" x1="270" y1="1" x2="270" y2="8"/><line vector-effect="non-scaling-stroke" x1="280" y1="1" x2="280" y2="8"/><line vector-effect="non-scaling-stroke" x1="290" y1="1" x2="290" y2="8"/><line vector-effect="non-scaling-stroke" x1="300" y1="1" x2="300" y2="8"/><line vector-effect="non-scaling-stroke" x1="310" y1="1" x2="310" y2="16"/><text class="d-text" x="313" y="30">6</text><line vector-effect="non-scaling-stroke" x1="320" y1="1" x2="320" y2="8"/><line vector-effect="non-scaling-stroke" x1="330" y1="1" x2="330" y2="8"/><line vector-effect="non-scaling-stroke" x1="340" y1="1" x2="340" y2="8"/><line vector-effect="non-scaling-stroke" x1="350" y1="1" x2="350" y2="8"/><line vector-effect="non-scaling-stroke" x1="360" y1="1" x2="360" y2="16"/><text class="d-text" x="363" y="30">7</text><line vector-effect="non-scaling-stroke" x1="370" y1="1" x2="370" y2="8"/><line vector-effect="non-scaling-stroke" x1="380" y1="1" x2="380" y2="8"/><line vector-effect="non-scaling-stroke" x1="390" y1="1" x2="390" y2="8"/>
+      </g></symbol>
+      <symbol id="d-dim" viewBox="0 0 300 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line vector-effect="non-scaling-stroke" x1="10" y1="6" x2="10" y2="34"/><line vector-effect="non-scaling-stroke" x1="290" y1="6" x2="290" y2="34"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="20" x2="118" y2="20"/><line vector-effect="non-scaling-stroke" x1="182" y1="20" x2="290" y2="20"/>
+        <path vector-effect="non-scaling-stroke" d="M18 15 10 20 18 25M282 15 290 20 282 25"/>
+        <text class="d-text" x="150" y="24" text-anchor="middle">50 cm</text>
+      </g></symbol>
+      <symbol id="d-bbox" viewBox="0 0 200 150"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="6" y="26" width="188" height="118" class="d-dash"/>
+        <line vector-effect="non-scaling-stroke" x1="100" y1="10" x2="100" y2="26"/><circle vector-effect="non-scaling-stroke" cx="100" cy="8" r="5" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="2" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="140" width="8" height="8" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-crop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 14H10M14 0V10"/>
+      </g></symbol>
+      <symbol id="d-stitch" viewBox="0 0 1200 120" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 60C150 0 300 120 450 60S750 0 900 60 1100 110 1200 50" class="d-thin"/>
+        <path vector-effect="non-scaling-stroke" d="M0 72C150 12 300 132 450 72S750 12 900 72 1100 122 1200 62" class="d-stitch"/>
+      </g></symbol>
+    </svg>
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <div class="menu">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#cara-order">Cara Order</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <a href="customDesign.html" class="btn btn-primary btn-sm nav-cta"
+            ><i class="fas fa-palette"></i> Custom Design</a
+          >
         </div>
-        <button class="cta-button">Daftar</button>
       </nav>
     </header>
 
-    <!--Hero Section-->
-    <section class="hero-section">
-      <span class="dot top-left"></span>
-      <span class="dot behind-image"></span>
-
-      <div class="hero-text">
-        <h1>Desain Sesukamu,<br />Kami Cetak Tanpa Drama!</h1>
-        <p>
-          Unggah desainmu, pilih produk, dan kami sablon dengan hasil premium.
-          Cocok untuk kebutuhan personal, komunitas, hingga brand kamu.
-        </p>
-        <div class="buttons">
-          <button class="btn-outline">Design Sekarang</button>
-          <button class="btn-primary">Lihat Panduan</button>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="./assets/shope.png" alt="Hero Illustration" />
-      </div>
-    </section>
-
-    <!-- Cards -->
-    <div class="cards-hero">
-      <div class="card">
-        <div class="icon red-icon-bg">
-          <i class="fas fa-tshirt"></i>
-        </div>
-        <div class="text">
-          <h3>Custom Design Kaos</h3>
-          <p>Kami Menyediakan Custom Design Yang Sesuai dengan Selera Kamu!</p>
-        </div>
-      </div>
-      <div class="card red">
-        <div class="icon red-icon-bg">
-          <i class="fas fa-headset"></i>
-        </div>
-        <div class="text">
-          <h3>Pelayanan 9/24 Jam</h3>
-          <p>Kami Akan Selalu Membantu Kamu Selama 24 Jam</p>
-        </div>
-      </div>
-    </div>
-
-    <!--Tentang Section-->
-    <section class="tentang-section">
-      <span class="dot-blob size-1 pos-a" data-aos="fade-up"></span>
-      <span class="dot-blob size-2 pos-b" data-aos="fade-up"></span>
-      <span class="dot-blob size-3 pos-c" data-aos="fade-up"></span>
-
-      <div class="tentang-container">
-        <div class="tentang-image" data-aos="fade-up">
-          <img src="./assets/tentang.png" alt="Tentang Kami" />
-        </div>
-        <div class="tentang-text">
-          <h2 data-aos="fade-up">Tentang Kami</h2>
-          <p data-aos="fade-up">
-            Kami adalah konveksi lokal yang fokus pada sablon custom
-            berkualitas. Dari satuan hingga ribuan, kami bantu wujudkan desain
-            kamu jadi nyata — cepat, rapi, dan tanpa ribet.
-          </p>
-          <ul class="tentang-list" data-aos="fade-up">
-            <li><i class="fas fa-check-circle"></i> Sablon satuan & grosir</li>
-            <li><i class="fas fa-truck"></i> Kirim seluruh Indonesia</li>
-            <li><i class="fas fa-image"></i> Bisa upload desain sendiri</li>
-            <li><i class="fas fa-bolt"></i> Proses cepat & responsif</li>
-          </ul>
-          <button class="btn-outline" data-aos="fade-up">Mulai Design</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Fitur Section -->
-    <section class="fitur-section">
-      <div class="fitur-container">
-        <div class="fitur-header" data-aos="fade-up">
-          <h3><span>Bukan Konveksi Biasa!</span></h3>
-          <h2>Ini yang Bikin Kami Unggul</h2>
-        </div>
-
-        <div class="fitur-grid">
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fas fa-eye"></i><br />
-            Live Preview Desain di Produk Asli
-          </div>
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fas fa-folder-open"></i><br />
-            Template Desain Siap Pakai
-          </div>
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fas fa-shield-alt"></i><br />
-            Jaminan Cetak Ulang Jika Gagal Produksi
-          </div>
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fab fa-whatsapp"></i><br />
-            Konsultasi Desain via WhatsApp Langsung
-          </div>
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fas fa-chart-line"></i><br />
-            Estimasi Harga Otomatis Saat Desain
-          </div>
-          <div class="fitur-card" data-aos="fade-up">
-            <i class="fas fa-puzzle-piece"></i><br />
-            Multi-Zone Printing Support
-          </div>
-        </div>
-
-        <!-- Dot Background -->
-        <div class="dot-pattern left"></div>
-        <div class="dot-pattern right"></div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2 data-aos="fade-up">
-          <span class="highlight"
-            >Langkahmu tinggal satu klik lagi untuk mencetak kaos custom</span
-          >
-          dengan hasil profesional.
-        </h2>
-        <p data-aos="fade-up">Upload desainmu atau konsultasi langsung dengan tim kami!</p>
-        <button class="cta-button" data-aos="fade-up">Konsultasi Sekarang</button>
-      </div>
-
-      <img
-        src="./assets/consult.png"
-        alt="Ilustrasi Konsultasi"
-        class="cta-image"
-      />
-
-      <div class="bubble-group">
-        <div class="bubble small"></div>
-        <div class="bubble medium"></div>
-        <div class="bubble large"></div>
-      </div>
-    </section>
-
-    <!-- Testimoni Section -->
-    <section class="testimoni-section">
-      <div class="testimoni-header">
-        <h2 data-aos="fade-up">
-          <span class="highlight">Apa Kata Mereka</span> yang<br />Sudah Cetak
-          di Sini?
-        </h2>
-      </div>
-
-      <div class="testimoni-list">
-        <!-- Testimoni 1 -->
-        <div class="testimoni-card"data-aos="fade-up">
-          <div class="circle"></div>
-          <p class="message">
-            “Kualitas sablonnya benar-benar di atas ekspektasi! Hasil cetaknya
-            tajam, warnanya tidak pudar meskipun sudah dicuci berkali-kali.
-            Pelayanan juga cepat dan ramah.”
-          </p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <p class="author">— Dina A., Pemilik Usaha Clothing Line</p>
-        </div>
-
-        <!-- Testimoni 2 -->
-        <div class="testimoni-card" data-aos="fade-up">
-          <div class="circle"></div>
-          <p class="message">
-            “Saya order kaos sablon untuk event kantor, hasilnya rapi banget dan
-            pas sesuai desain. Timnya juga sangat komunikatif dari awal sampai
-            akhir.”
-          </p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <p class="author">— Rizky P., HRD Perusahaan Swasta</p>
-        </div>
-
-        <!-- Testimoni 3 -->
-        <div class="testimoni-card" data-aos="fade-up">
-          <div class="circle"></div>
-          <p class="message">
-            “Custom sablon untuk komunitas kami dikerjakan cepat dan hasilnya
-            keren. Semua anggota puas dan bangga pakai kaosnya!”
-          </p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <p class="author">— Sarah N., Ketua Komunitas Motor</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Logo & Social Media -->
-          <div class="footer-col">
-            <h3 class="logo"><span class="footer-span">RS</span>Custom</h3>
-            <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
-            <div class="social-icons">
-              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" title="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="beranda">
+        <span class="dots dots-tl"></span>
+        <span class="dots dots-br"></span>
+        <svg class="deco deco-pen hero-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-reg hero-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <svg class="deco deco-ruler hero-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <span class="eyebrow"
+              ><i class="fas fa-shirt"></i> Konveksi &amp; Sablon Custom</span
+            >
+            <h1>
+              Desain Sesukamu,<br /><span class="text-gradient"
+                >Kami Cetak Tanpa Drama!</span
+              >
+            </h1>
+            <p class="hero-lead">
+              Unggah desainmu, pilih produk, dan kami sablon dengan hasil
+              premium. Cocok untuk kebutuhan personal, komunitas, hingga brand
+              kamu.
+            </p>
+            <div class="hero-actions">
+              <a href="customDesign.html" class="btn btn-primary"
+                >Design Sekarang <i class="fas fa-arrow-right"></i
               ></a>
-              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="panduan.html" class="btn btn-outline"
+                >Lihat Panduan</a
+              >
+            </div>
+            <ul class="hero-points">
+              <li><i class="fas fa-check-circle"></i>Satuan &amp; grosir</li>
+              <li><i class="fas fa-check-circle"></i>Live preview desain</li>
+              <li><i class="fas fa-check-circle"></i>Kirim seluruh Indonesia</li>
+            </ul>
+          </div>
+          <div class="hero-visual">
+            <span class="hero-ring" aria-hidden="true"></span>
+            <img src="./assets/shope.png" alt="Ilustrasi toko kaos custom" />
+
+            <div class="float-card fc-1" aria-hidden="true">
+              <span class="fc-icon"><i class="fas fa-eye"></i></span>
+              <div>
+                <strong>Live Preview</strong>
+                <small>Lihat desain sebelum dicetak</small>
+              </div>
+            </div>
+
+            <div class="float-card fc-2" aria-hidden="true">
+              <span class="fc-icon is-green"><i class="fas fa-check"></i></span>
+              <div>
+                <strong>Pesanan Diproses</strong>
+                <small>Kaos Hitam · 24 pcs</small>
+              </div>
+            </div>
+
+            <div class="float-card fc-3" aria-hidden="true">
+              <div class="fc-swatches">
+                <span style="background: #ffffff"></span>
+                <span style="background: #1c1b29"></span>
+                <span style="background: #ff4b4b"></span>
+                <span style="background: #2563eb"></span>
+              </div>
+              <small><b>19+</b> warna kaos</small>
             </div>
           </div>
+        </div>
+        <a href="#tentang" class="scroll-cue" aria-label="Gulir ke bawah"
+          ><i class="fas fa-chevron-down"></i
+        ></a>
+      </section>
 
-          <!-- Product Links -->
-          <div class="footer-col">
-            <h4>Product</h4>
-            <ul>
-              <li><a href="#">Galeri Design</a></li>
-              <li><a href="#">Full Order</a></li>
-              <li><a href="#">Jasa Design</a></li>
+      <!-- Highlight cards -->
+      <section class="highlights">
+        <div class="container highlight-grid">
+          <article class="highlight-card" data-aos="fade-up">
+            <div class="icon-chip"><i class="fas fa-shirt"></i></div>
+            <div>
+              <h3>Custom Design Kaos</h3>
+              <p>Kami menyediakan custom design yang sesuai dengan selera kamu.</p>
+            </div>
+          </article>
+          <article
+            class="highlight-card is-brand"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            <div class="icon-chip"><i class="fas fa-headset"></i></div>
+            <div>
+              <h3>Pelayanan 24 Jam</h3>
+              <p>Kami akan selalu membantu kamu selama 24 jam.</p>
+            </div>
+          </article>
+          <article
+            class="highlight-card"
+            data-aos="fade-up"
+            data-aos-delay="160"
+          >
+            <div class="icon-chip"><i class="fas fa-truck-fast"></i></div>
+            <div>
+              <h3>Kirim Seluruh Indonesia</h3>
+              <p>Pesanan dikemas rapi dan dikirim ke alamat kamu.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Marquee produk -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Kaos Pendek</span><i class="fas fa-star"></i>
+          <span>Lengan Panjang</span><i class="fas fa-star"></i>
+          <span>Oversize</span><i class="fas fa-star"></i>
+          <span>Hoodie</span><i class="fas fa-star"></i>
+          <span>Bomber</span><i class="fas fa-star"></i>
+          <span>Windbreaker</span><i class="fas fa-star"></i>
+          <span>Jersey Bola</span><i class="fas fa-star"></i>
+          <span>Jersey Basket</span><i class="fas fa-star"></i>
+          <span>Snapback</span><i class="fas fa-star"></i>
+          <span>Kaos Pendek</span><i class="fas fa-star"></i>
+          <span>Lengan Panjang</span><i class="fas fa-star"></i>
+          <span>Oversize</span><i class="fas fa-star"></i>
+          <span>Hoodie</span><i class="fas fa-star"></i>
+          <span>Bomber</span><i class="fas fa-star"></i>
+          <span>Windbreaker</span><i class="fas fa-star"></i>
+          <span>Jersey Bola</span><i class="fas fa-star"></i>
+          <span>Jersey Basket</span><i class="fas fa-star"></i>
+          <span>Snapback</span><i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <!-- Tentang -->
+      <section class="section" id="tentang">
+        <svg class="deco deco-ruler about-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg about-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container about-grid">
+          <div class="about-visual" data-aos="fade-up">
+            <img src="./assets/tentang.png" alt="Ilustrasi ide desain" />
+        <svg class="deco deco-bbox about-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+            <div class="about-badge">
+              <span class="fc-icon"><i class="fas fa-award"></i></span>
+              <div>
+                <strong>Kualitas Premium</strong>
+                <small>Bahan &amp; sablon pilihan</small>
+              </div>
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+            <span class="eyebrow">Tentang Kami</span>
+            <h2>Konveksi lokal yang fokus pada sablon berkualitas</h2>
+            <p>
+              Dari satuan hingga ribuan, kami bantu wujudkan desain kamu jadi
+              nyata — cepat, rapi, dan tanpa ribet.
+            </p>
+            <ul class="about-list">
+              <li><i class="fas fa-check-circle"></i> Sablon satuan &amp; grosir</li>
+              <li><i class="fas fa-truck"></i> Kirim seluruh Indonesia</li>
+              <li><i class="fas fa-image"></i> Bisa upload desain sendiri</li>
+              <li><i class="fas fa-bolt"></i> Proses cepat &amp; responsif</li>
             </ul>
+            <a href="tentang.html" class="about-more">
+              <span class="about-more-icon"><i class="fas fa-users"></i></span>
+              <span class="about-more-text">
+                <strong>Mau kenal kami lebih dekat?</strong>
+                <small>Cerita, visi misi, proses produksi &amp; tim kami</small>
+              </span>
+              <span class="about-more-cta">Lihat Tentang Kami <i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Produk -->
+      <section class="section bg-surface" id="produk">
+        <svg class="deco deco-dim produk-dim" viewBox="0 0 300 40" aria-hidden="true"><use href="#d-dim"/></svg>
+        <svg class="deco deco-pen produk-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Produk Kami</span>
+            <h2>Pilih Produk, Desain Sesukamu</h2>
+            <p>Semua produk bisa dicetak satuan maupun grosir dengan desain custom.</p>
           </div>
 
-          <!-- Company Links -->
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">Berada</a></li>
-              <li><a href="#">Dokumentasi</a></li>
-              <li><a href="#">Custom Design</a></li>
-            </ul>
+          <div class="product-grid">
+            <a href="customDesign.html?produk=Kaos" class="product-card" data-aos="fade-up">
+              <div class="product-icon"><i class="fas fa-shirt"></i></div>
+              <h3>Kaos</h3>
+              <p>Pendek, lengan panjang, reglan, hingga oversize.</p>
+              <span class="product-link">Desain Kaos <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a href="customDesign.html?produk=Jaket" class="product-card" data-aos="fade-up" data-aos-delay="60">
+              <div class="product-icon"><i class="fas fa-vest-patches"></i></div>
+              <h3>Jaket</h3>
+              <p>Bomber, hoodie, windbreaker, dan sweater.</p>
+              <span class="product-link">Desain Jaket <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a href="customDesign.html?produk=Topi" class="product-card" data-aos="fade-up" data-aos-delay="120">
+              <div class="product-icon"><i class="fas fa-hat-cowboy"></i></div>
+              <h3>Topi</h3>
+              <p>Snapback, trucker, dan topi polos.</p>
+              <span class="product-link">Desain Topi <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a href="customDesign.html?produk=Jersey" class="product-card" data-aos="fade-up" data-aos-delay="180">
+              <div class="product-icon"><i class="fas fa-futbol"></i></div>
+              <h3>Jersey</h3>
+              <p>Jersey bola, basket, eSports, dan custom tim.</p>
+              <span class="product-link">Desain Jersey <i class="fas fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Untuk Siapa -->
+      <section class="section" id="untuk-siapa">
+        <svg class="deco deco-bbox siapa-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+        <svg class="deco deco-reg siapa-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Untuk Siapa?</span>
+            <h2>Cocok untuk <span class="text-gradient">Semua Kebutuhan</span></h2>
+            <p>Dari personal sampai brand, semua bisa desain dan cetak di satu tempat.</p>
+          </div>
+          <div class="bento-grid">
+            <article class="bento-card is-wide is-brand" data-aos="fade-up" data-aos-delay="0">
+              <span class="bento-icon"><i class="fas fa-people-group"></i></span>
+              <h3>Komunitas</h3>
+              <p>Kaos kebersamaan untuk komunitas motor, hobi, hingga organisasi — satu desain, banyak ukuran.</p>
+              <ul class="bento-tags"><li>Kaos komunitas</li><li>Jaket club</li></ul>
+            </article>
+            <article class="bento-card " data-aos="fade-up" data-aos-delay="60">
+              <span class="bento-icon"><i class="fas fa-graduation-cap"></i></span>
+              <h3>Event &amp; Kampus</h3>
+              <p>Kaos panitia, angkatan, hingga merchandise acara.</p>
+              <ul class="bento-tags"><li>Kaos panitia</li><li>PDH</li></ul>
+            </article>
+            <article class="bento-card " data-aos="fade-up" data-aos-delay="120">
+              <span class="bento-icon"><i class="fas fa-building"></i></span>
+              <h3>Perusahaan</h3>
+              <p>Seragam kerja dan merchandise kantor yang rapi.</p>
+              <ul class="bento-tags"><li>Seragam</li><li>Gathering</li></ul>
+            </article>
+            <article class="bento-card " data-aos="fade-up" data-aos-delay="0">
+              <span class="bento-icon"><i class="fas fa-futbol"></i></span>
+              <h3>Tim Olahraga</h3>
+              <p>Jersey custom lengkap dengan nama dan nomor punggung.</p>
+              <ul class="bento-tags"><li>Jersey</li><li>Training</li></ul>
+            </article>
+            <article class="bento-card " data-aos="fade-up" data-aos-delay="60">
+              <span class="bento-icon"><i class="fas fa-gift"></i></span>
+              <h3>Hadiah &amp; Keluarga</h3>
+              <p>Kaos couple, family gathering, atau kado spesial.</p>
+              <ul class="bento-tags"><li>Couple</li><li>Family</li></ul>
+            </article>
+            <article class="bento-card is-wide is-dark" data-aos="fade-up" data-aos-delay="120">
+              <span class="bento-icon"><i class="fas fa-tags"></i></span>
+              <h3>Brand Clothing</h3>
+              <p>Mulai brand fashion-mu sendiri. Pesan satuan untuk sampel, lalu produksi grosir saat siap rilis.</p>
+              <ul class="bento-tags"><li>Sampel satuan</li><li>Produksi grosir</li><li>Merchandise</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fitur -->
+      <section class="section section-dark">
+        <svg class="deco deco-pen fitur-pen-1" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-pen fitur-pen-2" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-bbox fitur-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Bukan Konveksi Biasa!</span>
+            <h2>Ini yang Bikin Kami Unggul</h2>
+            <p>Fitur yang bikin proses pesan kaos custom jadi lebih mudah.</p>
           </div>
 
-          <!-- Contact Info -->
+          <div class="feature-grid">
+            <article class="feature-card" data-aos="fade-up">
+              <div class="icon-chip"><i class="fas fa-eye"></i></div>
+              <h3>Live Preview Desain</h3>
+              <p>Lihat desainmu langsung di produk sebelum dicetak.</p>
+            </article>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="60">
+              <div class="icon-chip"><i class="fas fa-folder-open"></i></div>
+              <h3>Template Siap Pakai</h3>
+              <p>Pilih dari galeri desain bila belum punya desain sendiri.</p>
+            </article>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="120">
+              <div class="icon-chip"><i class="fas fa-shield-halved"></i></div>
+              <h3>Jaminan Cetak Ulang</h3>
+              <p>Kami cetak ulang jika terjadi kegagalan produksi.</p>
+            </article>
+            <article class="feature-card" data-aos="fade-up">
+              <div class="icon-chip"><i class="fab fa-whatsapp"></i></div>
+              <h3>Konsultasi via WhatsApp</h3>
+              <p>Diskusikan desain langsung dengan tim kami.</p>
+            </article>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="60">
+              <div class="icon-chip"><i class="fas fa-chart-line"></i></div>
+              <h3>Estimasi Harga Otomatis</h3>
+              <p>Perkiraan biaya muncul selagi kamu mendesain.</p>
+            </article>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="120">
+              <div class="icon-chip"><i class="fas fa-puzzle-piece"></i></div>
+              <h3>Multi-Zone Printing</h3>
+              <p>Cetak di beberapa area: depan, belakang, hingga lengan.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cara Order -->
+      <section class="section bg-surface" id="cara-order">
+        <svg class="deco deco-stitch order-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
+        <svg class="deco deco-reg order-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Cara Order</span>
+            <h2>4 Langkah Mudah Pesan Kaos Custom</h2>
+            <p>Semua dilakukan online di halaman Custom Design, tanpa ribet.</p>
+          </div>
+
+          <ol class="guide-steps">
+            <li class="guide-step" data-aos="fade-up">
+              <span class="num">01</span>
+              <div class="icon-chip"><i class="fas fa-shirt"></i></div>
+              <h3>Pilih Produk</h3>
+              <p>Tentukan jenis produk dan modelnya: kaos, jaket, topi, atau jersey.</p>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="80">
+              <span class="num">02</span>
+              <div class="icon-chip"><i class="fas fa-palette"></i></div>
+              <h3>Atur Desain</h3>
+              <p>Pilih warna, upload desain sendiri, pakai galeri, atau minta dibuatkan.</p>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="160">
+              <span class="num">03</span>
+              <div class="icon-chip"><i class="fas fa-ruler-combined"></i></div>
+              <h3>Detail &amp; Jumlah</h3>
+              <p>Isi jumlah per ukuran (S–XXXL) dan tanggal pesanan dibutuhkan.</p>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="240">
+              <span class="num">04</span>
+              <div class="icon-chip"><i class="fas fa-bag-shopping"></i></div>
+              <h3>Checkout</h3>
+              <p>Isi data pemesan, cek ringkasan, lalu kirim pesanan kamu.</p>
+            </li>
+          </ol>
+
+          <div class="section-action" data-aos="fade-up">
+            <a href="customDesign.html" class="btn btn-primary"
+              >Mulai Order Sekarang <i class="fas fa-arrow-right"></i
+            ></a>
+            <a href="panduan.html" class="btn btn-outline"
+              ><i class="fas fa-book-open"></i> Baca Panduan Lengkap</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Pilihan Bahan -->
+      <section class="section" id="bahan">
+        <svg class="deco deco-dim bahan-dim" viewBox="0 0 300 40" aria-hidden="true"><use href="#d-dim"/></svg>
+        <svg class="deco deco-pen bahan-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Pilihan Bahan</span>
+            <h2>Bahan Berkualitas untuk Tiap Produk</h2>
+            <p>Bingung pilih bahan? Bandingkan karakter tiap bahan di bawah ini.</p>
+          </div>
+          <div class="material-grid">
+            <article class="material-card" data-aos="fade-up" data-aos-delay="0">
+              <div class="material-top">
+                <span class="material-icon"><i class="fas fa-shirt"></i></span>
+                <span class="material-use">Kaos harian</span>
+              </div>
+              <h3>Cotton Combed 30s</h3>
+              <p>Ringan, lembut, dan adem — pilihan paling populer untuk kaos sablon.</p>
+              <div class="meters">
+                <div class="meter"><span>Adem</span><div class="meter-bar" style="--v: 4" role="img" aria-label="Adem 4 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Ketebalan</span><div class="meter-bar" style="--v: 2" role="img" aria-label="Ketebalan 2 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Elastis</span><div class="meter-bar" style="--v: 2" role="img" aria-label="Elastis 2 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </article>
+            <article class="material-card" data-aos="fade-up" data-aos-delay="60">
+              <div class="material-top">
+                <span class="material-icon"><i class="fas fa-layer-group"></i></span>
+                <span class="material-use">Kaos premium</span>
+              </div>
+              <h3>Cotton Combed 24s</h3>
+              <p>Lebih tebal dan kokoh, jatuhnya bagus untuk kaos oversize.</p>
+              <div class="meters">
+                <div class="meter"><span>Adem</span><div class="meter-bar" style="--v: 3" role="img" aria-label="Adem 3 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Ketebalan</span><div class="meter-bar" style="--v: 4" role="img" aria-label="Ketebalan 4 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Elastis</span><div class="meter-bar" style="--v: 2" role="img" aria-label="Elastis 2 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </article>
+            <article class="material-card" data-aos="fade-up" data-aos-delay="120">
+              <div class="material-top">
+                <span class="material-icon"><i class="fas fa-wind"></i></span>
+                <span class="material-use">Jersey &amp; olahraga</span>
+              </div>
+              <h3>Polyester Dry-Fit</h3>
+              <p>Cepat kering dan menyerap keringat, nyaman untuk aktivitas.</p>
+              <div class="meters">
+                <div class="meter"><span>Adem</span><div class="meter-bar" style="--v: 5" role="img" aria-label="Adem 5 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Ketebalan</span><div class="meter-bar" style="--v: 1" role="img" aria-label="Ketebalan 1 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Elastis</span><div class="meter-bar" style="--v: 4" role="img" aria-label="Elastis 4 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </article>
+            <article class="material-card" data-aos="fade-up" data-aos-delay="180">
+              <div class="material-top">
+                <span class="material-icon"><i class="fas fa-mitten"></i></span>
+                <span class="material-use">Hoodie &amp; sweater</span>
+              </div>
+              <h3>Cotton Fleece</h3>
+              <p>Bagian dalam berbulu halus, hangat dipakai saat cuaca dingin.</p>
+              <div class="meters">
+                <div class="meter"><span>Adem</span><div class="meter-bar" style="--v: 2" role="img" aria-label="Adem 2 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Ketebalan</span><div class="meter-bar" style="--v: 5" role="img" aria-label="Ketebalan 5 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="meter"><span>Elastis</span><div class="meter-bar" style="--v: 3" role="img" aria-label="Elastis 3 dari 5"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </article>
+          </div>
+          <p class="material-note" data-aos="fade-up">
+            <i class="fas fa-circle-info"></i> Belum yakin? Tulis kebutuhanmu di catatan
+            pesanan, tim kami bantu rekomendasikan bahan yang paling pas.
+          </p>
+        </div>
+      </section>
+
+      <!-- Hasil Karya -->
+      <section class="section bg-surface" id="hasil-karya">
+        <svg class="deco deco-ruler karya-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-dim karya-dim" viewBox="0 0 300 40" aria-hidden="true"><use href="#d-dim"/></svg>
+        <div class="container showcase-grid">
+          <div class="showcase-text" data-aos="fade-up">
+            <span class="eyebrow">Hasil Karya</span>
+            <h2>Lihat Hasilnya Sebelum Dicetak</h2>
+            <p>
+              Dengan live preview, kamu bisa mencoba warna kaos dan mengatur
+              posisi desain di bagian depan maupun belakang — jadi hasil akhir
+              sesuai ekspektasi.
+            </p>
+            <ul class="check-list">
+              <li><i class="fas fa-check"></i> 19+ pilihan warna kaos</li>
+              <li><i class="fas fa-check"></i> Geser &amp; ubah ukuran desain bebas</li>
+              <li><i class="fas fa-check"></i> Download mockup sebagai referensi</li>
+            </ul>
+            <a href="customDesign.html" class="btn btn-outline"
+              >Coba Live Preview <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+          <div class="showcase-gallery" data-aos="fade-up" data-aos-delay="100">
+        <svg class="deco deco-crop crop-tl" viewBox="0 0 40 40" aria-hidden="true"><use href="#d-crop"/></svg>
+        <svg class="deco deco-crop crop-tr" viewBox="0 0 40 40" aria-hidden="true"><use href="#d-crop"/></svg>
+        <svg class="deco deco-crop crop-bl" viewBox="0 0 40 40" aria-hidden="true"><use href="#d-crop"/></svg>
+        <svg class="deco deco-crop crop-br" viewBox="0 0 40 40" aria-hidden="true"><use href="#d-crop"/></svg>
+            <figure class="showcase-item">
+              <img src="./assets/desain-kaos.png" alt="Mockup kaos hitam dengan logo Bara Prima Sentosa" loading="lazy" />
+              <figcaption>Kaos Hitam · Logo depan &amp; belakang</figcaption>
+            </figure>
+            <figure class="showcase-item">
+              <img src="./assets/desain-kaos (1).png" alt="Mockup kaos merah dengan logo di dada kiri" loading="lazy" />
+              <figcaption>Kaos Merah · Logo dada kiri</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panduan Ukuran -->
+      <section class="section" id="ukuran">
+        <svg class="deco deco-ruler ukuran-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg ukuran-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container size-guide">
+          <div class="size-text" data-aos="fade-up">
+            <span class="eyebrow">Panduan Ukuran</span>
+            <h2>Pilih Ukuran yang <span class="text-gradient">Pas di Badan</span></h2>
+            <p>
+              Klik salah satu ukuran untuk melihat ukurannya di gambar. Ukur
+              kaos yang biasa kamu pakai, lalu bandingkan dengan tabel ini.
+            </p>
+
+            <div class="size-tabs" role="tablist" aria-label="Jenis produk">
+              <button type="button" class="size-tab is-active" role="tab" aria-selected="true" data-chart="kaos">Kaos</button>
+              <button type="button" class="size-tab" role="tab" aria-selected="false" data-chart="hoodie">Hoodie / Jaket</button>
+              <button type="button" class="size-tab" role="tab" aria-selected="false" data-chart="jersey">Jersey</button>
+            </div>
+
+            <div class="size-table-wrap">
+              <table class="size-table" id="sizeTable">
+                <thead>
+                  <tr><th scope="col">Ukuran</th><th scope="col">Lebar (A)</th><th scope="col">Panjang (B)</th></tr>
+                </thead>
+                <tbody>
+                  <tr data-row="0"><th scope="row">S</th><td data-col="w">46</td><td data-col="l">66</td></tr>
+                  <tr data-row="1" class="is-active"><th scope="row">M</th><td data-col="w">49</td><td data-col="l">69</td></tr>
+                  <tr data-row="2"><th scope="row">L</th><td data-col="w">52</td><td data-col="l">72</td></tr>
+                  <tr data-row="3"><th scope="row">XL</th><td data-col="w">55</td><td data-col="l">74</td></tr>
+                  <tr data-row="4"><th scope="row">XXL</th><td data-col="w">58</td><td data-col="l">76</td></tr>
+                  <tr data-row="5"><th scope="row">XXXL</th><td data-col="w">61</td><td data-col="l">78</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="size-note"><i class="fas fa-circle-info"></i> Satuan cm, toleransi ±1–2 cm.</p>
+          </div>
+
+          <div class="size-visual" data-aos="fade-up" data-aos-delay="100">
+            <svg class="size-diagram" viewBox="0 0 400 400" role="img" aria-labelledby="sizeDiagramTitle">
+              <title id="sizeDiagramTitle">Diagram cara mengukur lebar (A) dan panjang (B) kaos</title>
+              <path class="shirt" d="M140 40 C160 60 240 60 260 40 L340 80 L370 150 L315 170 L300 140 L300 370 L100 370 L100 140 L85 170 L30 150 L60 80 Z"/>
+              <path class="collar" d="M140 40 C160 70 240 70 260 40"/>
+              <g class="dim dim-a">
+                <line x1="100" y1="200" x2="300" y2="200"/>
+                <path d="M110 194 100 200 110 206M290 194 300 200 290 206"/>
+                <rect x="155" y="186" width="90" height="28" rx="14"/>
+                <text x="200" y="205" text-anchor="middle" id="dimA">A · 49 cm</text>
+              </g>
+              <g class="dim dim-b">
+                <line x1="345" y1="45" x2="345" y2="370"/>
+                <path d="M339 55 345 45 351 55M339 360 345 370 351 360"/>
+                <rect x="300" y="194" width="90" height="28" rx="14"/>
+                <text x="345" y="213" text-anchor="middle" id="dimB">B · 69 cm</text>
+              </g>
+            </svg>
+            <div class="size-badge">
+              <span>Ukuran dipilih</span>
+              <strong id="sizePicked">M</strong>
+            </div>
+          </div>
+        </div>
+        <script type="application/json" id="sizeChartData">{"kaos":{"label":"Kaos","w":[46,49,52,55,58,61],"l":[66,69,72,74,76,78]},"hoodie":{"label":"Hoodie / Jaket","w":[50,53,56,59,62,65],"l":[66,68,70,72,74,76]},"jersey":{"label":"Jersey","w":[47,50,53,56,59,62],"l":[67,70,72,74,76,78]}}</script>
+      </section>
+
+      <!-- Testimoni -->
+      <section class="section bg-surface">
+        <svg class="deco deco-pen testi-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-reg testi-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Testimoni</span>
+            <h2>
+              <span class="text-primary">Apa Kata Mereka</span> yang Sudah
+              Cetak di Sini?
+            </h2>
+          </div>
+
+          <div class="testi-slider" id="testiSlider" data-aos="fade-up" aria-roledescription="carousel" aria-label="Testimoni pelanggan">
+            <div class="testi-viewport">
+              <div class="testi-track">
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="1 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Kualitas sablonnya benar-benar di atas ekspektasi! Hasil cetaknya tajam, warnanya tidak pudar meskipun sudah dicuci berkali-kali. Pelayanan juga cepat dan ramah.</blockquote>
+                  <div class="author">
+                    <span class="avatar">D</span>
+                    <div>
+                      <strong>Dina A.</strong>
+                      <span>Pemilik Usaha Clothing Line</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="2 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Saya order kaos sablon untuk event kantor, hasilnya rapi banget dan pas sesuai desain. Timnya juga sangat komunikatif dari awal sampai akhir.</blockquote>
+                  <div class="author">
+                    <span class="avatar">R</span>
+                    <div>
+                      <strong>Rizky P.</strong>
+                      <span>HRD Perusahaan Swasta</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="3 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Custom sablon untuk komunitas kami dikerjakan cepat dan hasilnya keren. Semua anggota puas dan bangga pakai kaosnya!</blockquote>
+                  <div class="author">
+                    <span class="avatar">S</span>
+                    <div>
+                      <strong>Sarah N.</strong>
+                      <span>Ketua Komunitas Motor</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="4 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Pesan kaos panitia dalam jumlah banyak, semuanya selesai sebelum acara. Ukurannya pas dan sablonnya awet.</blockquote>
+                  <div class="author">
+                    <span class="avatar">B</span>
+                    <div>
+                      <strong>Bima S.</strong>
+                      <span>Ketua Panitia Event Kampus</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="5 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Seragam kafe kami jadi terlihat lebih profesional. Logo tercetak rapi dan warnanya sesuai dengan brand kami.</blockquote>
+                  <div class="author">
+                    <span class="avatar">M</span>
+                    <div>
+                      <strong>Maya L.</strong>
+                      <span>Owner Coffee Shop</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="6 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Jersey tim custom lengkap dengan nama dan nomor punggung. Bahannya adem dan nyaman dipakai saat tanding.</blockquote>
+                  <div class="author">
+                    <span class="avatar">A</span>
+                    <div>
+                      <strong>Andi W.</strong>
+                      <span>Pelatih Tim Futsal</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="7 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Fitur live preview-nya sangat membantu, aku bisa mencoba warna dan posisi desain dulu sebelum order merchandise.</blockquote>
+                  <div class="author">
+                    <span class="avatar">P</span>
+                    <div>
+                      <strong>Putri R.</strong>
+                      <span>Content Creator</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="8 dari 8">
+                  <i class="fas fa-quote-left quote"></i>
+                  <div class="stars" aria-label="5 dari 5 bintang">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
+                  <blockquote>Order hoodie untuk gathering kantor, prosesnya mudah dan adminnya fast response. Pasti order lagi di sini!</blockquote>
+                  <div class="author">
+                    <span class="avatar">H</span>
+                    <div>
+                      <strong>Hendra K.</strong>
+                      <span>Manajer Gathering Kantor</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="testi-controls">
+              <button type="button" class="testi-btn" data-dir="-1" aria-label="Testimoni sebelumnya"><i class="fas fa-arrow-left"></i></button>
+              <div class="testi-dots" role="tablist" aria-label="Pilih testimoni"></div>
+              <button type="button" class="testi-btn" data-dir="1" aria-label="Testimoni berikutnya"><i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <svg class="deco deco-ruler faq-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-bbox faq-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+        <div class="container faq-layout">
+          <div class="faq-aside" data-aos="fade-up">
+            <span class="eyebrow">FAQ</span>
+            <h2>Pertanyaan yang Sering Ditanyakan</h2>
+            <p>
+              Belum menemukan jawabannya? Tim kami siap membantu kamu memilih
+              produk dan menyiapkan desain.
+            </p>
+            <div class="help-card">
+              <span class="fc-icon"><i class="fas fa-headset"></i></span>
+              <div>
+                <strong>Masih ada pertanyaan?</strong>
+                <small>Chat tim kami, respons cepat.</small>
+              </div>
+              <a href="#kontak" class="btn btn-primary btn-sm"
+                ><i class="fab fa-whatsapp"></i> Tanya Kami</a
+              >
+            </div>
+          </div>
+          <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+            <details class="faq-item" open>
+              <summary>Apakah bisa pesan satuan?</summary>
+              <p>
+                Bisa. Kami melayani sablon satuan maupun grosir untuk kebutuhan
+                personal, komunitas, hingga brand.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Format file desain apa yang diterima?</summary>
+              <p>
+                File JPG dan PNG. Untuk hasil terbaik gunakan PNG dengan latar
+                transparan dan resolusi tinggi.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Saya belum punya desain, bagaimana?</summary>
+              <p>
+                Pilih opsi <b>Galeri Desain</b> untuk memakai desain contoh,
+                atau <b>Jasa Desain</b> agar tim kami membuatkan desain sesuai
+                brief kamu.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Bagaimana jika hasil cetak gagal?</summary>
+              <p>Kami memberikan jaminan cetak ulang jika terjadi kegagalan produksi.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah bisa dikirim ke luar kota?</summary>
+              <p>Bisa, kami melayani pengiriman ke seluruh Indonesia.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up">
+        <svg class="deco deco-pen cta-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+            <img src="./assets/consult.png" alt="" aria-hidden="true" />
+            <div class="cta-text">
+              <h2>
+                <span class="text-primary"
+                  >Tinggal satu klik lagi untuk mencetak kaos custom</span
+                >
+                dengan hasil profesional.
+              </h2>
+              <p>Upload desainmu atau konsultasi langsung dengan tim kami!</p>
+            </div>
+            <a href="#kontak" class="btn btn-primary"
+              ><i class="fab fa-whatsapp"></i> Konsultasi Sekarang</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="kontak">
+        <svg class="deco deco-stitch footer-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+            <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
           <div class="footer-col">
-            <h4>Contact Us</h4>
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="customDesign.html">Galeri Design</a></li>
+              <li><a href="customDesign.html">Full Order</a></li>
+              <li><a href="customDesign.html">Jasa Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Perusahaan</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="customDesign.html">Custom Design</a></li>
+              <li><a href="index.html#cara-order">Cara Order</a></li>
+              <li><a href="panduan.html">Panduan Order</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Hubungi Kami</h4>
             <ul class="contact-info">
               <li><i class="fas fa-envelope"></i> contact@company.com</li>
               <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>Kota Bandung, Jawa Barat
-              </li>
+              <li><i class="fas fa-location-dot"></i> Kota Bandung, Jawa Barat</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-      <div class="container-footer footer-bottom">
-        <p>Copyright © <span class="footer-text">RS</span>Custom 2025</p>
-        <p>
-          All Rights Reserved | <a href="#">Terms and Conditions</a> |
-          <a href="#">Privacy Policy</a>
-        </p>
+        <div class="footer-bottom">
+          <p>Copyright © <span class="text-primary">RS</span>Custom 2025</p>
+          <p>
+            All Rights Reserved · <a href="#">Terms and Conditions</a> ·
+            <a href="#">Privacy Policy</a>
+          </p>
+        </div>
       </div>
     </footer>
 
-    <!--Script-->
-    <script src="./js/index.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init(
-        {
-            duration: 400,
-            easing: 'ease',
-            once: false,
-            delay: 0,
-        }
-      );
-    </script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

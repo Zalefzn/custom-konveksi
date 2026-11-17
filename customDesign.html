@@ -1,414 +1,669 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Design Sekarang | Custom Design</title>
-    <link href="./css/designCustom.css" rel="stylesheet" />
-    <link href="./css/custom.css" rel="stylesheet" />
+    <title>Custom Design | RSCustom</title>
+    <meta
+      name="description"
+      content="Desain dan pesan kaos custom langsung dengan live preview."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/designCustom.css" rel="stylesheet" />
   </head>
   <body>
-    <!--Navbar-->
-    <header>
-      <nav>
-        <div class="logo"><span class="span-logo">RS</span>Custom</div>
-        <div class="menu">
-          <a href="index.html">Beranda</a>
-          <a href="dokumentasi.html">Dokumentasi</a>
-          <a href="customDesign.html">Custom Design</a>
+    <!-- Ornamen garis bertema alat desain (dipakai lewat <use>) -->
+    <svg class="deco-sprite" aria-hidden="true" focusable="false">
+      <symbol id="d-pen" viewBox="0 0 400 200"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M10 160C90 20 190 20 210 100S330 190 390 40" class="d-draw"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="160" x2="90" y2="20" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="190" y1="20" x2="230" y2="180" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="330" y1="190" x2="390" y2="40" class="d-thin"/>
+        <circle vector-effect="non-scaling-stroke" cx="90" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="190" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="230" cy="180" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="330" cy="190" r="4" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="5" y="155" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="205" y="95" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="385" y="35" width="10" height="10" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-reg" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="24"/><circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="10" class="d-soft"/>
+        <line vector-effect="non-scaling-stroke" x1="50" y1="4" x2="50" y2="96"/><line vector-effect="non-scaling-stroke" x1="4" y1="50" x2="96" y2="50"/>
+      </g></symbol>
+      <symbol id="d-ruler" viewBox="0 0 400 44"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="1" y="1" width="398" height="40" rx="4"/><line vector-effect="non-scaling-stroke" x1="10" y1="1" x2="10" y2="16"/><text class="d-text" x="13" y="30">0</text><line vector-effect="non-scaling-stroke" x1="20" y1="1" x2="20" y2="8"/><line vector-effect="non-scaling-stroke" x1="30" y1="1" x2="30" y2="8"/><line vector-effect="non-scaling-stroke" x1="40" y1="1" x2="40" y2="8"/><line vector-effect="non-scaling-stroke" x1="50" y1="1" x2="50" y2="8"/><line vector-effect="non-scaling-stroke" x1="60" y1="1" x2="60" y2="16"/><text class="d-text" x="63" y="30">1</text><line vector-effect="non-scaling-stroke" x1="70" y1="1" x2="70" y2="8"/><line vector-effect="non-scaling-stroke" x1="80" y1="1" x2="80" y2="8"/><line vector-effect="non-scaling-stroke" x1="90" y1="1" x2="90" y2="8"/><line vector-effect="non-scaling-stroke" x1="100" y1="1" x2="100" y2="8"/><line vector-effect="non-scaling-stroke" x1="110" y1="1" x2="110" y2="16"/><text class="d-text" x="113" y="30">2</text><line vector-effect="non-scaling-stroke" x1="120" y1="1" x2="120" y2="8"/><line vector-effect="non-scaling-stroke" x1="130" y1="1" x2="130" y2="8"/><line vector-effect="non-scaling-stroke" x1="140" y1="1" x2="140" y2="8"/><line vector-effect="non-scaling-stroke" x1="150" y1="1" x2="150" y2="8"/><line vector-effect="non-scaling-stroke" x1="160" y1="1" x2="160" y2="16"/><text class="d-text" x="163" y="30">3</text><line vector-effect="non-scaling-stroke" x1="170" y1="1" x2="170" y2="8"/><line vector-effect="non-scaling-stroke" x1="180" y1="1" x2="180" y2="8"/><line vector-effect="non-scaling-stroke" x1="190" y1="1" x2="190" y2="8"/><line vector-effect="non-scaling-stroke" x1="200" y1="1" x2="200" y2="8"/><line vector-effect="non-scaling-stroke" x1="210" y1="1" x2="210" y2="16"/><text class="d-text" x="213" y="30">4</text><line vector-effect="non-scaling-stroke" x1="220" y1="1" x2="220" y2="8"/><line vector-effect="non-scaling-stroke" x1="230" y1="1" x2="230" y2="8"/><line vector-effect="non-scaling-stroke" x1="240" y1="1" x2="240" y2="8"/><line vector-effect="non-scaling-stroke" x1="250" y1="1" x2="250" y2="8"/><line vector-effect="non-scaling-stroke" x1="260" y1="1" x2="260" y2="16"/><text class="d-text" x="263" y="30">5</text><line vector-effect="non-scaling-stroke" x1="270" y1="1" x2="270" y2="8"/><line vector-effect="non-scaling-stroke" x1="280" y1="1" x2="280" y2="8"/><line vector-effect="non-scaling-stroke" x1="290" y1="1" x2="290" y2="8"/><line vector-effect="non-scaling-stroke" x1="300" y1="1" x2="300" y2="8"/><line vector-effect="non-scaling-stroke" x1="310" y1="1" x2="310" y2="16"/><text class="d-text" x="313" y="30">6</text><line vector-effect="non-scaling-stroke" x1="320" y1="1" x2="320" y2="8"/><line vector-effect="non-scaling-stroke" x1="330" y1="1" x2="330" y2="8"/><line vector-effect="non-scaling-stroke" x1="340" y1="1" x2="340" y2="8"/><line vector-effect="non-scaling-stroke" x1="350" y1="1" x2="350" y2="8"/><line vector-effect="non-scaling-stroke" x1="360" y1="1" x2="360" y2="16"/><text class="d-text" x="363" y="30">7</text><line vector-effect="non-scaling-stroke" x1="370" y1="1" x2="370" y2="8"/><line vector-effect="non-scaling-stroke" x1="380" y1="1" x2="380" y2="8"/><line vector-effect="non-scaling-stroke" x1="390" y1="1" x2="390" y2="8"/>
+      </g></symbol>
+      <symbol id="d-dim" viewBox="0 0 300 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line vector-effect="non-scaling-stroke" x1="10" y1="6" x2="10" y2="34"/><line vector-effect="non-scaling-stroke" x1="290" y1="6" x2="290" y2="34"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="20" x2="118" y2="20"/><line vector-effect="non-scaling-stroke" x1="182" y1="20" x2="290" y2="20"/>
+        <path vector-effect="non-scaling-stroke" d="M18 15 10 20 18 25M282 15 290 20 282 25"/>
+        <text class="d-text" x="150" y="24" text-anchor="middle">50 cm</text>
+      </g></symbol>
+      <symbol id="d-bbox" viewBox="0 0 200 150"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="6" y="26" width="188" height="118" class="d-dash"/>
+        <line vector-effect="non-scaling-stroke" x1="100" y1="10" x2="100" y2="26"/><circle vector-effect="non-scaling-stroke" cx="100" cy="8" r="5" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="2" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="140" width="8" height="8" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-crop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 14H10M14 0V10"/>
+      </g></symbol>
+      <symbol id="d-stitch" viewBox="0 0 1200 120" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 60C150 0 300 120 450 60S750 0 900 60 1100 110 1200 50" class="d-thin"/>
+        <path vector-effect="non-scaling-stroke" d="M0 72C150 12 300 132 450 72S750 12 900 72 1100 122 1200 62" class="d-stitch"/>
+      </g></symbol>
+    </svg>
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <div class="menu">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#cara-order">Cara Order</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <a href="customDesign.html" class="btn btn-primary btn-sm nav-cta"
+            ><i class="fas fa-palette"></i> Custom Design</a
+          >
         </div>
-        <button class="cta-button">Daftar</button>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="custom-design-hero">
-      <!-- Bubble kiri -->
-      <span class="custom-design-bubble bubble-left bubble-lg"></span>
-      <span class="custom-design-bubble bubble-left bubble-md"></span>
-      <span class="custom-design-bubble bubble-left bubble-sm"></span>
-
-      <!-- Bubble kanan -->
-      <span class="custom-design-bubble bubble-right bubble-lg"></span>
-      <span class="custom-design-bubble bubble-right bubble-md"></span>
-      <span class="custom-design-bubble bubble-right bubble-sm"></span>
-
-      <!-- Konten -->
-      <div class="custom-design-content">
-        <p class="custom-design-breadcrumb">
-          <span class="breadcrumb-active">Beranda</span> &gt; Custom Design
-        </p>
-        <h2>Custom Design</h2>
-        <p class="custom-design-description">
-          Custom Design memungkinkan pengguna untuk membuat dan mengatur desain
-          produk sesuai kebutuhan dengan mudah.
-        </p>
-      </div>
-    </section>
-
-    <!-- Order Section -->
-    <section class="custom-order-section">
-      <div class="custom-order-header">
-        <h2><span class="header-highlight">Custom Impianmu!</span></h2>
-        <p>Yuk, Kita Mulai Order</p>
-      </div>
-
-      <!-- Wizard Steps -->
-      <div class="order-wizard-steps">
-        <div class="wizard-step active" data-step="1">
-          <div class="step-circle">1</div>
-          <span class="step-connector"></span>
-        </div>
-        <div class="wizard-step" data-step="2">
-          <div class="step-circle">2</div>
-          <span class="step-connector"></span>
-        </div>
-        <div class="wizard-step" data-step="3">
-          <div class="step-circle">3</div>
-          <span class="step-connector"></span>
-        </div>
-        <div class="wizard-step" data-step="4">
-          <div class="step-circle">4</div>
-        </div>
-      </div>
-
-      <!-- Wizard Forms -->
-      <div class="wizard-forms-container">
-        <!-- Step 1 -->
-        <div class="wizard-form active" data-form="1">
-          <h3 class="form-step-title">Pilih Jenis Pemesanan di Bawah ini :</h3>
-
-          <div class="option-card-grid" id="product-options">
-            <div class="product-option" data-product="Kaos">
-              <span class="option-indicator"></span>
-              <div class="option-label">Kaos</div>
-            </div>
-            <div class="product-option" data-product="Jaket">
-              <span class="option-indicator"></span>
-              <div class="option-label">Jaket</div>
-            </div>
-            <div class="product-option" data-product="Topi">
-              <span class="option-indicator"></span>
-              <div class="option-label">Topi</div>
-            </div>
-            <div class="product-option" data-product="Jersey">
-              <span class="option-indicator"></span>
-              <div class="option-label">Jersey</div>
-            </div>
-          </div>
-
-          <div class="model-selection hidden" id="model-wrapper">
-            <h4 id="model-selection-title" class="model-title">Pilih Model</h4>
-            <div class="option-card-grid" id="model-options"></div>
-          </div>
-
-          <button class="wizard-next-btn">Selanjutnya</button>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="wizard-form">
-          <div class="form-step-header">
-            <h3 class="form-title">Upload Desain</h3>
-            <p class="form-subtitle">
-              Unggah desain atau pilih metode desain yang kamu inginkan
-            </p>
-          </div>
-
-          <div class="color-preview-section">
-            <!-- Pilih Warna -->
-            <div class="color-selection">
-              <h4 class="section-title">Warna Kaos</h4>
-              <div class="color-options">
-                <span
-                  class="color-option"
-                  data-color="#ffffff"
-                  style="background: #ffffff; border: 1px solid #ccc"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#1d1d1d"
-                  style="background: #1d1d1d"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#ffe0b2"
-                  style="background: #ffe0b2"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#7b0000"
-                  style="background: #7b0000"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#ff4b4b"
-                  style="background: #ff4b4b"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#007bff"
-                  style="background: #007bff"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#f1f800"
-                  style="background: #f1f800"
-                ></span>
-                <span
-                  class="color-option"
-                  data-color="#7aff7a"
-                  style="background: #7aff7a"
-                ></span>
-              </div>
-            </div>
-
-            <!-- Preview Kaos -->
-            <div class="preview-container">
-              <h4 class="section-title">Preview Kaos</h4>
-              <div
-                id="shirtPreview"
-                class="preview-box"
-                style="background: #f5f5f5; padding: 10px"
-              >
-                <canvas id="shirtCanvas" width="650" height="550"></canvas>
-              </div>
-              <button
-                id="downloadDesignBtn"
-                style="
-                  margin-top: 10px;
-                  padding: 8px 12px;
-                  background: #ff4b4b;
-                  color: #fff;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                "
-              >
-                Download Desain
-              </button>
-            </div>
-          </div>
-
-          <!-- Pilih Tipe Desain -->
-          <div class="design-type-section">
-            <h4 class="section-title">Design Kaos</h4>
-            <div id="designTypeOptions" class="design-type-options">
-              <div class="design-type-card" data-type="full">
-                <div class="design-type-label">Full Order</div>
-              </div>
-              <div class="design-type-card" data-type="galeri">
-                <div class="design-type-label">Galeri Desain</div>
-              </div>
-              <div class="design-type-card" data-type="jasa">
-                <div class="design-type-label">Jasa Desain</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Konten Dinamis -->
-          <div id="designFormContainer" class="dynamic-form-content"></div>
-
-          <!-- Navigasi Step -->
-          <div class="form-navigation">
-            <button type="button" class="wizard-prev-btn">Sebelumnya</button>
-            <button type="button" class="wizard-next-btn">Selanjutnya</button>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="wizard-form" data-form="3">
-          <h3>Detail & Jumlah</h3>
-          <p>Isi detail pemesanan dengan benar:</p>
-
-          <!-- Catatan -->
-          <div class="form-group">
-            <label>Catatan Tambahan</label>
-            <textarea
-              class="input-control"
-              placeholder="Masukkan catatan tambahan..."
-            ></textarea>
-          </div>
-
-          <!-- Jumlah per Ukuran -->
-          <div class="form-group">
-            <label>Jumlah Ukuran</label>
-            <div class="size-quantity-container">
-              <div class="size-card">
-                <span class="size-label">S</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-              <div class="size-card">
-                <span class="size-label">M</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-              <div class="size-card">
-                <span class="size-label">L</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-              <div class="size-card">
-                <span class="size-label">XL</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-              <div class="size-card">
-                <span class="size-label">XXL</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-              <div class="size-card">
-                <span class="size-label">XXXL</span>
-                <input type="number" min="0" placeholder="0" />
-              </div>
-            </div>
-          </div>
-
-          <!-- Deadline -->
-          <div class="form-group">
-            <label>Tanggal Order</label>
-            <input type="date" class="input-control" />
-          </div>
-
-          <button class="wizard-prev-btn">Sebelumnya</button>
-          <button class="wizard-next-btn">Selanjutnya</button>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="wizard-form checkout-form" data-form="4">
-          <h3 class="form-title">Checkout</h3>
-          <p class="form-subtitle">Konfirmasi data kamu sebelum order:</p>
-
-          <div class="form-group">
-            <label>Nama Pemesan</label>
-            <input type="text" class="input-line" placeholder="Nama Lengkap" />
-          </div>
-
-          <div class="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              class="input-line"
-              placeholder="emailkamu@email.com"
-            />
-          </div>
-
-          <div class="form-group">
-            <label>Nomor Whatsapp</label>
-            <input type="text" class="input-line" placeholder="082938923022" />
-          </div>
-
-          <div class="form-group">
-            <label>Alamat Pengiriman</label>
-            <textarea
-              class="input-line"
-              rows="3"
-              placeholder="Alamat lengkap pengiriman..."
-            ></textarea>
-          </div>
-
-          <div class="form-navigation">
-            <button class="wizard-prev-btn">Sebelumnya</button>
-            <button class="wizard-finish-btn">Selesai</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <div class="warp-cta">
-      <section class="cta-section">
-        <div class="cta-content">
-          <h2>
-            <span class="highlight"
-              >Langkahmu tinggal satu klik lagi untuk mencetak kaos custom</span
-            >
-            dengan hasil profesional.
-          </h2>
-          <p>Upload desainmu atau konsultasi langsung dengan tim kami!</p>
-          <button class="cta-button">Konsultasi Sekarang</button>
-        </div>
-
-        <img
-          src="./assets/consult.png"
-          alt="Ilustrasi Konsultasi"
-          class="cta-image"
-        />
-
-        <div class="bubble-group">
-          <div class="bubble small"></div>
-          <div class="bubble medium"></div>
-          <div class="bubble large"></div>
+    <main>
+      <!-- Hero -->
+      <section class="page-hero">
+        <svg class="deco deco-pen ph-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-ruler ph-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg ph-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <span class="blob blob-4"></span>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Custom Design</span>
+          </nav>
+          <h1>Wujudkan <span class="text-gradient">Desain Impianmu</span></h1>
+          <p>
+            Buat dan atur desain produkmu sesuai kebutuhan dengan mudah —
+            lengkap dengan live preview.
+          </p>
+          <ul class="hero-pills">
+            <li><i class="fas fa-eye"></i> Live preview</li>
+            <li><i class="fas fa-palette"></i> 19+ warna kaos</li>
+            <li><i class="fas fa-cloud-arrow-up"></i> Upload PNG / JPG</li>
+            <li><i class="fas fa-truck-fast"></i> Kirim seluruh Indonesia</li>
+          </ul>
         </div>
       </section>
-    </div>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+      <!-- Order -->
+      <section class="section order-section" id="order">
+        <div class="container">
+          <div class="wizard-shell">
+            <div class="wizard-top">
+              <div class="wizard-top-text">
+                <span class="eyebrow"
+                  ><i class="fas fa-wand-magic-sparkles"></i> Order Builder</span
+                >
+                <h2>Custom <span class="text-gradient">Impianmu!</span></h2>
+                <p>
+                  Langkah <b id="stepCount">1</b> dari 4 — selesaikan semua
+                  langkah untuk mengirim pesanan.
+                </p>
+              </div>
+              <a href="panduan.html" class="btn btn-ghost btn-sm"
+                ><i class="fas fa-book-open"></i> Lihat Panduan</a
+              >
+            </div>
+
+            <!-- Stepper -->
+            <ol class="stepper" id="stepper">
+              <li class="step is-active" data-step="0">
+                <span class="step-dot"><i class="fas fa-shirt"></i></span>
+                <span class="step-label">Produk<small>Jenis &amp; model</small></span>
+              </li>
+              <li class="step" data-step="1">
+                <span class="step-dot"><i class="fas fa-palette"></i></span>
+                <span class="step-label">Desain<small>Warna &amp; artwork</small></span>
+              </li>
+              <li class="step" data-step="2">
+                <span class="step-dot"><i class="fas fa-ruler-combined"></i></span>
+                <span class="step-label">Detail<small>Ukuran &amp; jumlah</small></span>
+              </li>
+              <li class="step" data-step="3">
+                <span class="step-dot"><i class="fas fa-bag-shopping"></i></span>
+                <span class="step-label">Checkout<small>Data pemesan</small></span>
+              </li>
+            </ol>
+
+          <div class="wizard" id="orderWizard">
+            <!-- Step 1: Produk -->
+            <section class="wizard-panel is-active" data-panel="0">
+              <header class="panel-head">
+                <h3>Pilih Jenis Produk</h3>
+                <p>Pilih produk yang ingin kamu pesan, lalu tentukan modelnya.</p>
+              </header>
+
+              <div class="choice-grid" id="productOptions">
+                <button type="button" class="choice" data-product="Kaos">
+                  <span class="choice-check"></span>
+                  <span class="choice-icon"><i class="fas fa-shirt"></i></span>
+                  <span class="choice-title">Kaos</span>
+                  <span class="choice-desc">Pendek, panjang, oversize</span>
+                </button>
+                <button type="button" class="choice" data-product="Jaket">
+                  <span class="choice-check"></span>
+                  <span class="choice-icon"><i class="fas fa-vest-patches"></i></span>
+                  <span class="choice-title">Jaket</span>
+                  <span class="choice-desc">Bomber, hoodie, windbreaker</span>
+                </button>
+                <button type="button" class="choice" data-product="Topi">
+                  <span class="choice-check"></span>
+                  <span class="choice-icon"><i class="fas fa-hat-cowboy"></i></span>
+                  <span class="choice-title">Topi</span>
+                  <span class="choice-desc">Snapback, trucker, polos</span>
+                </button>
+                <button type="button" class="choice" data-product="Jersey">
+                  <span class="choice-check"></span>
+                  <span class="choice-icon"><i class="fas fa-futbol"></i></span>
+                  <span class="choice-title">Jersey</span>
+                  <span class="choice-desc">Bola, basket, eSports</span>
+                </button>
+              </div>
+
+              <div class="model-block" id="modelWrapper" hidden>
+                <h4 class="sub-title" id="modelTitle">Pilih Model</h4>
+                <div class="model-grid" id="modelOptions"></div>
+              </div>
+
+              <p class="form-error" role="alert"></p>
+              <div class="wizard-nav">
+                <button type="button" class="btn btn-primary" data-next>
+                  Selanjutnya <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 2: Desain -->
+            <section class="wizard-panel" data-panel="1">
+              <header class="panel-head">
+                <h3>Atur Desain</h3>
+                <p>Pilih warna, lalu unggah atau pilih desain yang kamu inginkan.</p>
+              </header>
+
+              <div class="design-layout">
+                <div class="design-controls">
+                  <div class="control-group">
+                    <h4 class="sub-title">
+                      Warna Produk <span class="color-current"><span class="color-dot" id="colorDot"></span><small id="colorName">Putih</small></span>
+                    </h4>
+                    <div class="swatch-panel" id="colorOptions">
+                      <div class="swatch-group">
+                        <span class="swatch-group-label">Netral</span>
+                        <div class="swatches">
+                          <button type="button" class="swatch is-active" data-color="#ffffff" data-name="Putih" style="--c: #ffffff" aria-label="Putih" title="Putih"></button>
+                          <button type="button" class="swatch" data-color="#c9cbd1" data-name="Abu Misty" style="--c: #c9cbd1" aria-label="Abu Misty" title="Abu Misty"></button>
+                          <button type="button" class="swatch" data-color="#5b5e66" data-name="Abu Tua" style="--c: #5b5e66" aria-label="Abu Tua" title="Abu Tua"></button>
+                          <button type="button" class="swatch" data-color="#1d1d1d" data-name="Hitam" style="--c: #1d1d1d" aria-label="Hitam" title="Hitam"></button>
+                          <button type="button" class="swatch" data-color="#ffe0b2" data-name="Krem" style="--c: #ffe0b2" aria-label="Krem" title="Krem"></button>
+                          <button type="button" class="swatch" data-color="#8b6b4a" data-name="Coklat Mocca" style="--c: #8b6b4a" aria-label="Coklat Mocca" title="Coklat Mocca"></button>
+                        </div>
+                      </div>
+                      <div class="swatch-group">
+                        <span class="swatch-group-label">Cerah</span>
+                        <div class="swatches">
+                          <button type="button" class="swatch" data-color="#ff4b4b" data-name="Merah" style="--c: #ff4b4b" aria-label="Merah" title="Merah"></button>
+                          <button type="button" class="swatch" data-color="#ff8a1f" data-name="Oranye" style="--c: #ff8a1f" aria-label="Oranye" title="Oranye"></button>
+                          <button type="button" class="swatch" data-color="#f1f800" data-name="Kuning" style="--c: #f1f800" aria-label="Kuning" title="Kuning"></button>
+                          <button type="button" class="swatch" data-color="#7aff7a" data-name="Hijau" style="--c: #7aff7a" aria-label="Hijau" title="Hijau"></button>
+                          <button type="button" class="swatch" data-color="#14b8a6" data-name="Tosca" style="--c: #14b8a6" aria-label="Tosca" title="Tosca"></button>
+                          <button type="button" class="swatch" data-color="#007bff" data-name="Biru" style="--c: #007bff" aria-label="Biru" title="Biru"></button>
+                          <button type="button" class="swatch" data-color="#8ec5ff" data-name="Biru Muda" style="--c: #8ec5ff" aria-label="Biru Muda" title="Biru Muda"></button>
+                          <button type="button" class="swatch" data-color="#f9a8d4" data-name="Pink" style="--c: #f9a8d4" aria-label="Pink" title="Pink"></button>
+                        </div>
+                      </div>
+                      <div class="swatch-group">
+                        <span class="swatch-group-label">Gelap</span>
+                        <div class="swatches">
+                          <button type="button" class="swatch" data-color="#7b0000" data-name="Maroon" style="--c: #7b0000" aria-label="Maroon" title="Maroon"></button>
+                          <button type="button" class="swatch" data-color="#d9a21b" data-name="Mustard" style="--c: #d9a21b" aria-label="Mustard" title="Mustard"></button>
+                          <button type="button" class="swatch" data-color="#4b5d34" data-name="Hijau Army" style="--c: #4b5d34" aria-label="Hijau Army" title="Hijau Army"></button>
+                          <button type="button" class="swatch" data-color="#1e2a5a" data-name="Navy" style="--c: #1e2a5a" aria-label="Navy" title="Navy"></button>
+                          <button type="button" class="swatch" data-color="#7c3aed" data-name="Ungu" style="--c: #7c3aed" aria-label="Ungu" title="Ungu"></button>
+                        </div>
+                      </div>
+                      <div class="swatch-group">
+                        <span class="swatch-group-label">Bebas</span>
+                        <div class="swatches">
+                          <label class="swatch swatch-custom" title="Pilih warna lain">
+                            <input type="color" id="customColor" value="#8b5cf6" aria-label="Pilih warna lain" />
+                            <i class="fas fa-eye-dropper" aria-hidden="true"></i>
+                          </label>
+                          <span class="swatch-custom-hint">Warna lain? Pilih bebas di sini</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="control-group" id="detailGroup">
+                    <h4 class="sub-title">
+                      Detail Produk <small id="detailHint">Kerah, lengan &amp; tambahan</small>
+                    </h4>
+                    <div class="detail-panel" id="detailOptions"></div>
+
+                    <!-- Desain label leher (muncul bila tambahan "Label" dipilih) -->
+                    <div class="label-designer" id="labelDesigner" hidden>
+                      <div class="label-head">
+                        <span class="label-head-icon"><i class="fas fa-tag"></i></span>
+                        <div>
+                          <strong>Desain Label Leher</strong>
+                          <small>Tampak bagian dalam leher belakang</small>
+                        </div>
+                      </div>
+
+                      <div class="label-stage">
+                        <svg class="label-svg" id="labelSvg" viewBox="0 0 320 210" role="img" aria-labelledby="labelSvgTitle">
+                          <title id="labelSvgTitle">Preview label di bagian dalam leher</title>
+                          <defs>
+                            <clipPath id="neckClip"><path d="M58 44Q160 196 262 44Q160 12 58 44Z"/></clipPath>
+                          </defs>
+                          <!-- badan depan -->
+                          <path class="ls-body" d="M0 210V86L58 44Q160 196 262 44L320 86V210Z"/>
+                          <path class="ls-shade" d="M0 210V86L58 44Q160 196 262 44L320 86V210Z"/>
+                          <!-- bagian dalam belakang (terlihat dari lubang leher) -->
+                          <path class="ls-body" d="M58 44Q160 196 262 44Q160 12 58 44Z"/>
+                          <path class="ls-inner" d="M58 44Q160 196 262 44Q160 12 58 44Z"/>
+                          <!-- kerah belakang -->
+                          <path class="ls-body ls-rib" d="M58 44Q160 12 262 44L254 55Q160 25 66 55Z"/>
+                          <path class="ls-ribline" d="M62 49.5Q160 18.5 258 49.5"/>
+                          <!-- label -->
+                          <g id="labelGroup" clip-path="url(#neckClip)">
+                            <rect class="lbl-bg" id="lblBg" x="108" y="40" width="104" height="56" rx="2"/>
+                            <path class="lbl-stitch" id="lblStitch" d="M110 44H210M110 92H210"/>
+                            <image id="lblLogo" x="148" y="45" width="24" height="14" preserveAspectRatio="xMidYMid meet"/>
+                            <text class="lbl-brand" id="lblBrand" x="160" y="69" text-anchor="middle">BRAND KAMU</text>
+                            <text class="lbl-sub" id="lblSub" x="160" y="80" text-anchor="middle">Made in Indonesia</text>
+                            <text class="lbl-size" id="lblSize" x="160" y="90" text-anchor="middle">M</text>
+                          </g>
+                          <!-- kerah depan menutupi tepi bawah -->
+                          <path class="ls-body ls-rib" d="M58 44Q160 196 262 44L272 50Q160 214 48 50Z"/>
+                          <path class="ls-ribline" d="M53 47Q160 205 267 47"/>
+                        </svg>
+                        <span class="label-badge" id="labelTypeBadge">Woven</span>
+                      </div>
+
+                      <div class="label-controls">
+                        <div class="label-field label-field-full">
+                          <span class="detail-label">Jenis Label</span>
+                          <div class="detail-options" id="labelType">
+                            <button type="button" class="detail-pill is-selected" data-value="Woven" aria-pressed="true">Woven (dijahit)</button>
+                            <button type="button" class="detail-pill" data-value="Sablon" aria-pressed="false">Sablon (tagless)</button>
+                          </div>
+                        </div>
+                        <label class="label-field">
+                          <span class="detail-label">Nama Brand</span>
+                          <input type="text" class="input" id="labelBrand" maxlength="16" placeholder="BRAND KAMU" />
+                        </label>
+                        <label class="label-field">
+                          <span class="detail-label">Teks Kecil</span>
+                          <input type="text" class="input" id="labelSub" maxlength="24" value="Made in Indonesia" />
+                        </label>
+                        <div class="label-field" id="labelBgField">
+                          <span class="detail-label">Warna Label</span>
+                          <div class="detail-options" id="labelBgColors"></div>
+                        </div>
+                        <div class="label-field">
+                          <span class="detail-label">Warna Teks</span>
+                          <div class="detail-options" id="labelFgColors"></div>
+                        </div>
+                        <div class="label-field">
+                          <span class="detail-label">Logo <small>(opsional)</small></span>
+                          <div class="label-logo-row">
+                            <label class="btn btn-ghost btn-sm label-upload">
+                              <i class="fas fa-image"></i> <span id="labelLogoText">Upload logo</span>
+                              <input type="file" id="labelLogo" accept="image/png,image/jpeg,image/svg+xml" hidden />
+                            </label>
+                            <button type="button" class="icon-btn" id="labelLogoRemove" aria-label="Hapus logo label" hidden><i class="fas fa-xmark"></i></button>
+                          </div>
+                        </div>
+                        <label class="label-field label-check">
+                          <input type="checkbox" id="labelShowSize" checked />
+                          <span>Tampilkan ukuran di label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <h4 class="sub-title">Metode Desain</h4>
+                    <div class="method-grid" id="designTypeOptions">
+                      <button type="button" class="method" data-type="full">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                        <strong>Full Order</strong>
+                        <span>Upload desain sendiri</span>
+                      </button>
+                      <button type="button" class="method" data-type="galeri">
+                        <i class="fas fa-images"></i>
+                        <strong>Galeri Desain</strong>
+                        <span>Pilih desain contoh</span>
+                      </button>
+                      <button type="button" class="method" data-type="jasa">
+                        <i class="fas fa-pen-ruler"></i>
+                        <strong>Jasa Desain</strong>
+                        <span>Dibuatkan tim kami</span>
+                      </button>
+                    </div>
+                    <div id="designFormContainer" class="method-content"></div>
+                  </div>
+                </div>
+
+                <div class="design-preview">
+                  <div class="preview-card">
+                    <div class="preview-toolbar">
+                      <span class="preview-title"
+                        ><span class="win-dots" aria-hidden="true"><b></b><b></b><b></b></span>
+                        <i class="fas fa-eye"></i> Live Preview</span
+                      >
+                      <div class="tool-btns">
+                        <button type="button" class="icon-btn" id="deleteDesignBtn" title="Hapus desain terpilih" aria-label="Hapus desain terpilih" disabled>
+                          <i class="fas fa-trash-can"></i>
+                        </button>
+                        <button type="button" class="icon-btn" id="resetDesignBtn" title="Hapus semua desain" aria-label="Hapus semua desain" disabled>
+                          <i class="fas fa-rotate-left"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="canvas-wrap">
+                      <span class="cw-corner tl" aria-hidden="true"></span>
+                      <span class="cw-corner tr" aria-hidden="true"></span>
+                      <span class="cw-corner bl" aria-hidden="true"></span>
+                      <span class="cw-corner br" aria-hidden="true"></span>
+                      <canvas id="shirtCanvas" width="800" height="800" aria-label="Preview kaos"></canvas>
+                    </div>
+                    <p class="preview-hint">
+                      <i class="fas fa-hand-pointer"></i> Geser desain untuk
+                      memindah, tarik kotak merah untuk ubah ukuran.
+                    </p>
+                    <div class="spec-chips" id="specChips" aria-live="polite"></div>
+                    <button type="button" class="btn btn-outline" id="downloadDesignBtn">
+                      <i class="fas fa-download"></i> Download Preview
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <p class="form-error" role="alert"></p>
+              <div class="wizard-nav">
+                <button type="button" class="btn btn-ghost" data-prev>
+                  <i class="fas fa-arrow-left"></i> Sebelumnya
+                </button>
+                <button type="button" class="btn btn-primary" data-next>
+                  Selanjutnya <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 3: Detail -->
+            <section class="wizard-panel" data-panel="2">
+              <header class="panel-head">
+                <h3>Detail &amp; Jumlah</h3>
+                <p>Isi jumlah per ukuran dan detail pemesanan dengan benar.</p>
+              </header>
+
+              <h4 class="sub-title">Jumlah per Ukuran</h4>
+              <div class="size-grid" id="sizeGrid">
+                <div class="size-card" data-size="S">
+                  <span class="size-label">S</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi S">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran S" />
+                    <button type="button" data-qty="1" aria-label="Tambah S">+</button>
+                  </div>
+                </div>
+                <div class="size-card" data-size="M">
+                  <span class="size-label">M</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi M">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran M" />
+                    <button type="button" data-qty="1" aria-label="Tambah M">+</button>
+                  </div>
+                </div>
+                <div class="size-card" data-size="L">
+                  <span class="size-label">L</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi L">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran L" />
+                    <button type="button" data-qty="1" aria-label="Tambah L">+</button>
+                  </div>
+                </div>
+                <div class="size-card" data-size="XL">
+                  <span class="size-label">XL</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi XL">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran XL" />
+                    <button type="button" data-qty="1" aria-label="Tambah XL">+</button>
+                  </div>
+                </div>
+                <div class="size-card" data-size="XXL">
+                  <span class="size-label">XXL</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi XXL">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran XXL" />
+                    <button type="button" data-qty="1" aria-label="Tambah XXL">+</button>
+                  </div>
+                </div>
+                <div class="size-card" data-size="XXXL">
+                  <span class="size-label">XXXL</span>
+                  <div class="qty">
+                    <button type="button" data-qty="-1" aria-label="Kurangi XXXL">−</button>
+                    <input type="number" min="0" value="0" inputmode="numeric" aria-label="Jumlah ukuran XXXL" />
+                    <button type="button" data-qty="1" aria-label="Tambah XXXL">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="total-bar">
+                <span>Total Pesanan</span>
+                <strong><span id="totalQty">0</span> pcs</strong>
+              </div>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="orderDate">Tanggal Dibutuhkan</label>
+                  <input type="date" id="orderDate" class="input" />
+                </div>
+                <div class="field field-full">
+                  <label for="orderNote">Catatan Tambahan <small>(opsional)</small></label>
+                  <textarea id="orderNote" class="input" placeholder="Contoh: sablon di dada kiri ukuran A6, tulisan di punggung..."></textarea>
+                </div>
+              </div>
+
+              <p class="form-error" role="alert"></p>
+              <div class="wizard-nav">
+                <button type="button" class="btn btn-ghost" data-prev>
+                  <i class="fas fa-arrow-left"></i> Sebelumnya
+                </button>
+                <button type="button" class="btn btn-primary" data-next>
+                  Selanjutnya <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
+
+            <!-- Step 4: Checkout -->
+            <section class="wizard-panel" data-panel="3">
+              <header class="panel-head">
+                <h3>Checkout</h3>
+                <p>Konfirmasi data kamu sebelum mengirim pesanan.</p>
+              </header>
+
+              <div class="checkout-layout">
+                <form class="field-grid" id="checkoutForm" novalidate>
+                  <div class="field">
+                    <label for="custName">Nama Pemesan</label>
+                    <input type="text" id="custName" class="input" placeholder="Nama lengkap" autocomplete="name" required />
+                  </div>
+                  <div class="field">
+                    <label for="custPhone">Nomor WhatsApp</label>
+                    <input type="tel" id="custPhone" class="input" placeholder="08xxxxxxxxxx" autocomplete="tel" inputmode="tel" required />
+                  </div>
+                  <div class="field field-full">
+                    <label for="custEmail">Email</label>
+                    <input type="email" id="custEmail" class="input" placeholder="emailkamu@email.com" autocomplete="email" required />
+                  </div>
+                  <div class="field field-full">
+                    <label for="custAddress">Alamat Pengiriman</label>
+                    <textarea id="custAddress" class="input" rows="3" placeholder="Alamat lengkap pengiriman..." autocomplete="street-address" required></textarea>
+                  </div>
+                </form>
+
+                <aside class="summary">
+                  <h4><i class="fas fa-receipt"></i> Ringkasan Pesanan</h4>
+                  <figure class="summary-preview" id="summaryPreviewWrap">
+                    <img id="summaryPreview" alt="Preview desain pesanan kamu" />
+                    <figcaption>
+                      <span><i class="fas fa-eye"></i> Preview Desain</span>
+                      <button type="button" class="summary-edit" id="editDesignBtn">
+                        <i class="fas fa-pen"></i> Ubah
+                      </button>
+                    </figcaption>
+                    <p class="summary-preview-note" id="summaryPreviewNote" hidden></p>
+                  </figure>
+                  <figure class="summary-label" id="summaryLabel" hidden>
+                    <div class="summary-label-art"></div>
+                    <figcaption><i class="fas fa-tag"></i> Label Leher</figcaption>
+                  </figure>
+                  <dl id="orderSummary"></dl>
+                  <div class="summary-total">
+                    <span>Total</span>
+                    <strong><span id="summaryTotal">0</span> pcs</strong>
+                  </div>
+                </aside>
+              </div>
+
+              <p class="form-error" role="alert"></p>
+              <div class="wizard-nav">
+                <button type="button" class="btn btn-ghost" data-prev>
+                  <i class="fas fa-arrow-left"></i> Sebelumnya
+                </button>
+                <button type="button" class="btn btn-primary" id="finishBtn">
+                  <i class="fas fa-paper-plane"></i> Kirim Pesanan
+                </button>
+              </div>
+            </section>
+
+            <!-- Success -->
+            <section class="wizard-success" id="orderSuccess" hidden>
+              <div class="success-icon"><i class="fas fa-check"></i></div>
+              <h3>Pesanan Berhasil Dikirim!</h3>
+              <p>
+                Terima kasih, <b id="successName"></b>. Tim kami akan segera
+                menghubungi kamu via WhatsApp untuk konfirmasi pesanan.
+              </p>
+              <div class="success-actions">
+                <a href="customDesign.html" class="btn btn-primary"
+                  ><i class="fas fa-plus"></i> Buat Pesanan Baru</a
+                >
+                <a href="index.html" class="btn btn-ghost">Kembali ke Beranda</a>
+              </div>
+            </section>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card">
+        <svg class="deco deco-pen cta-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+            <img src="./assets/consult.png" alt="" aria-hidden="true" />
+            <div class="cta-text">
+              <h2>
+                <span class="text-primary">Masih bingung soal desain?</span>
+                Tim kami siap bantu dari ide sampai jadi.
+              </h2>
+              <p>Konsultasi langsung dengan tim kami, gratis!</p>
+            </div>
+            <a href="#kontak" class="btn btn-primary"
+              ><i class="fab fa-whatsapp"></i> Konsultasi Sekarang</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="kontak">
+        <svg class="deco deco-stitch footer-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
       <div class="container">
         <div class="footer-grid">
-          <!-- Logo & Social Media -->
-          <div class="footer-col">
-            <h3 class="logo"><span class="footer-span">RS</span>Custom</h3>
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
             <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
             <div class="social-icons">
-              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" title="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
-
-          <!-- Product Links -->
           <div class="footer-col">
-            <h4>Product</h4>
+            <h4>Produk</h4>
             <ul>
-              <li><a href="#">Galeri Design</a></li>
-              <li><a href="#">Full Order</a></li>
-              <li><a href="#">Jasa Design</a></li>
+              <li><a href="customDesign.html">Galeri Design</a></li>
+              <li><a href="customDesign.html">Full Order</a></li>
+              <li><a href="customDesign.html">Jasa Design</a></li>
             </ul>
           </div>
-
-          <!-- Company Links -->
           <div class="footer-col">
-            <h4>Company</h4>
+            <h4>Perusahaan</h4>
             <ul>
-              <li><a href="#">Berada</a></li>
-              <li><a href="#">Dokumentasi</a></li>
-              <li><a href="#">Custom Design</a></li>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="customDesign.html">Custom Design</a></li>
+              <li><a href="index.html#cara-order">Cara Order</a></li>
+              <li><a href="panduan.html">Panduan Order</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
             </ul>
           </div>
-
-          <!-- Contact Info -->
           <div class="footer-col">
-            <h4>Contact Us</h4>
+            <h4>Hubungi Kami</h4>
             <ul class="contact-info">
               <li><i class="fas fa-envelope"></i> contact@company.com</li>
               <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>Kota Bandung, Jawa Barat
-              </li>
+              <li><i class="fas fa-location-dot"></i> Kota Bandung, Jawa Barat</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-      <div class="container-footer footer-bottom">
-        <p>Copyright © <span class="footer-text">RS</span>Custom 2025</p>
-        <p>
-          All Rights Reserved | <a href="#">Terms and Conditions</a> |
-          <a href="#">Privacy Policy</a>
-        </p>
+        <div class="footer-bottom">
+          <p>Copyright © <span class="text-primary">RS</span>Custom 2025</p>
+          <p>
+            All Rights Reserved · <a href="#">Terms and Conditions</a> ·
+            <a href="#">Privacy Policy</a>
+          </p>
+        </div>
       </div>
     </footer>
 
-    <!--Script-->
     <script src="./js/index.js"></script>
   </body>
 </html>

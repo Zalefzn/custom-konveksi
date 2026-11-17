@@ -1,91 +1,69 @@
+/* =========================================================
+   Dokumentasi (dokumentasi.html)
+   Langkah order (.guide-steps) & FAQ ada di custom.css (dipakai bersama Beranda)
+   ========================================================= */
 
-/*Hero*/
-
-.dokumentasi-section {
-  position: relative;
-  padding: 100px 100px;
-  text-align: center;
-  background-color: #fff5f5;
-  overflow: hidden;
+.guide-step ul {
+  margin-top: 12px;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  color: var(--text);
 }
 
-.dokumentasi-content {
-  max-width: 600px;
-  margin: 0 auto;
-  z-index: 2;
-  position: relative;
+.guide-step li + li {
+  margin-top: 4px;
 }
 
-.breadcrumb {
-  font-size: 15px;
-  color: #999;
-  margin-bottom: 10px;
+/* ---------- Tips ---------- */
+
+.tips {
+  background: var(--surface);
 }
 
-.span-breadcrumb{
-    color: red;
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.dokumentasi-content h2 {
-  font-size: 30px;
-  color: #1a1a1a;
-  margin-bottom: 15px;
+.tip-card {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: #fff;
 }
 
-.dokumentasi-content .description {
-  font-size: 16px;
-  color: #999;
-  line-height: 1.6;
+.tip-card i {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-100);
+  color: var(--primary);
 }
 
-.bubble {
-  position: absolute;
-  background: rgba(255, 0, 0, 0.08);
-  border-radius: 50%;
-  z-index: 1;
+.tip-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
 }
 
-.bubble-lg {
-  width: 150px;
-  height: 150px;
+.tip-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-.bubble-md {
-  width: 90px;
-  height: 90px;
+@media (max-width: 1024px) {
+  .tips-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.bubble-sm {
-  width: 50px;
-  height: 50px;
-}
-
-.bubble-left.bubble-lg {
-  top: 20%;
-  left: -100px;
-}
-
-.bubble-left.bubble-md {
-  top: 55%;
-  left: 55px;
-}
-
-.bubble-left.bubble-sm {
-  bottom: 10%;
-  left: -25px;
-}
-
-.bubble-right.bubble-lg {
-  top: 15%;
-  right: -100px;
-}
-
-.bubble-right.bubble-md {
-  bottom: 20%;
-  right: 55px;
-}
-
-.bubble-right.bubble-sm {
-  bottom: 5%;
-  right: 15px;
+@media (max-width: 640px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
 }

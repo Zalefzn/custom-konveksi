@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami | RSCustom</title>
+    <meta
+      name="description"
+      content="Kenali RSCustom — konveksi & sablon custom lokal: cerita, visi misi, nilai, proses produksi, dan tim kami."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/tentang.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Ornamen garis bertema alat desain (dipakai lewat <use>) -->
+    <svg class="deco-sprite" aria-hidden="true" focusable="false">
+      <symbol id="d-pen" viewBox="0 0 400 200"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M10 160C90 20 190 20 210 100S330 190 390 40" class="d-draw"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="160" x2="90" y2="20" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="190" y1="20" x2="230" y2="180" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="330" y1="190" x2="390" y2="40" class="d-thin"/>
+        <circle vector-effect="non-scaling-stroke" cx="90" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="190" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="230" cy="180" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="330" cy="190" r="4" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="5" y="155" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="205" y="95" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="385" y="35" width="10" height="10" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-reg" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="24"/><circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="10" class="d-soft"/>
+        <line vector-effect="non-scaling-stroke" x1="50" y1="4" x2="50" y2="96"/><line vector-effect="non-scaling-stroke" x1="4" y1="50" x2="96" y2="50"/>
+      </g></symbol>
+      <symbol id="d-ruler" viewBox="0 0 400 44"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="1" y="1" width="398" height="40" rx="4"/><line vector-effect="non-scaling-stroke" x1="10" y1="1" x2="10" y2="16"/><text class="d-text" x="13" y="30">0</text><line vector-effect="non-scaling-stroke" x1="20" y1="1" x2="20" y2="8"/><line vector-effect="non-scaling-stroke" x1="30" y1="1" x2="30" y2="8"/><line vector-effect="non-scaling-stroke" x1="40" y1="1" x2="40" y2="8"/><line vector-effect="non-scaling-stroke" x1="50" y1="1" x2="50" y2="8"/><line vector-effect="non-scaling-stroke" x1="60" y1="1" x2="60" y2="16"/><text class="d-text" x="63" y="30">1</text><line vector-effect="non-scaling-stroke" x1="70" y1="1" x2="70" y2="8"/><line vector-effect="non-scaling-stroke" x1="80" y1="1" x2="80" y2="8"/><line vector-effect="non-scaling-stroke" x1="90" y1="1" x2="90" y2="8"/><line vector-effect="non-scaling-stroke" x1="100" y1="1" x2="100" y2="8"/><line vector-effect="non-scaling-stroke" x1="110" y1="1" x2="110" y2="16"/><text class="d-text" x="113" y="30">2</text><line vector-effect="non-scaling-stroke" x1="120" y1="1" x2="120" y2="8"/><line vector-effect="non-scaling-stroke" x1="130" y1="1" x2="130" y2="8"/><line vector-effect="non-scaling-stroke" x1="140" y1="1" x2="140" y2="8"/><line vector-effect="non-scaling-stroke" x1="150" y1="1" x2="150" y2="8"/><line vector-effect="non-scaling-stroke" x1="160" y1="1" x2="160" y2="16"/><text class="d-text" x="163" y="30">3</text><line vector-effect="non-scaling-stroke" x1="170" y1="1" x2="170" y2="8"/><line vector-effect="non-scaling-stroke" x1="180" y1="1" x2="180" y2="8"/><line vector-effect="non-scaling-stroke" x1="190" y1="1" x2="190" y2="8"/><line vector-effect="non-scaling-stroke" x1="200" y1="1" x2="200" y2="8"/><line vector-effect="non-scaling-stroke" x1="210" y1="1" x2="210" y2="16"/><text class="d-text" x="213" y="30">4</text><line vector-effect="non-scaling-stroke" x1="220" y1="1" x2="220" y2="8"/><line vector-effect="non-scaling-stroke" x1="230" y1="1" x2="230" y2="8"/><line vector-effect="non-scaling-stroke" x1="240" y1="1" x2="240" y2="8"/><line vector-effect="non-scaling-stroke" x1="250" y1="1" x2="250" y2="8"/><line vector-effect="non-scaling-stroke" x1="260" y1="1" x2="260" y2="16"/><text class="d-text" x="263" y="30">5</text><line vector-effect="non-scaling-stroke" x1="270" y1="1" x2="270" y2="8"/><line vector-effect="non-scaling-stroke" x1="280" y1="1" x2="280" y2="8"/><line vector-effect="non-scaling-stroke" x1="290" y1="1" x2="290" y2="8"/><line vector-effect="non-scaling-stroke" x1="300" y1="1" x2="300" y2="8"/><line vector-effect="non-scaling-stroke" x1="310" y1="1" x2="310" y2="16"/><text class="d-text" x="313" y="30">6</text><line vector-effect="non-scaling-stroke" x1="320" y1="1" x2="320" y2="8"/><line vector-effect="non-scaling-stroke" x1="330" y1="1" x2="330" y2="8"/><line vector-effect="non-scaling-stroke" x1="340" y1="1" x2="340" y2="8"/><line vector-effect="non-scaling-stroke" x1="350" y1="1" x2="350" y2="8"/><line vector-effect="non-scaling-stroke" x1="360" y1="1" x2="360" y2="16"/><text class="d-text" x="363" y="30">7</text><line vector-effect="non-scaling-stroke" x1="370" y1="1" x2="370" y2="8"/><line vector-effect="non-scaling-stroke" x1="380" y1="1" x2="380" y2="8"/><line vector-effect="non-scaling-stroke" x1="390" y1="1" x2="390" y2="8"/>
+      </g></symbol>
+      <symbol id="d-dim" viewBox="0 0 300 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line vector-effect="non-scaling-stroke" x1="10" y1="6" x2="10" y2="34"/><line vector-effect="non-scaling-stroke" x1="290" y1="6" x2="290" y2="34"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="20" x2="118" y2="20"/><line vector-effect="non-scaling-stroke" x1="182" y1="20" x2="290" y2="20"/>
+        <path vector-effect="non-scaling-stroke" d="M18 15 10 20 18 25M282 15 290 20 282 25"/>
+        <text class="d-text" x="150" y="24" text-anchor="middle">50 cm</text>
+      </g></symbol>
+      <symbol id="d-bbox" viewBox="0 0 200 150"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="6" y="26" width="188" height="118" class="d-dash"/>
+        <line vector-effect="non-scaling-stroke" x1="100" y1="10" x2="100" y2="26"/><circle vector-effect="non-scaling-stroke" cx="100" cy="8" r="5" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="2" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="140" width="8" height="8" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-crop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 14H10M14 0V10"/>
+      </g></symbol>
+      <symbol id="d-stitch" viewBox="0 0 1200 120" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 60C150 0 300 120 450 60S750 0 900 60 1100 110 1200 50" class="d-thin"/>
+        <path vector-effect="non-scaling-stroke" d="M0 72C150 12 300 132 450 72S750 12 900 72 1100 122 1200 62" class="d-stitch"/>
+      </g></symbol>
+    </svg>
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <div class="menu">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#cara-order">Cara Order</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <a href="customDesign.html" class="btn btn-primary btn-sm nav-cta"
+            ><i class="fas fa-palette"></i> Custom Design</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="page-hero about-hero">
+        <svg class="deco deco-pen ph-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-ruler ph-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg ph-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <span class="blob blob-4"></span>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Tentang Kami</span>
+          </nav>
+          <h1>Kenalan dengan <span class="text-gradient">RSCustom</span></h1>
+          <p>
+            Konveksi &amp; sablon lokal yang percaya setiap orang berhak punya
+            pakaian dengan desainnya sendiri — tanpa ribet, tanpa drama.
+          </p>
+          <ul class="hero-pills">
+            <li><i class="fas fa-location-dot"></i> Kota Bandung</li>
+            <li><i class="fas fa-shirt"></i> Satuan &amp; grosir</li>
+            <li><i class="fas fa-truck-fast"></i> Kirim seluruh Indonesia</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Cerita Kami -->
+      <section class="section" id="cerita">
+        <svg class="deco deco-ruler story-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <div class="container story-grid">
+          <div class="story-visual" data-aos="fade-up">
+            <img src="./assets/tentang.png" alt="Ilustrasi ide desain yang diwujudkan menjadi produk" />
+            <svg class="deco deco-bbox story-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+            <div class="story-badge">
+              <span class="fc-icon"><i class="fas fa-lightbulb"></i></span>
+              <div>
+                <strong>Dari ide jadi nyata</strong>
+                <small>Desainmu, produk kami</small>
+              </div>
+            </div>
+          </div>
+          <div class="story-text" data-aos="fade-up" data-aos-delay="100">
+            <span class="eyebrow">Cerita Kami</span>
+            <h2>Berawal dari keinginan bikin kaos custom jadi mudah</h2>
+            <p class="dropcap">
+              RSCustom lahir dari pengalaman sederhana: memesan kaos custom
+              sering kali ribet — bolak-balik kirim file, menebak hasil akhir,
+              dan minimal order yang besar.
+            </p>
+            <p>
+              Karena itu kami membangun proses pemesanan online lengkap dengan
+              <b>live preview</b>, sehingga kamu bisa melihat desain di produk
+              sebelum dicetak, lalu memesan satuan maupun grosir dengan mudah.
+            </p>
+            <ul class="story-points">
+              <li><i class="fas fa-shirt"></i> Bisa satuan</li>
+              <li><i class="fas fa-eye"></i> Lihat sebelum cetak</li>
+              <li><i class="fas fa-headset"></i> Dibantu dari awal</li>
+            </ul>
+            <blockquote class="story-quote">
+              “Desain sesukamu, kami cetak tanpa drama.”
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Visi & Misi : pernyataan besar + daftar bernomor -->
+      <section class="section bg-surface" id="visi-misi">
+        <svg class="deco deco-pen vm-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-reg vm-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <div class="container">
+          <div class="vision" data-aos="fade-up">
+            <span class="eyebrow"><i class="fas fa-eye"></i> Visi Kami</span>
+            <p class="vision-statement">
+              Menjadi konveksi custom pilihan yang
+              <span class="hl">mudah</span>, <span class="hl">cepat</span>, dan
+              <span class="hl">terpercaya</span> untuk semua kalangan.
+            </p>
+          </div>
+
+          <div class="mission">
+            <div class="mission-head" data-aos="fade-up">
+              <span class="eyebrow"><i class="fas fa-bullseye"></i> Misi Kami</span>
+              <h2>Empat hal yang kami kerjakan setiap hari</h2>
+            </div>
+            <ol class="mission-list">
+              <li data-aos="fade-up">
+                <span class="mission-num">01</span>
+                <div>
+                  <h3>Pemesanan yang sederhana</h3>
+                  <p>Order online lengkap dengan live preview desain.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="60">
+                <span class="mission-num">02</span>
+                <div>
+                  <h3>Kualitas yang terjaga</h3>
+                  <p>Bahan dan sablon dipilih untuk setiap produk.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="120">
+                <span class="mission-num">03</span>
+                <div>
+                  <h3>Satuan hingga grosir</h3>
+                  <p>Dilayani dengan ramah dan responsif.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="180">
+                <span class="mission-num">04</span>
+                <div>
+                  <h3>Tumbuh bersama lokal</h3>
+                  <p>Mendukung komunitas dan brand lokal lewat produknya.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Nilai Kami : daftar baris editorial -->
+      <section class="section section-dark" id="nilai">
+        <svg class="deco deco-pen fitur-pen-1" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-bbox fitur-bbox" viewBox="0 0 200 150" aria-hidden="true"><use href="#d-bbox"/></svg>
+        <div class="container values-layout">
+          <div class="values-intro" data-aos="fade-up">
+            <span class="eyebrow">Nilai Kami</span>
+            <h2>Yang kami pegang setiap hari</h2>
+            <p>Empat prinsip yang jadi dasar cara kami bekerja — dari file desain pertama sampai paket tiba.</p>
+          </div>
+          <ul class="value-rows">
+            <li class="value-row" data-aos="fade-up">
+              <span class="value-row-num">01</span>
+              <div class="value-row-body">
+                <h3>Kualitas</h3>
+                <p>Bahan dan sablon dipilih agar nyaman dipakai dan awet dicuci.</p>
+              </div>
+              <span class="value-row-icon"><i class="fas fa-gem"></i></span>
+            </li>
+            <li class="value-row" data-aos="fade-up">
+              <span class="value-row-num">02</span>
+              <div class="value-row-body">
+                <h3>Transparan</h3>
+                <p>Detail pesanan, harga, dan estimasi dikomunikasikan dengan jelas.</p>
+              </div>
+              <span class="value-row-icon"><i class="fas fa-handshake"></i></span>
+            </li>
+            <li class="value-row" data-aos="fade-up">
+              <span class="value-row-num">03</span>
+              <div class="value-row-body">
+                <h3>Responsif</h3>
+                <p>Pertanyaan dan revisi kamu ditanggapi dengan cepat.</p>
+              </div>
+              <span class="value-row-icon"><i class="fas fa-bolt"></i></span>
+            </li>
+            <li class="value-row" data-aos="fade-up">
+              <span class="value-row-num">04</span>
+              <div class="value-row-body">
+                <h3>Kreatif</h3>
+                <p>Kami bantu wujudkan ide, bahkan saat kamu belum punya desain.</p>
+              </div>
+              <span class="value-row-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. Proses Produksi : timeline zig-zag -->
+      <section class="section" id="proses">
+        <svg class="deco deco-reg order-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <svg class="deco deco-ruler proses-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Proses Produksi</span>
+            <h2>Di Balik Setiap Pesananmu</h2>
+            <p>Begini perjalanan pesanan dari file desain sampai ke tanganmu.</p>
+          </div>
+          <ol class="zigzag" id="zigzag">
+            <li class="zz-item" data-aos="fade-up">
+              <span class="zz-dot"><i class="fas fa-file-circle-check"></i></span>
+              <div class="zz-content">
+                <span class="zz-step">Tahap 01</span>
+                <h3>Cek Desain</h3>
+                <p>File desain diperiksa resolusi, ukuran, dan posisinya sebelum masuk produksi.</p>
+              </div>
+            </li>
+            <li class="zz-item" data-aos="fade-up">
+              <span class="zz-dot"><i class="fas fa-scissors"></i></span>
+              <div class="zz-content">
+                <span class="zz-step">Tahap 02</span>
+                <h3>Persiapan Bahan</h3>
+                <p>Bahan dipilih sesuai produk, lalu dipotong dan dijahit mengikuti ukuran pesanan.</p>
+              </div>
+            </li>
+            <li class="zz-item" data-aos="fade-up">
+              <span class="zz-dot"><i class="fas fa-fill-drip"></i></span>
+              <div class="zz-content">
+                <span class="zz-step">Tahap 03</span>
+                <h3>Proses Sablon</h3>
+                <p>Desain dicetak ke produk dengan teknik yang sesuai jenis bahan.</p>
+              </div>
+            </li>
+            <li class="zz-item" data-aos="fade-up">
+              <span class="zz-dot"><i class="fas fa-magnifying-glass"></i></span>
+              <div class="zz-content">
+                <span class="zz-step">Tahap 04</span>
+                <h3>Quality Control</h3>
+                <p>Setiap produk dicek warna, posisi sablon, dan jahitannya satu per satu.</p>
+              </div>
+            </li>
+            <li class="zz-item" data-aos="fade-up">
+              <span class="zz-dot"><i class="fas fa-box-open"></i></span>
+              <div class="zz-content">
+                <span class="zz-step">Tahap 05</span>
+                <h3>Packing &amp; Kirim</h3>
+                <p>Pesanan dikemas rapi lalu dikirim ke alamat kamu di seluruh Indonesia.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 5. Tim Kami : orbit + daftar divisi -->
+      <section class="section bg-surface" id="tim">
+        <svg class="deco deco-dim produk-dim" viewBox="0 0 300 40" aria-hidden="true"><use href="#d-dim"/></svg>
+        <div class="container team-layout">
+          <div class="team-text" data-aos="fade-up">
+            <span class="eyebrow">Tim Kami</span>
+            <h2>Orang-orang di balik <span class="text-gradient">RSCustom</span></h2>
+            <p>Tiap pesanan ditangani tim yang fokus di bidangnya masing-masing, bekerja bersama dari awal sampai akhir.</p>
+            <ul class="team-list">
+              <li><i class="fas fa-pen-nib"></i><div><strong>Tim Desain</strong><span>Merapikan file &amp; membuat desain dari brief kamu.</span></div></li>
+              <li><i class="fas fa-shirt"></i><div><strong>Tim Produksi</strong><span>Pemotongan, penjahitan, hingga proses sablon.</span></div></li>
+              <li><i class="fas fa-clipboard-check"></i><div><strong>Quality Control</strong><span>Memastikan produk sesuai pesanan sebelum dikemas.</span></div></li>
+              <li><i class="fas fa-headset"></i><div><strong>Customer Service</strong><span>Menjawab pertanyaan &amp; mendampingi pesananmu.</span></div></li>
+            </ul>
+          </div>
+
+          <div class="orbit" data-aos="fade-up" data-aos-delay="100" aria-hidden="true">
+            <span class="orbit-ring ring-1"></span>
+            <span class="orbit-ring ring-2"></span>
+            <div class="orbit-core"><img src="./assets/logo-rscustom.png" alt="" /></div>
+            <div class="orbit-track">
+              <span class="orbit-node n1"><i class="fas fa-pen-nib"></i></span>
+              <span class="orbit-node n2"><i class="fas fa-shirt"></i></span>
+              <span class="orbit-node n3"><i class="fas fa-clipboard-check"></i></span>
+              <span class="orbit-node n4"><i class="fas fa-headset"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up">
+        <svg class="deco deco-pen cta-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+            <img src="./assets/consult.png" alt="" aria-hidden="true" />
+            <div class="cta-text">
+              <h2>
+                <span class="text-primary">Siap wujudkan desainmu</span>
+                bersama tim RSCustom?
+              </h2>
+              <p>Mulai desain sekarang dan lihat hasilnya langsung lewat live preview.</p>
+            </div>
+            <a href="customDesign.html" class="btn btn-primary"
+              >Mulai Desain <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="kontak">
+        <svg class="deco deco-stitch footer-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+            <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="customDesign.html">Galeri Design</a></li>
+              <li><a href="customDesign.html">Full Order</a></li>
+              <li><a href="customDesign.html">Jasa Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Perusahaan</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="customDesign.html">Custom Design</a></li>
+              <li><a href="index.html#cara-order">Cara Order</a></li>
+              <li><a href="panduan.html">Panduan Order</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Hubungi Kami</h4>
+            <ul class="contact-info">
+              <li><i class="fas fa-envelope"></i> contact@company.com</li>
+              <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
+              <li><i class="fas fa-location-dot"></i> Kota Bandung, Jawa Barat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright © <span class="text-primary">RS</span>Custom 2025</p>
+          <p>
+            All Rights Reserved · <a href="#">Terms and Conditions</a> ·
+            <a href="#">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

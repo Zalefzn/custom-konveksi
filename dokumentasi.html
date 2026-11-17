@@ -1,152 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dokumentasi | Custom Design</title>
-    <link href="./css/dokumentasi.css" rel="stylesheet" />
-    <link href="./css/custom.css" rel="stylesheet" />
+    <title>Dokumentasi | RSCustom</title>
+    <meta
+      name="description"
+      content="Panduan lengkap cara memesan kaos custom di RSCustom."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/dokumentasi.css" rel="stylesheet" />
   </head>
   <body>
-    <!--Navbar-->
-    <header>
-      <nav>
-        <div class="logo"><span class="span-logo">RS</span>Custom</div>
-        <div class="menu">
-          <a href="index.html">Beranda</a>
-          <a href="dokumentasi.html">Dokumentasi</a>
-          <a href="customDesign.html">Custom Design</a>
+    <!-- Ornamen garis bertema alat desain (dipakai lewat <use>) -->
+    <svg class="deco-sprite" aria-hidden="true" focusable="false">
+      <symbol id="d-pen" viewBox="0 0 400 200"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M10 160C90 20 190 20 210 100S330 190 390 40" class="d-draw"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="160" x2="90" y2="20" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="190" y1="20" x2="230" y2="180" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="330" y1="190" x2="390" y2="40" class="d-thin"/>
+        <circle vector-effect="non-scaling-stroke" cx="90" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="190" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="230" cy="180" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="330" cy="190" r="4" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="5" y="155" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="205" y="95" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="385" y="35" width="10" height="10" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-reg" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="24"/><circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="10" class="d-soft"/>
+        <line vector-effect="non-scaling-stroke" x1="50" y1="4" x2="50" y2="96"/><line vector-effect="non-scaling-stroke" x1="4" y1="50" x2="96" y2="50"/>
+      </g></symbol>
+      <symbol id="d-ruler" viewBox="0 0 400 44"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="1" y="1" width="398" height="40" rx="4"/><line vector-effect="non-scaling-stroke" x1="10" y1="1" x2="10" y2="16"/><text class="d-text" x="13" y="30">0</text><line vector-effect="non-scaling-stroke" x1="20" y1="1" x2="20" y2="8"/><line vector-effect="non-scaling-stroke" x1="30" y1="1" x2="30" y2="8"/><line vector-effect="non-scaling-stroke" x1="40" y1="1" x2="40" y2="8"/><line vector-effect="non-scaling-stroke" x1="50" y1="1" x2="50" y2="8"/><line vector-effect="non-scaling-stroke" x1="60" y1="1" x2="60" y2="16"/><text class="d-text" x="63" y="30">1</text><line vector-effect="non-scaling-stroke" x1="70" y1="1" x2="70" y2="8"/><line vector-effect="non-scaling-stroke" x1="80" y1="1" x2="80" y2="8"/><line vector-effect="non-scaling-stroke" x1="90" y1="1" x2="90" y2="8"/><line vector-effect="non-scaling-stroke" x1="100" y1="1" x2="100" y2="8"/><line vector-effect="non-scaling-stroke" x1="110" y1="1" x2="110" y2="16"/><text class="d-text" x="113" y="30">2</text><line vector-effect="non-scaling-stroke" x1="120" y1="1" x2="120" y2="8"/><line vector-effect="non-scaling-stroke" x1="130" y1="1" x2="130" y2="8"/><line vector-effect="non-scaling-stroke" x1="140" y1="1" x2="140" y2="8"/><line vector-effect="non-scaling-stroke" x1="150" y1="1" x2="150" y2="8"/><line vector-effect="non-scaling-stroke" x1="160" y1="1" x2="160" y2="16"/><text class="d-text" x="163" y="30">3</text><line vector-effect="non-scaling-stroke" x1="170" y1="1" x2="170" y2="8"/><line vector-effect="non-scaling-stroke" x1="180" y1="1" x2="180" y2="8"/><line vector-effect="non-scaling-stroke" x1="190" y1="1" x2="190" y2="8"/><line vector-effect="non-scaling-stroke" x1="200" y1="1" x2="200" y2="8"/><line vector-effect="non-scaling-stroke" x1="210" y1="1" x2="210" y2="16"/><text class="d-text" x="213" y="30">4</text><line vector-effect="non-scaling-stroke" x1="220" y1="1" x2="220" y2="8"/><line vector-effect="non-scaling-stroke" x1="230" y1="1" x2="230" y2="8"/><line vector-effect="non-scaling-stroke" x1="240" y1="1" x2="240" y2="8"/><line vector-effect="non-scaling-stroke" x1="250" y1="1" x2="250" y2="8"/><line vector-effect="non-scaling-stroke" x1="260" y1="1" x2="260" y2="16"/><text class="d-text" x="263" y="30">5</text><line vector-effect="non-scaling-stroke" x1="270" y1="1" x2="270" y2="8"/><line vector-effect="non-scaling-stroke" x1="280" y1="1" x2="280" y2="8"/><line vector-effect="non-scaling-stroke" x1="290" y1="1" x2="290" y2="8"/><line vector-effect="non-scaling-stroke" x1="300" y1="1" x2="300" y2="8"/><line vector-effect="non-scaling-stroke" x1="310" y1="1" x2="310" y2="16"/><text class="d-text" x="313" y="30">6</text><line vector-effect="non-scaling-stroke" x1="320" y1="1" x2="320" y2="8"/><line vector-effect="non-scaling-stroke" x1="330" y1="1" x2="330" y2="8"/><line vector-effect="non-scaling-stroke" x1="340" y1="1" x2="340" y2="8"/><line vector-effect="non-scaling-stroke" x1="350" y1="1" x2="350" y2="8"/><line vector-effect="non-scaling-stroke" x1="360" y1="1" x2="360" y2="16"/><text class="d-text" x="363" y="30">7</text><line vector-effect="non-scaling-stroke" x1="370" y1="1" x2="370" y2="8"/><line vector-effect="non-scaling-stroke" x1="380" y1="1" x2="380" y2="8"/><line vector-effect="non-scaling-stroke" x1="390" y1="1" x2="390" y2="8"/>
+      </g></symbol>
+      <symbol id="d-dim" viewBox="0 0 300 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line vector-effect="non-scaling-stroke" x1="10" y1="6" x2="10" y2="34"/><line vector-effect="non-scaling-stroke" x1="290" y1="6" x2="290" y2="34"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="20" x2="118" y2="20"/><line vector-effect="non-scaling-stroke" x1="182" y1="20" x2="290" y2="20"/>
+        <path vector-effect="non-scaling-stroke" d="M18 15 10 20 18 25M282 15 290 20 282 25"/>
+        <text class="d-text" x="150" y="24" text-anchor="middle">50 cm</text>
+      </g></symbol>
+      <symbol id="d-bbox" viewBox="0 0 200 150"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="6" y="26" width="188" height="118" class="d-dash"/>
+        <line vector-effect="non-scaling-stroke" x1="100" y1="10" x2="100" y2="26"/><circle vector-effect="non-scaling-stroke" cx="100" cy="8" r="5" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="2" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="140" width="8" height="8" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-crop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 14H10M14 0V10"/>
+      </g></symbol>
+      <symbol id="d-stitch" viewBox="0 0 1200 120" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 60C150 0 300 120 450 60S750 0 900 60 1100 110 1200 50" class="d-thin"/>
+        <path vector-effect="non-scaling-stroke" d="M0 72C150 12 300 132 450 72S750 12 900 72 1100 122 1200 62" class="d-stitch"/>
+      </g></symbol>
+    </svg>
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <div class="menu">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#cara-order">Cara Order</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <a href="customDesign.html" class="btn btn-primary btn-sm nav-cta"
+            ><i class="fas fa-palette"></i> Custom Design</a
+          >
         </div>
-        <button class="cta-button">Daftar</button>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="dokumentasi-section">
-      <!-- Bubble kiri -->
-      <span class="bubble bubble-left bubble-lg"></span>
-      <span class="bubble bubble-left bubble-md"></span>
-      <span class="bubble bubble-left bubble-sm"></span>
-
-      <!-- Bubble kanan -->
-      <span class="bubble bubble-right bubble-lg"></span>
-      <span class="bubble bubble-right bubble-md"></span>
-      <span class="bubble bubble-right bubble-sm"></span>
-
-      <!-- Konten -->
-      <div class="dokumentasi-content">
-        <p class="breadcrumb">
-          <span class="span-breadcrumb">Beranda</span> &gt; Dokumentasi
-        </p>
-        <h2>Dokumentasi Penggunaan</h2>
-        <p class="description">
-          Kami menyediakan dokumentasi penggunaan yang membantu pengguna
-          memahami cara mengoperasikan seluruh fitur dalam sistem dengan mudah.
-        </p>
-      </div>
-    </section>
-
-    <!--Section Dokumentasi-->
-    <section class="section-dokumentasi">testiing</section>
-
-    <!-- CTA Section -->
-    <div class="warp-cta">
-      <section class="cta-section">
-        <div class="cta-content">
-          <h2>
-            <span class="highlight"
-              >Langkahmu tinggal satu klik lagi untuk mencetak kaos custom</span
-            >
-            dengan hasil profesional.
-          </h2>
-          <p>Upload desainmu atau konsultasi langsung dengan tim kami!</p>
-          <button class="cta-button">Konsultasi Sekarang</button>
-        </div>
-
-        <img
-          src="./assets/consult.png"
-          alt="Ilustrasi Konsultasi"
-          class="cta-image"
-        />
-
-        <div class="bubble-group">
-          <div class="bubble small"></div>
-          <div class="bubble medium"></div>
-          <div class="bubble large"></div>
+    <main>
+      <!-- Hero -->
+      <section class="page-hero">
+        <svg class="deco deco-pen ph-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-ruler ph-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg ph-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <span class="blob blob-4"></span>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Dokumentasi</span>
+          </nav>
+          <h1>Dokumentasi Penggunaan</h1>
+          <p>
+            Kami menyediakan dokumentasi penggunaan yang membantu kamu memahami
+            cara mengoperasikan seluruh fitur dalam sistem dengan mudah.
+          </p>
         </div>
       </section>
-    </div>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+      <!-- Langkah order -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Cara Order</span>
+            <h2>4 Langkah Mudah Pesan Kaos Custom</h2>
+            <p>
+              Ikuti langkah berikut di halaman
+              <a href="customDesign.html" class="text-primary">Custom Design</a>.
+            </p>
+          </div>
+
+          <ol class="guide-steps">
+            <li class="guide-step" data-aos="fade-up">
+              <span class="num">01</span>
+              <div class="icon-chip"><i class="fas fa-shirt"></i></div>
+              <h3>Pilih Produk</h3>
+              <p>Tentukan jenis produk dan modelnya.</p>
+              <ul>
+                <li>Kaos, Jaket, Topi, atau Jersey</li>
+                <li>Pilih model, mis. Kaos Oversize</li>
+              </ul>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="80">
+              <span class="num">02</span>
+              <div class="icon-chip"><i class="fas fa-palette"></i></div>
+              <h3>Atur Desain</h3>
+              <p>Pilih warna kaos lalu tentukan cara desain.</p>
+              <ul>
+                <li><b>Full Order</b>: upload desain sendiri</li>
+                <li><b>Galeri</b>: pilih desain contoh</li>
+                <li><b>Jasa Desain</b>: dibuatkan tim kami</li>
+              </ul>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="160">
+              <span class="num">03</span>
+              <div class="icon-chip"><i class="fas fa-ruler-combined"></i></div>
+              <h3>Detail &amp; Jumlah</h3>
+              <p>Isi jumlah per ukuran dan tanggal kebutuhan.</p>
+              <ul>
+                <li>Ukuran S sampai XXXL</li>
+                <li>Tambahkan catatan bila perlu</li>
+              </ul>
+            </li>
+            <li class="guide-step" data-aos="fade-up" data-aos-delay="240">
+              <span class="num">04</span>
+              <div class="icon-chip"><i class="fas fa-bag-shopping"></i></div>
+              <h3>Checkout</h3>
+              <p>Isi data pemesan dan cek ringkasan pesanan.</p>
+              <ul>
+                <li>Nama, email, &amp; WhatsApp</li>
+                <li>Alamat pengiriman lengkap</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Tips -->
+      <section class="section tips">
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">Tips Desain</span>
+            <h2>Supaya Hasil Cetak Maksimal</h2>
+          </div>
+          <div class="tips-grid">
+            <article class="tip-card" data-aos="fade-up">
+              <i class="fas fa-file-image"></i>
+              <div>
+                <h3>Gunakan PNG transparan</h3>
+                <p>Desain tanpa latar belakang menyatu rapi dengan warna kaos.</p>
+              </div>
+            </article>
+            <article class="tip-card" data-aos="fade-up" data-aos-delay="80">
+              <i class="fas fa-expand"></i>
+              <div>
+                <h3>Resolusi tinggi</h3>
+                <p>Unggah file minimal 2000px agar hasil sablon tetap tajam.</p>
+              </div>
+            </article>
+            <article class="tip-card" data-aos="fade-up" data-aos-delay="160">
+              <i class="fas fa-up-down-left-right"></i>
+              <div>
+                <h3>Atur posisi di preview</h3>
+                <p>Geser desain, tarik sudut merah untuk ubah ukuran.</p>
+              </div>
+            </article>
+            <article class="tip-card" data-aos="fade-up">
+              <i class="fas fa-circle-half-stroke"></i>
+              <div>
+                <h3>Perhatikan kontras</h3>
+                <p>Desain gelap kurang terlihat di kaos gelap, begitu pula sebaliknya.</p>
+              </div>
+            </article>
+            <article class="tip-card" data-aos="fade-up" data-aos-delay="80">
+              <i class="fas fa-download"></i>
+              <div>
+                <h3>Simpan preview</h3>
+                <p>Klik "Download" untuk menyimpan mockup sebagai referensi.</p>
+              </div>
+            </article>
+            <article class="tip-card" data-aos="fade-up" data-aos-delay="160">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <h3>Ragu? Konsultasi dulu</h3>
+                <p>Tim kami siap membantu menyesuaikan desain kamu.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-aos="fade-up">
+            <span class="eyebrow">FAQ</span>
+            <h2>Pertanyaan yang Sering Ditanyakan</h2>
+          </div>
+          <div class="faq-list" data-aos="fade-up">
+            <details class="faq-item" open>
+              <summary>Apakah bisa pesan satuan?</summary>
+              <p>
+                Bisa. Kami melayani sablon satuan maupun grosir untuk
+                kebutuhan personal, komunitas, hingga brand.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Format file desain apa yang diterima?</summary>
+              <p>
+                File JPG dan PNG. Untuk hasil terbaik gunakan PNG dengan latar
+                transparan dan resolusi tinggi.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Saya belum punya desain, bagaimana?</summary>
+              <p>
+                Pilih opsi <b>Galeri Desain</b> untuk memakai desain contoh,
+                atau <b>Jasa Desain</b> agar tim kami membuatkan desain sesuai
+                brief yang kamu tulis di catatan pesanan.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Bagaimana jika hasil cetak gagal?</summary>
+              <p>
+                Kami memberikan jaminan cetak ulang jika terjadi kegagalan
+                produksi.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah bisa dikirim ke luar kota?</summary>
+              <p>Bisa, kami melayani pengiriman ke seluruh Indonesia.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up">
+        <svg class="deco deco-pen cta-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+            <img src="./assets/consult.png" alt="" aria-hidden="true" />
+            <div class="cta-text">
+              <h2>
+                <span class="text-primary"
+                  >Tinggal satu klik lagi untuk mencetak kaos custom</span
+                >
+                dengan hasil profesional.
+              </h2>
+              <p>Upload desainmu atau konsultasi langsung dengan tim kami!</p>
+            </div>
+            <a href="customDesign.html" class="btn btn-primary"
+              >Mulai Order <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="kontak">
+        <svg class="deco deco-stitch footer-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
       <div class="container">
         <div class="footer-grid">
-          <!-- Logo & Social Media -->
-          <div class="footer-col">
-            <h3 class="logo"><span class="footer-span">RS</span>Custom</h3>
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
             <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
             <div class="social-icons">
-              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" title="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
-
-          <!-- Product Links -->
           <div class="footer-col">
-            <h4>Product</h4>
+            <h4>Produk</h4>
             <ul>
-              <li><a href="#">Galeri Design</a></li>
-              <li><a href="#">Full Order</a></li>
-              <li><a href="#">Jasa Design</a></li>
+              <li><a href="customDesign.html">Galeri Design</a></li>
+              <li><a href="customDesign.html">Full Order</a></li>
+              <li><a href="customDesign.html">Jasa Design</a></li>
             </ul>
           </div>
-
-          <!-- Company Links -->
           <div class="footer-col">
-            <h4>Company</h4>
+            <h4>Perusahaan</h4>
             <ul>
-              <li><a href="#">Berada</a></li>
-              <li><a href="#">Dokumentasi</a></li>
-              <li><a href="#">Custom Design</a></li>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="customDesign.html">Custom Design</a></li>
+              <li><a href="index.html#cara-order">Cara Order</a></li>
+              <li><a href="panduan.html">Panduan Order</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
             </ul>
           </div>
-
-          <!-- Contact Info -->
           <div class="footer-col">
-            <h4>Contact Us</h4>
+            <h4>Hubungi Kami</h4>
             <ul class="contact-info">
               <li><i class="fas fa-envelope"></i> contact@company.com</li>
               <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>Kota Bandung, Jawa Barat
-              </li>
+              <li><i class="fas fa-location-dot"></i> Kota Bandung, Jawa Barat</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-      <div class="container-footer footer-bottom">
-        <p>Copyright © <span class="footer-text">RS</span>Custom 2025</p>
-        <p>
-          All Rights Reserved | <a href="#">Terms and Conditions</a> |
-          <a href="#">Privacy Policy</a>
-        </p>
+        <div class="footer-bottom">
+          <p>Copyright © <span class="text-primary">RS</span>Custom 2025</p>
+          <p>
+            All Rights Reserved · <a href="#">Terms and Conditions</a> ·
+            <a href="#">Privacy Policy</a>
+          </p>
+        </div>
       </div>
     </footer>
 
-    <!--Script-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

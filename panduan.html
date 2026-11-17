@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Order | RSCustom</title>
+    <meta
+      name="description"
+      content="Panduan lengkap cara order produk custom di RSCustom: pilih produk, atur desain, label leher, ukuran, checkout, dan tips file desain."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./css/custom.css" rel="stylesheet" />
+    <link href="./css/panduan.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Ornamen garis bertema alat desain (dipakai lewat <use>) -->
+    <svg class="deco-sprite" aria-hidden="true" focusable="false">
+      <symbol id="d-pen" viewBox="0 0 400 200"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M10 160C90 20 190 20 210 100S330 190 390 40" class="d-draw"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="160" x2="90" y2="20" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="190" y1="20" x2="230" y2="180" class="d-thin"/><line vector-effect="non-scaling-stroke" x1="330" y1="190" x2="390" y2="40" class="d-thin"/>
+        <circle vector-effect="non-scaling-stroke" cx="90" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="190" cy="20" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="230" cy="180" r="4" class="d-fill"/><circle vector-effect="non-scaling-stroke" cx="330" cy="190" r="4" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="5" y="155" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="205" y="95" width="10" height="10" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="385" y="35" width="10" height="10" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-reg" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="24"/><circle vector-effect="non-scaling-stroke" cx="50" cy="50" r="10" class="d-soft"/>
+        <line vector-effect="non-scaling-stroke" x1="50" y1="4" x2="50" y2="96"/><line vector-effect="non-scaling-stroke" x1="4" y1="50" x2="96" y2="50"/>
+      </g></symbol>
+      <symbol id="d-ruler" viewBox="0 0 400 44"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="1" y="1" width="398" height="40" rx="4"/><line vector-effect="non-scaling-stroke" x1="10" y1="1" x2="10" y2="16"/><text class="d-text" x="13" y="30">0</text><line vector-effect="non-scaling-stroke" x1="20" y1="1" x2="20" y2="8"/><line vector-effect="non-scaling-stroke" x1="30" y1="1" x2="30" y2="8"/><line vector-effect="non-scaling-stroke" x1="40" y1="1" x2="40" y2="8"/><line vector-effect="non-scaling-stroke" x1="50" y1="1" x2="50" y2="8"/><line vector-effect="non-scaling-stroke" x1="60" y1="1" x2="60" y2="16"/><text class="d-text" x="63" y="30">1</text><line vector-effect="non-scaling-stroke" x1="70" y1="1" x2="70" y2="8"/><line vector-effect="non-scaling-stroke" x1="80" y1="1" x2="80" y2="8"/><line vector-effect="non-scaling-stroke" x1="90" y1="1" x2="90" y2="8"/><line vector-effect="non-scaling-stroke" x1="100" y1="1" x2="100" y2="8"/><line vector-effect="non-scaling-stroke" x1="110" y1="1" x2="110" y2="16"/><text class="d-text" x="113" y="30">2</text><line vector-effect="non-scaling-stroke" x1="120" y1="1" x2="120" y2="8"/><line vector-effect="non-scaling-stroke" x1="130" y1="1" x2="130" y2="8"/><line vector-effect="non-scaling-stroke" x1="140" y1="1" x2="140" y2="8"/><line vector-effect="non-scaling-stroke" x1="150" y1="1" x2="150" y2="8"/><line vector-effect="non-scaling-stroke" x1="160" y1="1" x2="160" y2="16"/><text class="d-text" x="163" y="30">3</text><line vector-effect="non-scaling-stroke" x1="170" y1="1" x2="170" y2="8"/><line vector-effect="non-scaling-stroke" x1="180" y1="1" x2="180" y2="8"/><line vector-effect="non-scaling-stroke" x1="190" y1="1" x2="190" y2="8"/><line vector-effect="non-scaling-stroke" x1="200" y1="1" x2="200" y2="8"/><line vector-effect="non-scaling-stroke" x1="210" y1="1" x2="210" y2="16"/><text class="d-text" x="213" y="30">4</text><line vector-effect="non-scaling-stroke" x1="220" y1="1" x2="220" y2="8"/><line vector-effect="non-scaling-stroke" x1="230" y1="1" x2="230" y2="8"/><line vector-effect="non-scaling-stroke" x1="240" y1="1" x2="240" y2="8"/><line vector-effect="non-scaling-stroke" x1="250" y1="1" x2="250" y2="8"/><line vector-effect="non-scaling-stroke" x1="260" y1="1" x2="260" y2="16"/><text class="d-text" x="263" y="30">5</text><line vector-effect="non-scaling-stroke" x1="270" y1="1" x2="270" y2="8"/><line vector-effect="non-scaling-stroke" x1="280" y1="1" x2="280" y2="8"/><line vector-effect="non-scaling-stroke" x1="290" y1="1" x2="290" y2="8"/><line vector-effect="non-scaling-stroke" x1="300" y1="1" x2="300" y2="8"/><line vector-effect="non-scaling-stroke" x1="310" y1="1" x2="310" y2="16"/><text class="d-text" x="313" y="30">6</text><line vector-effect="non-scaling-stroke" x1="320" y1="1" x2="320" y2="8"/><line vector-effect="non-scaling-stroke" x1="330" y1="1" x2="330" y2="8"/><line vector-effect="non-scaling-stroke" x1="340" y1="1" x2="340" y2="8"/><line vector-effect="non-scaling-stroke" x1="350" y1="1" x2="350" y2="8"/><line vector-effect="non-scaling-stroke" x1="360" y1="1" x2="360" y2="16"/><text class="d-text" x="363" y="30">7</text><line vector-effect="non-scaling-stroke" x1="370" y1="1" x2="370" y2="8"/><line vector-effect="non-scaling-stroke" x1="380" y1="1" x2="380" y2="8"/><line vector-effect="non-scaling-stroke" x1="390" y1="1" x2="390" y2="8"/>
+      </g></symbol>
+      <symbol id="d-dim" viewBox="0 0 300 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line vector-effect="non-scaling-stroke" x1="10" y1="6" x2="10" y2="34"/><line vector-effect="non-scaling-stroke" x1="290" y1="6" x2="290" y2="34"/>
+        <line vector-effect="non-scaling-stroke" x1="10" y1="20" x2="118" y2="20"/><line vector-effect="non-scaling-stroke" x1="182" y1="20" x2="290" y2="20"/>
+        <path vector-effect="non-scaling-stroke" d="M18 15 10 20 18 25M282 15 290 20 282 25"/>
+        <text class="d-text" x="150" y="24" text-anchor="middle">50 cm</text>
+      </g></symbol>
+      <symbol id="d-bbox" viewBox="0 0 200 150"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <rect vector-effect="non-scaling-stroke" x="6" y="26" width="188" height="118" class="d-dash"/>
+        <line vector-effect="non-scaling-stroke" x1="100" y1="10" x2="100" y2="26"/><circle vector-effect="non-scaling-stroke" cx="100" cy="8" r="5" class="d-fill"/>
+        <rect vector-effect="non-scaling-stroke" x="2" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="22" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="81" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="2" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="96" y="140" width="8" height="8" class="d-fill"/><rect vector-effect="non-scaling-stroke" x="190" y="140" width="8" height="8" class="d-fill"/>
+      </g></symbol>
+      <symbol id="d-crop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 14H10M14 0V10"/>
+      </g></symbol>
+      <symbol id="d-stitch" viewBox="0 0 1200 120" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path vector-effect="non-scaling-stroke" d="M0 60C150 0 300 120 450 60S750 0 900 60 1100 110 1200 50" class="d-thin"/>
+        <path vector-effect="non-scaling-stroke" d="M0 72C150 12 300 132 450 72S750 12 900 72 1100 122 1200 62" class="d-stitch"/>
+      </g></symbol>
+    </svg>
+    <!-- Navbar -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <div class="menu">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#produk">Produk</a>
+            <a href="index.html#cara-order">Cara Order</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <a href="customDesign.html" class="btn btn-primary btn-sm nav-cta"
+            ><i class="fas fa-palette"></i> Custom Design</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="page-hero guide-hero">
+        <svg class="deco deco-pen ph-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+        <svg class="deco deco-ruler ph-ruler" viewBox="0 0 400 44" aria-hidden="true"><use href="#d-ruler"/></svg>
+        <svg class="deco deco-reg ph-reg" viewBox="0 0 100 100" aria-hidden="true"><use href="#d-reg"/></svg>
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <span class="blob blob-4"></span>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Beranda</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Panduan Order</span>
+          </nav>
+          <h1>Panduan <span class="text-gradient">Order Lengkap</span></h1>
+          <p>
+            Semua yang perlu kamu tahu untuk memesan produk custom di RSCustom —
+            dari memilih produk sampai pesanan tiba di tanganmu.
+          </p>
+          <ul class="hero-pills">
+            <li><i class="fas fa-list-ol"></i> 4 langkah order</li>
+            <li><i class="fas fa-clock"></i> ± 5 menit dibaca</li>
+            <li><i class="fas fa-circle-question"></i> Tips &amp; FAQ</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Isi panduan -->
+      <section class="section guide-section">
+        <div class="container guide-layout">
+          <!-- Daftar isi -->
+          <aside class="guide-toc" aria-label="Daftar isi panduan">
+            <span class="toc-title"><i class="fas fa-book-open"></i> Daftar Isi</span>
+            <ol class="toc-list" id="tocList">
+              <li><a href="#persiapan">Sebelum Mulai</a></li>
+              <li><a href="#langkah-1">Pilih Produk &amp; Model</a></li>
+              <li><a href="#langkah-2">Atur Desain</a></li>
+              <li><a href="#label-leher">Desain Label Leher</a></li>
+              <li><a href="#langkah-3">Detail &amp; Jumlah</a></li>
+              <li><a href="#langkah-4">Checkout</a></li>
+              <li><a href="#setelah-order">Setelah Pesanan Dikirim</a></li>
+              <li><a href="#tips-file">Tips File Desain</a></li>
+              <li><a href="#kontrol-preview">Kontrol Live Preview</a></li>
+              <li><a href="#faq-panduan">FAQ</a></li>
+            </ol>
+            <div class="toc-progress" aria-hidden="true"><span id="tocProgress"></span></div>
+            <a href="customDesign.html" class="btn btn-primary btn-sm toc-cta"
+              ><i class="fas fa-palette"></i> Mulai Desain</a
+            >
+          </aside>
+
+          <div class="guide-content">
+            <!-- Sebelum mulai -->
+            <article class="guide-block" id="persiapan">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-clipboard-list"></i></span>
+                <div>
+                  <span class="block-kicker">Persiapan</span>
+                  <h2>Sebelum Mulai</h2>
+                </div>
+              </header>
+              <p>Siapkan beberapa hal berikut agar proses order lebih cepat:</p>
+              <ul class="checklist">
+                <li><i class="fas fa-check"></i><div><strong>File desain</strong> (opsional) — PNG/JPG. Belum punya? Pakai Galeri Desain atau Jasa Desain.</div></li>
+                <li><i class="fas fa-check"></i><div><strong>Jumlah per ukuran</strong> — misalnya M × 10, L × 5. Cek <a href="index.html#ukuran">Panduan Ukuran</a> bila ragu.</div></li>
+                <li><i class="fas fa-check"></i><div><strong>Tanggal dibutuhkan</strong> — kapan pesanan harus sudah kamu terima.</div></li>
+                <li><i class="fas fa-check"></i><div><strong>Data pemesan</strong> — nama, nomor WhatsApp aktif, email, dan alamat pengiriman.</div></li>
+              </ul>
+              <div class="callout is-tip">
+                <i class="fas fa-lightbulb"></i>
+                <p>Pesanan bisa <b>satuan maupun grosir</b>. Kamu bisa mulai dari satu pcs untuk sampel.</p>
+              </div>
+            </article>
+
+            <!-- Langkah 1 -->
+            <article class="guide-block" id="langkah-1">
+              <header class="block-head">
+                <span class="block-num">01</span>
+                <div>
+                  <span class="block-kicker">Langkah 1</span>
+                  <h2>Pilih Produk &amp; Model</h2>
+                </div>
+              </header>
+              <ol class="steps-list">
+                <li>Buka halaman <a href="customDesign.html">Custom Design</a> lalu pilih <b>jenis produk</b>: Kaos, Jaket, Topi, atau Jersey.</li>
+                <li>Pilih <b>model</b> dari kartu bergambar yang muncul di bawahnya.</li>
+                <li>Klik <b>Selanjutnya</b>.</li>
+              </ol>
+              <div class="model-table">
+                <div><span><i class="fas fa-shirt"></i> Kaos</span><p>Pendek, Lengan Panjang, Reglan, Oversize</p></div>
+                <div><span><i class="fas fa-vest-patches"></i> Jaket</span><p>Bomber, Hoodie, Windbreaker, Sweater</p></div>
+                <div><span><i class="fas fa-hat-cowboy"></i> Topi</span><p>Snapback, Trucker, Topi Polos</p></div>
+                <div><span><i class="fas fa-futbol"></i> Jersey</span><p>Bola, Basket, eSports, Custom</p></div>
+              </div>
+              <div class="callout is-info">
+                <i class="fas fa-circle-info"></i>
+                <p>Dari Beranda, klik salah satu kartu di section <b>Produk</b> — produk itu langsung terpilih otomatis.</p>
+              </div>
+            </article>
+
+            <!-- Langkah 2 -->
+            <article class="guide-block" id="langkah-2">
+              <header class="block-head">
+                <span class="block-num">02</span>
+                <div>
+                  <span class="block-kicker">Langkah 2</span>
+                  <h2>Atur Desain</h2>
+                </div>
+              </header>
+              <p>Langkah ini terdiri dari tiga bagian. Semua perubahan langsung terlihat di <b>Live Preview</b> di sebelah kanan.</p>
+
+              <h3 class="sub-head"><span>a</span> Warna Produk</h3>
+              <p>
+                Pilih dari 19+ warna yang dikelompokkan menjadi <b>Netral</b>, <b>Cerah</b>, dan
+                <b>Gelap</b>. Butuh warna khusus? Klik tombol pelangi di grup <b>Bebas</b> untuk
+                memilih warna apa saja.
+              </p>
+
+              <h3 class="sub-head"><span>b</span> Detail Produk</h3>
+              <p>Pilihan menyesuaikan produk yang kamu pilih:</p>
+              <div class="table-wrap">
+                <table class="guide-table">
+                  <thead>
+                    <tr><th>Produk</th><th>Kerah / Penutup</th><th>Pilihan lain</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><th>Kaos</th><td>O-Neck, V-Neck, Polo, Henley</td><td>Warna kerah, ujung lengan, saku dada, label leher, hangtag</td></tr>
+                    <tr><th>Jersey</th><td>O-Neck, V-Neck, Polo, Henley</td><td>Warna kerah &amp; list, ujung lengan, nama &amp; nomor, logo sponsor, label leher</td></tr>
+                    <tr><th>Jaket</th><td>Hoodie, Rib, Stand Collar, Kerah Kemeja</td><td>Resleting, ujung lengan, saku, label custom</td></tr>
+                    <tr><th>Topi</th><td>Snap, Strap Gesper, Velcro</td><td>Teknik logo (sablon/bordir/patch), bordir samping, label dalam</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="muted-note">Pilihan awal sudah diisi otomatis sesuai model — ubah hanya bila perlu.</p>
+
+              <h3 class="sub-head"><span>c</span> Metode Desain</h3>
+              <div class="method-cols">
+                <div class="method-col">
+                  <span class="method-col-icon"><i class="fas fa-cloud-arrow-up"></i></span>
+                  <h4>Full Order</h4>
+                  <p>Upload desain sendiri (bisa lebih dari satu), lalu atur posisi &amp; ukurannya di preview.</p>
+                </div>
+                <div class="method-col">
+                  <span class="method-col-icon"><i class="fas fa-images"></i></span>
+                  <h4>Galeri Desain</h4>
+                  <p>Pilih salah satu desain contoh yang sudah tersedia.</p>
+                </div>
+                <div class="method-col">
+                  <span class="method-col-icon"><i class="fas fa-pen-ruler"></i></span>
+                  <h4>Jasa Desain</h4>
+                  <p>Tulis brief (konsep, teks, warna, referensi). Tim kami membuatkan desain dan mengirim draf via WhatsApp.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Label leher -->
+            <article class="guide-block" id="label-leher">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-tag"></i></span>
+                <div>
+                  <span class="block-kicker">Opsional</span>
+                  <h2>Desain Label Leher</h2>
+                </div>
+              </header>
+              <p>
+                Punya brand sendiri? Pilih <b>Label leher custom</b> (Kaos/Jersey) atau
+                <b>Label custom</b> (Jaket) di bagian <i>Tambahan</i>. Panel desain label akan terbuka.
+              </p>
+              <div class="label-compare">
+                <div>
+                  <span class="lc-tag">Woven</span>
+                  <h4>Label kain dijahit</h4>
+                  <p>Label tenun yang dijahit di leher belakang. Atur warna label, warna teks, nama brand, teks kecil, dan logo.</p>
+                </div>
+                <div>
+                  <span class="lc-tag is-dark">Sablon</span>
+                  <h4>Tagless, dicetak langsung</h4>
+                  <p>Tulisan dicetak langsung ke kain sehingga tidak ada label yang terasa di leher. Atur warna teks dan isi label.</p>
+                </div>
+              </div>
+              <div class="callout is-tip">
+                <i class="fas fa-lightbulb"></i>
+                <p>Pilih warna label yang <b>kontras</b> dengan warna kaos agar label terlihat jelas. Logo maksimal 2 MB (PNG/JPG/SVG).</p>
+              </div>
+            </article>
+
+            <!-- Langkah 3 -->
+            <article class="guide-block" id="langkah-3">
+              <header class="block-head">
+                <span class="block-num">03</span>
+                <div>
+                  <span class="block-kicker">Langkah 3</span>
+                  <h2>Detail &amp; Jumlah</h2>
+                </div>
+              </header>
+              <ol class="steps-list">
+                <li>Isi <b>jumlah per ukuran</b> (S–XXXL) dengan tombol <kbd>−</kbd> <kbd>+</kbd> atau ketik langsung. Total pesanan dihitung otomatis.</li>
+                <li>Pilih <b>tanggal dibutuhkan</b> — minimal hari ini.</li>
+                <li>Tambahkan <b>catatan</b> bila perlu, misalnya posisi sablon atau permintaan khusus.</li>
+              </ol>
+              <div class="callout is-info">
+                <i class="fas fa-ruler-combined"></i>
+                <p>Ragu ukuran? Lihat <a href="index.html#ukuran">Panduan Ukuran</a> di Beranda untuk lebar &amp; panjang tiap size.</p>
+              </div>
+            </article>
+
+            <!-- Langkah 4 -->
+            <article class="guide-block" id="langkah-4">
+              <header class="block-head">
+                <span class="block-num">04</span>
+                <div>
+                  <span class="block-kicker">Langkah 4</span>
+                  <h2>Checkout</h2>
+                </div>
+              </header>
+              <ol class="steps-list">
+                <li>Isi <b>nama</b>, <b>nomor WhatsApp</b> (format <code>08xxxxxxxxxx</code> atau <code>+628…</code>), <b>email</b>, dan <b>alamat pengiriman</b>.</li>
+                <li>Periksa <b>Ringkasan Pesanan</b>: preview desain, label leher (bila ada), detail produk, ukuran, dan tanggal.</li>
+                <li>Perlu mengubah sesuatu? Klik tombol <b>Ubah</b> pada preview atau klik langkah sebelumnya di stepper.</li>
+                <li>Klik <b>Kirim Pesanan</b>.</li>
+              </ol>
+              <div class="callout is-warn">
+                <i class="fas fa-triangle-exclamation"></i>
+                <p>Pastikan nomor WhatsApp aktif — konfirmasi harga dan detail pesanan dikirim lewat WhatsApp.</p>
+              </div>
+            </article>
+
+            <!-- Setelah order -->
+            <article class="guide-block" id="setelah-order">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-route"></i></span>
+                <div>
+                  <span class="block-kicker">Alur</span>
+                  <h2>Setelah Pesanan Dikirim</h2>
+                </div>
+              </header>
+              <ol class="flow">
+                <li><span class="flow-dot"><i class="fab fa-whatsapp"></i></span><div><h4>Konfirmasi admin</h4><p>Admin menghubungi via WhatsApp untuk konfirmasi detail &amp; rincian harga.</p></div></li>
+                <li><span class="flow-dot"><i class="fas fa-file-circle-check"></i></span><div><h4>Approval desain</h4><p>Untuk Jasa Desain, draf dikirim untuk disetujui sebelum produksi.</p></div></li>
+                <li><span class="flow-dot"><i class="fas fa-industry"></i></span><div><h4>Produksi</h4><p>Potong, jahit, sablon, lalu quality control satu per satu.</p></div></li>
+                <li><span class="flow-dot"><i class="fas fa-truck-fast"></i></span><div><h4>Pengiriman</h4><p>Pesanan dikemas rapi dan dikirim ke alamatmu di seluruh Indonesia.</p></div></li>
+              </ol>
+            </article>
+
+            <!-- Tips file -->
+            <article class="guide-block" id="tips-file">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-file-image"></i></span>
+                <div>
+                  <span class="block-kicker">Tips</span>
+                  <h2>Tips File Desain</h2>
+                </div>
+              </header>
+              <div class="dos">
+                <div class="do">
+                  <span class="do-title"><i class="fas fa-circle-check"></i> Sebaiknya</span>
+                  <ul>
+                    <li>Gunakan <b>PNG latar transparan</b>.</li>
+                    <li>Resolusi tinggi, idealnya <b>300 dpi</b> pada ukuran cetak.</li>
+                    <li>Ubah teks menjadi gambar/outline agar font tidak berubah.</li>
+                    <li>Pisahkan desain depan dan belakang menjadi file berbeda.</li>
+                  </ul>
+                </div>
+                <div class="dont">
+                  <span class="do-title"><i class="fas fa-circle-xmark"></i> Hindari</span>
+                  <ul>
+                    <li>Gambar hasil screenshot atau kompresi chat.</li>
+                    <li>Latar putih kotak pada kaos berwarna.</li>
+                    <li>Garis atau teks yang terlalu tipis/kecil.</li>
+                    <li>Memakai logo/karakter milik pihak lain tanpa izin.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Kontrol preview -->
+            <article class="guide-block" id="kontrol-preview">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-hand-pointer"></i></span>
+                <div>
+                  <span class="block-kicker">Live Preview</span>
+                  <h2>Kontrol Live Preview</h2>
+                </div>
+              </header>
+              <div class="table-wrap">
+                <table class="guide-table controls-table">
+                  <tbody>
+                    <tr><th><i class="fas fa-arrows-up-down-left-right"></i> Pindah desain</th><td>Klik &amp; geser desain (atau sentuh &amp; geser di HP).</td></tr>
+                    <tr><th><i class="fas fa-up-right-and-down-left-from-center"></i> Ubah ukuran</th><td>Tarik kotak merah di pojok kanan bawah desain terpilih.</td></tr>
+                    <tr><th><i class="fas fa-trash-can"></i> Hapus</th><td>Pilih desain lalu klik ikon tempat sampah.</td></tr>
+                    <tr><th><i class="fas fa-rotate-left"></i> Reset</th><td>Hapus semua desain dari preview.</td></tr>
+                    <tr><th><i class="fas fa-download"></i> Download</th><td>Simpan mockup sebagai gambar PNG untuk referensi.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <!-- FAQ -->
+            <article class="guide-block" id="faq-panduan">
+              <header class="block-head">
+                <span class="block-icon"><i class="fas fa-circle-question"></i></span>
+                <div>
+                  <span class="block-kicker">FAQ</span>
+                  <h2>Pertanyaan Umum</h2>
+                </div>
+              </header>
+              <div class="faq-list">
+                <details class="faq-item" open>
+                  <summary>Berapa harga pesanan saya?</summary>
+                  <p>Harga tergantung produk, bahan, jumlah, area sablon, dan tambahan (mis. label). Rincian dikirim admin via WhatsApp setelah pesanan masuk.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Apakah bisa mengubah pesanan setelah dikirim?</summary>
+                  <p>Bisa, selama belum masuk produksi. Sampaikan perubahan saat admin menghubungi kamu.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Kenapa preview tidak bisa di-download?</summary>
+                  <p>Buka halaman lewat alamat website (http/https), bukan file yang dibuka langsung dari komputer.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Apakah warna di layar sama persis dengan hasil cetak?</summary>
+                  <p>Warna bisa sedikit berbeda karena perbedaan layar dan bahan. Admin akan membantu memastikan warna sebelum produksi.</p>
+                </details>
+                <details class="faq-item">
+                  <summary>Bagaimana jika hasil cetak gagal?</summary>
+                  <p>Kami memberikan jaminan cetak ulang jika terjadi kegagalan produksi dari pihak kami.</p>
+                </details>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-card" data-aos="fade-up">
+        <svg class="deco deco-pen cta-pen" viewBox="0 0 400 200" aria-hidden="true"><use href="#d-pen"/></svg>
+            <img src="./assets/consult.png" alt="" aria-hidden="true" />
+            <div class="cta-text">
+              <h2>
+                <span class="text-primary">Sudah paham caranya?</span>
+                Yuk mulai desain produkmu sekarang.
+              </h2>
+              <p>Masih bingung? Tanya RS Assistant di pojok kanan bawah.</p>
+            </div>
+            <a href="customDesign.html" class="btn btn-primary"
+              >Mulai Desain <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="kontak">
+        <svg class="deco deco-stitch footer-stitch" viewBox="0 0 1200 120" aria-hidden="true" preserveAspectRatio="none"><use href="#d-stitch"/></svg>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-brand">
+            <a href="index.html" class="logo" aria-label="RSCustom — Beranda"><img src="./assets/logo-rscustom.png" alt="RSCustom Konveksi Kaos" width="493" height="198" /></a>
+            <p>Desain Sesukamu, Kami Cetak Tanpa Drama!</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="customDesign.html">Galeri Design</a></li>
+              <li><a href="customDesign.html">Full Order</a></li>
+              <li><a href="customDesign.html">Jasa Design</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Perusahaan</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang.html">Tentang Kami</a></li>
+              <li><a href="customDesign.html">Custom Design</a></li>
+              <li><a href="index.html#cara-order">Cara Order</a></li>
+              <li><a href="panduan.html">Panduan Order</a></li>
+              <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Hubungi Kami</h4>
+            <ul class="contact-info">
+              <li><i class="fas fa-envelope"></i> contact@company.com</li>
+              <li><i class="fas fa-phone"></i> (414) 687 – 5892</li>
+              <li><i class="fas fa-location-dot"></i> Kota Bandung, Jawa Barat</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Copyright © <span class="text-primary">RS</span>Custom 2025</p>
+          <p>
+            All Rights Reserved · <a href="#">Terms and Conditions</a> ·
+            <a href="#">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
